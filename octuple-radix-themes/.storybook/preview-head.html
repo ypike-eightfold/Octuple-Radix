@@ -1,0 +1,25 @@
+<!-- Storybook preview customizations -->
+
+<style>
+  /* Target specific CSS-in-JS canvas classes causing 880px height */
+  .css-12z7ijv,
+  .css-1ey3k8o {
+    height: auto !important;
+    min-height: 0 !important;
+    max-height: none !important;
+  }
+  
+  /* Wildcard fallback for similar canvas container classes */
+  .sbdocs [class^="css-"][class*="12"],
+  .sbdocs [class^="css-"][class*="1e"] {
+    height: auto !important;
+    min-height: 0 !important;
+  }
+  
+  /* Docs content max-width */
+  .sbdocs-content {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+</style>
+

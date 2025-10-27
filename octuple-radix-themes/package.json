@@ -1,0 +1,81 @@
+{
+  "name": "@eightfold.ai/octuple-radix",
+  "version": "3.0.0",
+  "description": "Octuple Design System v3 - Built on Radix Themes with Violet accent, Full radius, Poppins font, and Material Icons",
+  "type": "module",
+  "main": "./dist/octuple-radix.cjs.js",
+  "module": "./dist/octuple-radix.es.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/octuple-radix.es.js",
+      "require": "./dist/octuple-radix.cjs.js",
+      "types": "./dist/index.d.ts"
+    },
+    "./styles.css": "./dist/style.css"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "dev": "storybook dev -p 6007",
+    "build": "vite build && storybook build",
+    "build:lib": "vite build",
+    "build:storybook": "storybook build",
+    "preview": "vite preview",
+    "storybook": "storybook dev -p 6006",
+    "type-check": "tsc --noEmit",
+    "build-storybook": "storybook build"
+  },
+  "dependencies": {
+    "@radix-ui/react-accordion": "^1.2.12",
+    "@radix-ui/react-collapsible": "^1.1.12",
+    "@radix-ui/react-navigation-menu": "^1.2.14",
+    "@radix-ui/react-toast": "^1.2.15",
+    "@radix-ui/react-toggle": "^1.1.10",
+    "@radix-ui/react-toggle-group": "^1.1.11",
+    "@radix-ui/react-toolbar": "^1.1.11",
+    "@radix-ui/themes": "^3.1.6",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0"
+  },
+  "devDependencies": {
+    "@chromatic-com/storybook": "^3.2.7",
+    "@storybook/addon-essentials": "^8.4.7",
+    "@storybook/addon-interactions": "^8.4.7",
+    "@storybook/addon-links": "^8.4.7",
+    "@storybook/addon-onboarding": "^8.4.7",
+    "@storybook/blocks": "^8.4.7",
+    "@storybook/react": "^8.4.7",
+    "@storybook/react-vite": "^8.4.7",
+    "@storybook/test": "^8.4.7",
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.1",
+    "@vitejs/plugin-react": "^4.3.4",
+    "storybook": "^8.4.7",
+    "typescript": "^5.7.2",
+    "vite": "^6.0.3",
+    "vite-plugin-dts": "^4.5.4"
+  },
+  "peerDependencies": {
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0"
+  },
+  "keywords": [
+    "design-system",
+    "react",
+    "components",
+    "radix-ui",
+    "radix-themes",
+    "eightfold",
+    "octuple",
+    "ui",
+    "accessibility"
+  ],
+  "author": "Eightfold AI",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/EightfoldAI/octuple-radix"
+  }
+}

@@ -1,0 +1,274 @@
+import { Meta } from '@storybook/blocks';
+
+<Meta title="Documentation/Design Tokens" />
+
+# Design Tokens
+
+Octuple Radix uses a comprehensive set of design tokens to ensure consistency across all components.
+
+## Colors
+
+### Accent Color
+
+The primary accent color is **Indigo** (`#3e63dd`), used for primary actions, links, and interactive elements.
+
+<div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(120px, 1fr))', gap: '16px', margin: '24px 0' }}>
+  {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map(num => (
+    <div key={num} style={{ textAlign: 'center' }}>
+      <div style={{ 
+        height: '60px', 
+        background: `var(--blue-${num})`,
+        borderRadius: '8px',
+        border: '1px solid var(--gray-6)',
+        marginBottom: '8px'
+      }} />
+        <div style={{ fontSize: '12px', color: '#6b7280' }}>indigo-{num}</div>
+    </div>
+  ))}
+</div>
+
+### Semantic Colors
+
+<div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '24px', margin: '24px 0' }}>
+  <div>
+    <div style={{ padding: '16px', background: 'var(--blue-3)', borderRadius: '8px', marginBottom: '8px', border: '1px solid var(--blue-6)' }}>
+      <strong style={{ color: 'var(--blue-11)' }}>Info</strong>
+    </div>
+    <code style={{ fontSize: '12px' }}>var(--blue-9)</code>
+  </div>
+  
+  <div>
+    <div style={{ padding: '16px', background: 'var(--green-3)', borderRadius: '8px', marginBottom: '8px', border: '1px solid var(--green-6)' }}>
+      <strong style={{ color: 'var(--green-11)' }}>Success</strong>
+    </div>
+    <code style={{ fontSize: '12px' }}>var(--green-9)</code>
+  </div>
+  
+  <div>
+    <div style={{ padding: '16px', background: 'var(--orange-3)', borderRadius: '8px', marginBottom: '8px', border: '1px solid var(--orange-6)' }}>
+      <strong style={{ color: 'var(--orange-11)' }}>Warning</strong>
+    </div>
+    <code style={{ fontSize: '12px' }}>var(--orange-9)</code>
+  </div>
+  
+  <div>
+    <div style={{ padding: '16px', background: 'var(--red-3)', borderRadius: '8px', marginBottom: '8px', border: '1px solid var(--red-6)' }}>
+      <strong style={{ color: 'var(--red-11)' }}>Error</strong>
+    </div>
+    <code style={{ fontSize: '12px' }}>var(--red-9)</code>
+  </div>
+</div>
+
+### Gray Scale
+
+<div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(120px, 1fr))', gap: '16px', margin: '24px 0' }}>
+  {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map(num => (
+    <div key={num} style={{ textAlign: 'center' }}>
+      <div style={{ 
+        height: '60px', 
+        background: `var(--gray-${num})`,
+        borderRadius: '8px',
+        border: '1px solid var(--gray-6)',
+        marginBottom: '8px'
+      }} />
+      <div style={{ fontSize: '12px', color: '#6b7280' }}>gray-{num}</div>
+    </div>
+  ))}
+</div>
+
+## Typography
+
+### Font Family
+
+**Poppins** is used throughout the design system, with fallbacks to system fonts:
+
+```css
+font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+```
+
+### Font Weights
+
+<div style={{ margin: '24px 0' }}>
+  <div style={{ padding: '16px', borderBottom: '1px solid var(--gray-6)' }}>
+    <div style={{ fontWeight: 300, fontSize: '18px' }}>Light (300)</div>
+    <code style={{ fontSize: '12px', color: '#6b7280' }}>font-weight: 300;</code>
+  </div>
+  <div style={{ padding: '16px', borderBottom: '1px solid var(--gray-6)' }}>
+    <div style={{ fontWeight: 400, fontSize: '18px' }}>Regular (400)</div>
+    <code style={{ fontSize: '12px', color: '#6b7280' }}>font-weight: 400;</code>
+  </div>
+  <div style={{ padding: '16px', borderBottom: '1px solid var(--gray-6)' }}>
+    <div style={{ fontWeight: 500, fontSize: '18px' }}>Medium (500)</div>
+    <code style={{ fontSize: '12px', color: '#6b7280' }}>font-weight: 500;</code>
+  </div>
+  <div style={{ padding: '16px' }}>
+    <div style={{ fontWeight: 600, fontSize: '18px' }}>Semibold (600)</div>
+    <code style={{ fontSize: '12px', color: '#6b7280' }}>font-weight: 600;</code>
+  </div>
+</div>
+
+**Note:** Octuple Radix only uses weights 300-600. Bold (700+) is not used to keep typography clean.
+
+### Text Sizes
+
+<div style={{ margin: '24px 0' }}>
+  {[1, 2, 3, 4, 5, 6, 7, 8, 9].map(size => (
+    <div key={size} style={{ padding: '12px 0', borderBottom: '1px solid var(--gray-3)' }}>
+      <div style={{ fontSize: `var(--font-size-${size})` }}>
+        Text size {size}
+      </div>
+      <code style={{ fontSize: '12px', color: '#6b7280' }}>size="{size}"</code>
+    </div>
+  ))}
+</div>
+
+## Spacing
+
+Octuple Radix uses a consistent spacing scale:
+
+<div style={{ margin: '24px 0' }}>
+  {[
+    { name: '1', value: '4px' },
+    { name: '2', value: '8px' },
+    { name: '3', value: '12px' },
+    { name: '4', value: '16px' },
+    { name: '5', value: '24px' },
+    { name: '6', value: '32px' },
+    { name: '7', value: '40px' },
+    { name: '8', value: '48px' },
+    { name: '9', value: '64px' },
+  ].map(({ name, value }) => (
+    <div key={name} style={{ display: 'flex', alignItems: 'center', gap: '16px', padding: '12px 0', borderBottom: '1px solid var(--gray-3)' }}>
+      <div style={{ width: '60px', fontSize: '14px', fontWeight: 500 }}>space-{name}</div>
+      <div style={{ height: '32px', width: value, background: 'var(--indigo-9)', borderRadius: '4px' }} />
+      <code style={{ fontSize: '12px', color: '#6b7280' }}>{value}</code>
+    </div>
+  ))}
+</div>
+
+## Border Radius
+
+### Component-Specific Radius
+
+<div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '24px', margin: '24px 0' }}>
+  <div style={{ textAlign: 'center' }}>
+    <div style={{ height: '80px', background: 'var(--indigo-3)', borderRadius: 'var(--radius-6)', border: '2px solid var(--indigo-6)', marginBottom: '12px' }} />
+    <div style={{ fontWeight: 500 }}>Buttons</div>
+    <code style={{ fontSize: '12px', color: '#6b7280' }}>--radius-6 (full)</code>
+  </div>
+  
+  <div style={{ textAlign: 'center' }}>
+    <div style={{ height: '80px', background: 'var(--indigo-3)', borderRadius: 'var(--radius-3)', border: '2px solid var(--indigo-6)', marginBottom: '12px' }} />
+    <div style={{ fontWeight: 500 }}>Inputs</div>
+    <code style={{ fontSize: '12px', color: '#6b7280' }}>--radius-3 (medium)</code>
+  </div>
+  
+  <div style={{ textAlign: 'center' }}>
+    <div style={{ height: '80px', background: 'var(--indigo-3)', borderRadius: 'var(--radius-4)', border: '2px solid var(--indigo-6)', marginBottom: '12px' }} />
+    <div style={{ fontWeight: 500 }}>Cards</div>
+    <code style={{ fontSize: '12px', color: '#6b7280' }}>--radius-4 (medium-large)</code>
+  </div>
+</div>
+
+## Shadows
+
+<div style={{ margin: '24px 0' }}>
+  {[1, 2, 3, 4, 5, 6].map(num => (
+    <div key={num} style={{ marginBottom: '24px' }}>
+      <div style={{ 
+        padding: '24px', 
+        background: 'white', 
+        borderRadius: '8px',
+        boxShadow: `var(--shadow-${num})`,
+        marginBottom: '8px'
+      }}>
+        Shadow {num}
+      </div>
+      <code style={{ fontSize: '12px', color: '#6b7280' }}>var(--shadow-{num})</code>
+    </div>
+  ))}
+</div>
+
+## Icons
+
+### Icon Sizing
+
+Octuple Radix uses **Material Symbols Outlined** with weight 300.
+
+<div style={{ margin: '24px 0' }}>
+  <div style={{ display: 'flex', alignItems: 'center', gap: '24px', padding: '16px 0', borderBottom: '1px solid var(--gray-3)' }}>
+    <span className="material-symbols-outlined" style={{ fontSize: '14px' }}>star</span>
+    <div>
+      <div style={{ fontWeight: 500 }}>14px - Small icons</div>
+      <code style={{ fontSize: '12px', color: '#6b7280' }}>size={14}</code>
+    </div>
+  </div>
+  
+  <div style={{ display: 'flex', alignItems: 'center', gap: '24px', padding: '16px 0', borderBottom: '1px solid var(--gray-3)' }}>
+    <span className="material-symbols-outlined" style={{ fontSize: '16px' }}>star</span>
+    <div>
+      <div style={{ fontWeight: 500 }}>16px - Compact UI</div>
+      <code style={{ fontSize: '12px', color: '#6b7280' }}>size={16}</code>
+    </div>
+  </div>
+  
+  <div style={{ display: 'flex', alignItems: 'center', gap: '24px', padding: '16px 0', borderBottom: '1px solid var(--gray-3)' }}>
+    <span className="material-symbols-outlined" style={{ fontSize: '18px' }}>star</span>
+    <div>
+      <div style={{ fontWeight: 500 }}>18px - Default (recommended)</div>
+      <code style={{ fontSize: '12px', color: '#6b7280' }}>size={18}</code>
+    </div>
+  </div>
+  
+  <div style={{ display: 'flex', alignItems: 'center', gap: '24px', padding: '16px 0' }}>
+    <span className="material-symbols-outlined" style={{ fontSize: '20px' }}>star</span>
+    <div>
+      <div style={{ fontWeight: 500 }}>20px - Large icons</div>
+      <code style={{ fontSize: '12px', color: '#6b7280' }}>size={20}</code>
+    </div>
+  </div>
+</div>
+
+## Component Sizing
+
+### Standard Heights
+
+<div style={{ margin: '24px 0' }}>
+  {[
+    { size: '1', height: '24px', label: 'Compact' },
+    { size: '2', height: '32px', label: 'Standard' },
+    { size: '3', height: '40px', label: 'Default' },
+    { size: '4', height: '48px', label: 'Large' },
+  ].map(({ size, height, label }) => (
+    <div key={size} style={{ display: 'flex', alignItems: 'center', gap: '16px', padding: '12px 0', borderBottom: '1px solid var(--gray-3)' }}>
+      <div style={{ width: '80px', fontSize: '14px', fontWeight: 500 }}>Size {size}</div>
+      <div style={{ height, width: '120px', background: 'var(--indigo-9)', borderRadius: '8px' }} />
+      <div>
+        <div style={{ fontSize: '14px' }}>{height} - {label}</div>
+      </div>
+    </div>
+  ))}
+</div>
+
+## Usage in Code
+
+Access design tokens using CSS variables:
+
+```css
+.my-component {
+  color: var(--indigo-9);
+  background: var(--gray-1);
+  border-radius: var(--radius-3);
+  padding: var(--space-4);
+  box-shadow: var(--shadow-2);
+}
+```
+
+Or use Radix Themes props:
+
+```tsx
+<Box p="4" style={{ background: 'var(--indigo-3)', borderRadius: 'var(--radius-3)' }}>
+  <Text size="3" weight="medium">Content</Text>
+</Box>
+```
+

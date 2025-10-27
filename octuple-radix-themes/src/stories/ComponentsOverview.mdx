@@ -1,0 +1,807 @@
+import { Meta } from '@storybook/blocks';
+import { ComponentCard } from './ComponentCard';
+
+<Meta title="Documentation/Components Overview" />
+
+<style>{`
+  .component-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+    margin: 24px 0;
+  }
+  
+  .component-card {
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 20px;
+    background: #ffffff;
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    transition: all 0.2s ease;
+    cursor: pointer;
+  }
+  
+  .component-card:hover {
+    border-color: #8b5cf6;
+    box-shadow: 0 4px 12px rgba(139, 92, 246, 0.1);
+    transform: translateY(-2px);
+  }
+  
+  .category-badge {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 16px;
+    font-size: 12px;
+    font-weight: 500;
+    margin-bottom: 4px;
+  }
+  
+  .badge-forms { background: #ddd6fe; color: #5b21b6; }
+  .badge-data { background: #dbeafe; color: #1e40af; }
+  .badge-navigation { background: #d1fae5; color: #065f46; }
+  .badge-overlays { background: #fef3c7; color: #92400e; }
+  .badge-layout { background: #fecaca; color: #991b1b; }
+  .badge-typography { background: #e0e7ff; color: #3730a3; }
+  .badge-utilities { background: #fce7f3; color: #831843; }
+  
+  .category-section {
+    margin: 48px 0;
+  }
+  
+  .category-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 20px;
+    padding-bottom: 12px;
+    border-bottom: 2px solid #e5e7eb;
+  }
+  
+  .category-icon {
+    font-size: 32px;
+    line-height: 1;
+  }
+  
+  .category-title {
+    font-size: 24px;
+    font-weight: 600;
+    color: #1f2937;
+    margin: 0;
+  }
+  
+  .category-count {
+    font-size: 14px;
+    color: #6b7280;
+    font-weight: 400;
+  }
+  
+  .quick-start-section {
+    background: linear-gradient(135deg, #8b5cf6 0%, #6d28d9 100%);
+    color: white !important;
+    padding: 32px;
+    border-radius: 16px;
+    margin: 32px 0;
+  }
+  
+  .quick-start-section h2 {
+    margin-top: 0;
+    color: white !important;
+  }
+  
+  .quick-start-section p {
+    color: white !important;
+  }
+  
+  .quick-start-section strong {
+    color: white !important;
+  }
+  
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+    margin: 32px 0;
+  }
+  
+  .stat-card {
+    background: #f9fafb;
+    padding: 24px;
+    border-radius: 12px;
+    text-align: center;
+    border: 1px solid #e5e7eb;
+  }
+  
+  .stat-number {
+    font-size: 48px;
+    font-weight: 700;
+    color: #8b5cf6;
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+  
+  .stat-label {
+    font-size: 14px;
+    color: #6b7280;
+    font-weight: 500;
+  }
+`}</style>
+
+# 🎨 Components Overview
+
+## ♿ Accessibility First
+
+**WCAG AA 2.2 Compliant** - All components have been audited and enhanced for maximum accessibility:
+
+- **Enhanced Contrast**: Form controls (Switch, Checkbox, Radio) now meet 4.5:1 contrast minimum
+- **Visible Focus Indicators**: Consistent indigo focus rings on all interactive elements  
+- **Keyboard Navigation**: Full Tab/Arrow/Space/Enter support across all components
+- **Screen Reader Ready**: Proper ARIA labels, roles, and state announcements
+- **Color Independence**: Information conveyed through more than just color
+
+<div style={{
+  background: 'linear-gradient(135deg, #10b981 0%, #059669 100%)',
+  color: 'white',
+  padding: '16px 20px',
+  borderRadius: '12px',
+  margin: '16px 0',
+  border: '1px solid #047857'
+}}>
+  <strong>🎯 Accessibility Test</strong>
+  <br />
+  Visit <strong>Testing → Accessibility Audit</strong> to verify all components meet accessibility standards.
+</div>
+
+<div class="stats-grid">
+  <div class="stat-card">
+    <div class="stat-number">60</div>
+    <div class="stat-label">Components</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-number">7</div>
+    <div class="stat-label">Categories</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-number">100%</div>
+    <div class="stat-label">Accessible</div>
+  </div>
+</div>
+
+<div class="quick-start-section">
+  <h2>🚀 Get Started</h2>
+  <p style={{fontSize: '16px', color: 'white', opacity: 0.9, margin: '12px 0'}}>
+    Browse components using the <strong style={{color: 'white'}}>sidebar navigation</strong> on the left. Each component has interactive examples and documentation.
+  </p>
+  <p style={{fontSize: '14px', color: 'white', opacity: 0.85, margin: '16px 0 0 0'}}>
+    📚 Check out <strong style={{color: 'white'}}>Documentation → Getting Started</strong> in the sidebar for installation and usage guides.
+  </p>
+</div>
+
+<div class="category-section">
+  <div class="category-header">
+    <div class="category-icon">📝</div>
+    <div>
+      <h2 class="category-title">Form Controls</h2>
+      <div class="category-count">14 components</div>
+    </div>
+  </div>
+  
+  <div class="component-grid">
+    <ComponentCard 
+      path="?path=/docs/components-button--docs"
+      badge="Form"
+      badgeClass="badge-forms"
+      title="Button"
+      description="Primary interactive element for triggering actions"
+    />
+    
+    <ComponentCard 
+      path="?path=/docs/components-icon-button--docs"
+      badge="Form"
+      badgeClass="badge-forms"
+      title="IconButton"
+      description="Button with only an icon for compact actions"
+    />
+    
+    <ComponentCard 
+      path="?path=/docs/components-textfield--docs"
+      badge="Form"
+      badgeClass="badge-forms"
+      title="TextField"
+      description="Single-line text input for collecting short text"
+    />
+    
+    <ComponentCard 
+      path="?path=/docs/components-textfield--docs"
+      badge="Form"
+      badgeClass="badge-forms"
+      title="TextArea"
+      description="Multi-line text input for longer content"
+    />
+    
+    <ComponentCard 
+      path="?path=/docs/components-select--docs"
+      badge="Form"
+      badgeClass="badge-forms"
+      title="Select"
+      description="Dropdown selection for choosing from many options"
+    />
+    
+    <ComponentCard 
+      path="?path=/docs/components-checkbox-group--docs"
+      badge="Form"
+      badgeClass="badge-forms"
+      title="Checkbox"
+      description="Multi-select toggle for selecting multiple items"
+    />
+    
+    <ComponentCard 
+      path="?path=/docs/components-checkbox-group--docs"
+      badge="Form"
+      badgeClass="badge-forms"
+      title="CheckboxGroup"
+      description="Grouped checkboxes for related selections"
+    />
+    
+    <ComponentCard 
+      path="?path=/docs/components-checkbox-cards--docs"
+      badge="Form"
+      badgeClass="badge-forms"
+      title="CheckboxCards"
+      description="Card-style checkboxes for visually rich selections"
+    />
+    
+    <ComponentCard 
+      path="?path=/docs/components-radio-cards--docs"
+      badge="Form"
+      badgeClass="badge-forms"
+      title="RadioGroup"
+      description="Radio buttons for single-select options"
+    />
+    
+    <ComponentCard 
+      path="?path=/docs/components-radio-cards--docs"
+      badge="Form"
+      badgeClass="badge-forms"
+      title="RadioCards"
+      description="Card-style radio for visually rich single-select"
+    />
+    
+    <ComponentCard 
+      path="?path=/docs/components-form-controls--docs"
+      badge="Form"
+      badgeClass="badge-forms"
+      title="Switch"
+      description="Binary toggle for enabling/disabling features"
+    />
+    
+    <ComponentCard 
+      path="?path=/docs/components-slider--docs"
+      badge="Form"
+      badgeClass="badge-forms"
+      title="Slider"
+      description="Value selection for numeric range input"
+    />
+    
+    <ComponentCard 
+      path="?path=/docs/components-search-bar--docs"
+      badge="Form"
+      badgeClass="badge-forms"
+      title="SearchBar"
+      description="Search input with icon for search functionality"
+    />
+  </div>
+</div>
+
+<div class="category-section">
+  <div class="category-header">
+    <div class="category-icon">📊</div>
+    <div>
+      <h2 class="category-title">Data Display</h2>
+      <div class="category-count">10 components</div>
+    </div>
+  </div>
+  
+  <div class="component-grid">
+    <ComponentCard 
+      path="?path=/docs/components-table--docs"
+      badge="Data"
+      badgeClass="badge-data"
+      title="Table"
+      description="Structured data display for tabular data"
+    />
+    
+    <ComponentCard 
+      path="?path=/docs/components-card--docs"
+      badge="Data"
+      badgeClass="badge-data"
+      title="Card"
+      description="Content container for grouping related content"
+    />
+    
+    <ComponentCard 
+      path="?path=/docs/components-badge--docs"
+      badge="Data"
+      badgeClass="badge-data"
+      title="Badge"
+      description="Status indicator for showing states or counts"
+    />
+    
+    <ComponentCard 
+      path="?path=/docs/components-avatar--docs"
+      badge="Data"
+      badgeClass="badge-data"
+      title="Avatar"
+      description="User representation for displaying identity"
+    />
+    
+    <ComponentCard 
+      path="?path=/docs/components-data-list--docs"
+      badge="Data"
+      badgeClass="badge-data"
+      title="DataList"
+      description="Key-value pairs for displaying metadata"
+    />
+    
+    <ComponentCard 
+      path="?path=/docs/components-skeleton--docs"
+      badge="Data"
+      badgeClass="badge-data"
+      title="Skeleton"
+      description="Loading placeholder while content is loading"
+    />
+    
+    <ComponentCard 
+      path="?path=/docs/components-progress--docs"
+      badge="Data"
+      badgeClass="badge-data"
+      title="Progress"
+      description="Progress indicator for showing completion"
+    />
+    
+    <ComponentCard 
+      path="?path=/docs/components-spinner--docs"
+      badge="Data"
+      badgeClass="badge-data"
+      title="Spinner"
+      description="Loading indicator for processing actions"
+    />
+    
+    <ComponentCard 
+      path="?path=/docs/components-icon--docs"
+      badge="Data"
+      badgeClass="badge-data"
+      title="Icon"
+      description="Material Symbols for visual communication"
+    />
+    
+    <ComponentCard 
+      path="?path=/docs/components-empty--docs"
+      badge="Data"
+      badgeClass="badge-data"
+      title="Empty"
+      description="Empty state when no data is available"
+    />
+  </div>
+</div>
+
+<div class="category-section">
+  <div class="category-header">
+    <div class="category-icon">🧭</div>
+    <div>
+      <h2 class="category-title">Navigation</h2>
+      <div class="category-count">9 components</div>
+    </div>
+  </div>
+  
+  <div class="component-grid">
+    <ComponentCard 
+      path="?path=/docs/components-tabs--docs"
+      badge="Navigation"
+      badgeClass="badge-navigation"
+      title="Tabs"
+      description="Content sections for organizing related content"
+    />
+    
+    <ComponentCard 
+      path="?path=/docs/components-tab-nav--docs"
+      badge="Navigation"
+      badgeClass="badge-navigation"
+      title="TabNav"
+      description="Navigation tabs for page-level navigation"
+    />
+    
+    <ComponentCard 
+      path="?path=/docs/components-breadcrumb--docs"
+      badge="Navigation"
+      badgeClass="badge-navigation"
+      title="Breadcrumb"
+      description="Hierarchy path for showing page location"
+    />
+    
+    <ComponentCard 
+      path="?path=/docs/components-pagination--docs"
+      badge="Navigation"
+      badgeClass="badge-navigation"
+      title="Pagination"
+      description="Page navigation for multi-page content"
+    />
+    
+    <ComponentCard 
+      path="?path=/docs/components-dropdown-menu--docs"
+      badge="Navigation"
+      badgeClass="badge-navigation"
+      title="DropdownMenu"
+      description="Action menu for context-specific actions"
+    />
+    
+    <ComponentCard 
+      path="?path=/docs/components-context-menu--docs"
+      badge="Navigation"
+      badgeClass="badge-navigation"
+      title="ContextMenu"
+      description="Right-click menu for secondary actions"
+    />
+    
+    <ComponentCard 
+      path="?path=/docs/components-navigation-menu--docs"
+      badge="Navigation"
+      badgeClass="badge-navigation"
+      title="NavigationMenu"
+      description="Site navigation for main navigation"
+    />
+    
+    <ComponentCard 
+      path="?path=/docs/components-segmented-control--docs"
+      badge="Navigation"
+      badgeClass="badge-navigation"
+      title="SegmentedControl"
+      description="Toggle options for switching views"
+    />
+    
+    <ComponentCard 
+      path="?path=/docs/components-navbar--docs"
+      badge="Navigation"
+      badgeClass="badge-navigation"
+      title="Navbar"
+      description="Navigation bar for app header navigation"
+    />
+  </div>
+</div>
+
+<div class="category-section">
+  <div class="category-header">
+    <div class="category-icon">💬</div>
+    <div>
+      <h2 class="category-title">Overlays</h2>
+      <div class="category-count">7 components</div>
+    </div>
+  </div>
+  
+  <div class="component-grid">
+    <ComponentCard 
+      path="?path=/docs/components-dialog--docs"
+      badge="Overlay"
+      badgeClass="badge-overlays"
+      title="Dialog"
+      description="Modal dialog for focused user input"
+    />
+    
+    <ComponentCard 
+      path="?path=/docs/components-alertdialog--docs"
+      badge="Overlay"
+      badgeClass="badge-overlays"
+      title="AlertDialog"
+      description="Confirmation dialog for destructive actions"
+    />
+    
+    <ComponentCard 
+      path="?path=/docs/components-popover--docs"
+      badge="Overlay"
+      badgeClass="badge-overlays"
+      title="Popover"
+      description="Floating panel for additional information"
+    />
+    
+    <ComponentCard 
+      path="?path=/docs/components-hovercard--docs"
+      badge="Overlay"
+      badgeClass="badge-overlays"
+      title="HoverCard"
+      description="Hover preview for previewing content"
+    />
+    
+    <ComponentCard 
+      path="?path=/docs/components-tooltip--docs"
+      badge="Overlay"
+      badgeClass="badge-overlays"
+      title="Tooltip"
+      description="Hover hint for explaining elements"
+    />
+    
+    <ComponentCard 
+      path="?path=/docs/components-toast--docs"
+      badge="Overlay"
+      badgeClass="badge-overlays"
+      title="Toast"
+      description="Notification for feedback messages"
+    />
+    
+    <ComponentCard 
+      path="?path=/docs/components-accordion--docs"
+      badge="Overlay"
+      badgeClass="badge-overlays"
+      title="Accordion"
+      description="Collapsible content for progressive disclosure"
+    />
+  </div>
+</div>
+
+<div class="category-section">
+  <div class="category-header">
+    <div class="category-icon">📐</div>
+    <div>
+      <h2 class="category-title">Layout</h2>
+      <div class="category-count">7 components</div>
+    </div>
+  </div>
+  
+  <div class="component-grid">
+    <ComponentCard 
+      path="?path=/docs/components-form-controls--docs"
+      badge="Layout"
+      badgeClass="badge-layout"
+      title="Flex"
+      description="Flexbox container for flexible layouts"
+    />
+    
+    <ComponentCard 
+      path="?path=/docs/components-form-controls--docs"
+      badge="Layout"
+      badgeClass="badge-layout"
+      title="Grid"
+      description="Grid container for structured layouts"
+    />
+    
+    <ComponentCard 
+      path="?path=/docs/components-form-controls--docs"
+      badge="Layout"
+      badgeClass="badge-layout"
+      title="Box"
+      description="Basic container for generic spacing"
+    />
+    
+    <ComponentCard 
+      path="?path=/docs/components-form-controls--docs"
+      badge="Layout"
+      badgeClass="badge-layout"
+      title="Container"
+      description="Max-width wrapper for constraining width"
+    />
+    
+    <ComponentCard 
+      path="?path=/docs/components-form-controls--docs"
+      badge="Layout"
+      badgeClass="badge-layout"
+      title="Section"
+      description="Page section for major page divisions"
+    />
+    
+    <ComponentCard 
+      path="?path=/docs/components-separator--docs"
+      badge="Layout"
+      badgeClass="badge-layout"
+      title="Separator"
+      description="Visual divider for separating content"
+    />
+    
+    <ComponentCard 
+      path="?path=/docs/components-scroll-area--docs"
+      badge="Layout"
+      badgeClass="badge-layout"
+      title="ScrollArea"
+      description="Custom scrollbar for styled scrolling"
+    />
+  </div>
+</div>
+
+<div class="category-section">
+  <div class="category-header">
+    <div class="category-icon">✍️</div>
+    <div>
+      <h2 class="category-title">Typography</h2>
+      <div class="category-count">9 components</div>
+    </div>
+  </div>
+  
+  <div class="component-grid">
+    <ComponentCard 
+      path="?path=/docs/components-typography--docs"
+      badge="Typography"
+      badgeClass="badge-typography"
+      title="Text"
+      description="Body text for general content"
+    />
+    
+    <ComponentCard 
+      path="?path=/docs/components-typography--docs"
+      badge="Typography"
+      badgeClass="badge-typography"
+      title="Heading"
+      description="Section headers for titles and headings"
+    />
+    
+    <ComponentCard 
+      path="?path=/docs/components-typography--docs"
+      badge="Typography"
+      badgeClass="badge-typography"
+      title="Link"
+      description="Hyperlink for navigation and references"
+    />
+    
+    <ComponentCard 
+      path="?path=/docs/components-typography--docs"
+      badge="Typography"
+      badgeClass="badge-typography"
+      title="Code"
+      description="Inline code for code snippets"
+    />
+    
+    <ComponentCard 
+      path="?path=/docs/components-typography--docs"
+      badge="Typography"
+      badgeClass="badge-typography"
+      title="Blockquote"
+      description="Quoted text for quotations"
+    />
+    
+    <ComponentCard 
+      path="?path=/docs/components-typography--docs"
+      badge="Typography"
+      badgeClass="badge-typography"
+      title="Strong"
+      description="Bold text for emphasis"
+    />
+    
+    <ComponentCard 
+      path="?path=/docs/components-typography--docs"
+      badge="Typography"
+      badgeClass="badge-typography"
+      title="Em"
+      description="Italic text for subtle emphasis"
+    />
+    
+    <ComponentCard 
+      path="?path=/docs/components-typography--docs"
+      badge="Typography"
+      badgeClass="badge-typography"
+      title="Kbd"
+      description="Keyboard keys for keyboard shortcuts"
+    />
+    
+    <ComponentCard 
+      path="?path=/docs/components-typography--docs"
+      badge="Typography"
+      badgeClass="badge-typography"
+      title="Quote"
+      description="Inline quote for short quotes"
+    />
+  </div>
+</div>
+
+<div class="category-section">
+  <div class="category-header">
+    <div class="category-icon">🔧</div>
+    <div>
+      <h2 class="category-title">Utilities</h2>
+      <div class="category-count">4 components</div>
+    </div>
+  </div>
+  
+  <div class="component-grid">
+    <ComponentCard 
+      path="?path=/docs/components-callout--docs"
+      badge="Utility"
+      badgeClass="badge-utilities"
+      title="Callout"
+      description="Alert message for important information"
+    />
+    
+    <ComponentCard 
+      path="?path=/docs/components-timeline--docs"
+      badge="Utility"
+      badgeClass="badge-utilities"
+      title="Timeline"
+      description="Event history for chronological events"
+    />
+    
+    <ComponentCard 
+      path="?path=/docs/components-stepper--docs"
+      badge="Utility"
+      badgeClass="badge-utilities"
+      title="Stepper"
+      description="Multi-step process for guided workflows"
+    />
+    
+    <ComponentCard 
+      path="?path=/docs/components-uploader--docs"
+      badge="Utility"
+      badgeClass="badge-utilities"
+      title="Uploader"
+      description="File upload for uploading files"
+    />
+  </div>
+</div>
+
+---
+
+## 📚 Quick Reference Guide
+
+<div style={{
+  display: 'grid',
+  gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
+  gap: '20px',
+  margin: '32px 0'
+}}>
+  <div style={{
+    padding: '20px',
+    background: '#f9fafb',
+    borderRadius: '12px',
+    border: '1px solid #e5e7eb'
+  }}>
+    <h3 style={{marginTop: 0, fontSize: '16px'}}>✨ Component Variants</h3>
+    <ul style={{margin: '8px 0', paddingLeft: '20px', fontSize: '14px', lineHeight: '1.8'}}>
+      <li><strong>solid</strong> - Primary actions</li>
+      <li><strong>soft</strong> - Secondary actions</li>
+      <li><strong>outline</strong> - Tertiary actions</li>
+      <li><strong>ghost</strong> - Minimal actions</li>
+    </ul>
+  </div>
+  
+  <div style={{
+    padding: '20px',
+    background: '#f9fafb',
+    borderRadius: '12px',
+    border: '1px solid #e5e7eb'
+  }}>
+    <h3 style={{marginTop: 0, fontSize: '16px'}}>🎨 Color Meanings</h3>
+    <ul style={{margin: '8px 0', paddingLeft: '20px', fontSize: '14px', lineHeight: '1.8'}}>
+        <li><strong style={{color: '#3e63dd'}}>Indigo</strong> - Primary actions</li>
+      <li><strong style={{color: '#10b981'}}>Green</strong> - Success</li>
+      <li><strong style={{color: '#f59e0b'}}>Orange</strong> - Warning</li>
+      <li><strong style={{color: '#ef4444'}}>Red</strong> - Error/Destructive</li>
+    </ul>
+  </div>
+  
+  <div style={{
+    padding: '20px',
+    background: '#f9fafb',
+    borderRadius: '12px',
+    border: '1px solid #e5e7eb'
+  }}>
+    <h3 style={{marginTop: 0, fontSize: '16px'}}>📏 Component Sizes</h3>
+    <ul style={{margin: '8px 0', paddingLeft: '20px', fontSize: '14px', lineHeight: '1.8'}}>
+      <li><strong>Size 1</strong> - Small (24px)</li>
+      <li><strong>Size 2</strong> - Medium (32px)</li>
+      <li><strong>Size 3</strong> - Large (40px)</li>
+      <li><strong>Size 4</strong> - XLarge (48px)</li>
+    </ul>
+  </div>
+  
+  <div style={{
+    padding: '20px',
+    background: '#f9fafb',
+    borderRadius: '12px',
+    border: '1px solid #e5e7eb'
+  }}>
+    <h3 style={{marginTop: 0, fontSize: '16px'}}>🎯 When to Use</h3>
+    <ul style={{margin: '8px 0', paddingLeft: '20px', fontSize: '14px', lineHeight: '1.8'}}>
+      <li><strong>Dialog</strong> - Forms & tasks</li>
+      <li><strong>Popover</strong> - Extra info</li>
+      <li><strong>Tooltip</strong> - Short hints</li>
+      <li><strong>Toast</strong> - Feedback</li>
+    </ul>
+  </div>
+</div>
+

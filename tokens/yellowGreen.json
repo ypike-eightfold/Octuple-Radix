@@ -1,0 +1,40 @@
+{
+  "primaryColor": "#525400",
+  "accentName": "yellow",
+  "gradientEndPalette": [
+    "#f0fefa",
+    "#b9f4e4",
+    "#8ce1ca",
+    "#3d8f79",
+    "#2b715f",
+    "#1b5143"
+  ],
+  "gradientMiddlePalette": [
+    "#fdfeeb",
+    "#f3f5b0",
+    "#e2e575",
+    "#858707",
+    "#6d6f00",
+    "#525400"
+  ],
+  "gradientStartPalette": [
+    "#ffffeb",
+    "#fff89c",
+    "#ffe44e",
+    "#a88f00",
+    "#857600",
+    "#5c5500"
+  ],
+  "palette": [
+    "#fdfeeb",
+    "#f3f5b0",
+    "#e2e575",
+    "#cacd46",
+    "#abae1f",
+    "#858707",
+    "#6d6f00",
+    "#525400",
+    "#343500",
+    "#131300"
+  ]
+}

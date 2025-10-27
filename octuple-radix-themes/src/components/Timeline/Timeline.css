@@ -1,0 +1,48 @@
+/* Timeline Styles */
+.timeline-root {
+  width: 100%;
+}
+
+.timeline-item {
+  position: relative;
+  padding-bottom: 24px;
+}
+
+.timeline-item:last-child {
+  padding-bottom: 0;
+}
+
+.timeline-indicator-wrapper {
+  position: relative;
+  flex-shrink: 0;
+}
+
+.timeline-indicator {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+  flex-shrink: 0;
+}
+
+.timeline-connector {
+  width: 2px;
+  flex: 1;
+  margin-top: 4px;
+  min-height: 24px;
+}
+
+.timeline-content {
+  flex: 1;
+  padding-top: 4px;
+  min-width: 0;
+}
+
+.timeline-timestamp {
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+

@@ -1,0 +1,39 @@
+/* Navbar Styles */
+.navbar-root {
+  width: 100%;
+  border-bottom: 1px solid var(--gray-6);
+  background-color: var(--gray-1);
+}
+
+.navbar-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 12px 24px;
+}
+
+.navbar-logo {
+  display: flex;
+  align-items: center;
+  font-weight: 600;
+  font-size: 18px;
+  color: var(--gray-12);
+}
+
+.navbar-links {
+  display: flex;
+}
+
+.navbar-link {
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+@media (max-width: 768px) {
+  .navbar-links {
+    display: none;
+  }
+}
+

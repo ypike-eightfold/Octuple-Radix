@@ -1,0 +1,525 @@
+/**
+ * Component-specific style overrides for Octuple Radix
+ * 
+ * Strategy: Use Radix Themes AS-IS for interactive components.
+ * Only override border radius for input fields and containers.
+ * 
+ * DO NOT override:
+ * - Button sizing/padding (Radix handles this perfectly)
+ * - Form controls (Checkbox, Radio, Switch) - let Radix handle styling
+ * - Interactive component behavior
+ */
+
+/* Text Inputs - Medium Radius */
+.radix-themes .rt-TextFieldRoot {
+  border-radius: var(--radius-3) !important; /* 6px - medium */
+}
+
+.radix-themes .rt-TextAreaRoot {
+  border-radius: var(--radius-3) !important; /* 6px - medium */
+}
+
+/* Select - Medium Radius to match text inputs */
+.radix-themes .rt-SelectTrigger {
+  border-radius: var(--radius-3) !important;
+}
+
+.radix-themes .rt-SelectContent {
+  border-radius: var(--radius-3) !important;
+}
+
+/* Badges - Small Radius (rounded rectangle, not pill) */
+.radix-themes .rt-Badge {
+  border-radius: var(--radius-2) !important; /* 4px - small */
+}
+
+/* Cards - Medium-Large Radius (~12px) */
+.radix-themes .rt-Card {
+  border-radius: var(--radius-4) !important;
+}
+
+/* Dialog - Medium-Large Radius */
+.radix-themes .rt-DialogContent {
+  border-radius: var(--radius-4) !important;
+}
+
+/* Buttons - Full Radius (pill-shaped) */
+.radix-themes .rt-Button {
+  display: inline-flex;
+  align-items: center;
+  border-radius: var(--radius-full) !important; /* Pill-shaped */
+}
+
+.radix-themes .rt-Button[data-size="1"] {
+  min-height: 24px;
+}
+
+.radix-themes .rt-Button[data-size="2"] {
+  min-height: 32px;
+}
+
+.radix-themes .rt-Button[data-size="3"] {
+  min-height: 40px;
+}
+
+.radix-themes .rt-Button[data-size="4"] {
+  min-height: 48px;
+}
+
+/* Ensure all button variants have EXACT same height */
+.radix-themes .rt-Button[data-variant="ghost"][data-size="1"],
+.radix-themes .rt-Button[data-variant="ghost"][data-size="2"],
+.radix-themes .rt-Button[data-variant="ghost"][data-size="3"],
+.radix-themes .rt-Button[data-variant="ghost"][data-size="4"] {
+  padding-top: var(--space-2);
+  padding-bottom: var(--space-2);
+}
+
+.radix-themes .rt-Button[data-variant="ghost"][data-size="2"] {
+  height: 32px;
+}
+
+.radix-themes .rt-Button[data-variant="ghost"][data-size="3"] {
+  height: 40px;
+}
+
+/* ACCESSIBILITY FIXES - WCAG AA 2.2 Compliance */
+
+/* Switch Component - Fix low-contrast off state */
+.rt-Switch[data-state="unchecked"] {
+  background-color: var(--gray-8) !important; /* Darker gray for better contrast */
+  border: 1px solid var(--gray-9) !important; /* Better definition */
+}
+
+.rt-Switch[data-state="unchecked"]:hover {
+  background-color: var(--gray-9) !important;
+}
+
+.rt-Switch[data-state="unchecked"]:focus-visible {
+  outline: 2px solid var(--indigo-8) !important;
+  outline-offset: 2px !important;
+}
+
+/* Switch thumb visibility in off state */
+.rt-Switch[data-state="unchecked"] .rt-SwitchThumb {
+  background-color: white !important;
+  border: 1px solid var(--gray-6) !important; /* Subtle border for definition */
+}
+
+/* Disabled state - ensure sufficient contrast */
+.rt-Switch:disabled[data-state="unchecked"] {
+  background-color: var(--gray-6) !important;
+  opacity: 0.6 !important;
+}
+
+.rt-Switch:disabled[data-state="checked"] {
+  background-color: var(--indigo-6) !important;
+  opacity: 0.6 !important;
+}
+
+/* Checkbox Component - Fix unchecked state contrast */
+.rt-Checkbox:where([data-state="unchecked"]) {
+  border-color: var(--gray-8) !important; /* Darker border */
+  border-width: 2px !important; /* Thicker for better visibility */
+}
+
+.rt-Checkbox:where([data-state="unchecked"]):hover {
+  border-color: var(--gray-9) !important;
+  background-color: var(--gray-2) !important;
+}
+
+.rt-Checkbox:where([data-state="unchecked"]):focus-visible {
+  outline: 2px solid var(--indigo-8) !important;
+  outline-offset: 2px !important;
+}
+
+/* RadioButton Component - Fix unchecked state */
+.rt-RadioGroupItem:where([data-state="unchecked"]) {
+  border-color: var(--gray-8) !important;
+  border-width: 2px !important;
+}
+
+.rt-RadioGroupItem:where([data-state="unchecked"]):hover {
+  border-color: var(--gray-9) !important;
+  background-color: var(--gray-2) !important;
+}
+
+.rt-RadioGroupItem:where([data-state="unchecked"]):focus-visible {
+  outline: 2px solid var(--indigo-8) !important;
+  outline-offset: 2px !important;
+}
+
+/* Button Ghost Variant - Improve contrast */
+.rt-Button[data-variant="ghost"] {
+  border: 1px solid var(--gray-6) !important; /* Add subtle border for definition */
+}
+
+.rt-Button[data-variant="ghost"]:hover {
+  background-color: var(--gray-3) !important;
+  border-color: var(--gray-7) !important;
+}
+
+.rt-Button[data-variant="ghost"]:focus-visible {
+  outline: 2px solid var(--indigo-8) !important;
+  outline-offset: 2px !important;
+}
+
+/* Badge Soft Variant - Ensure sufficient contrast */
+.rt-Badge[data-variant="soft"] {
+  border: 1px solid var(--gray-6) !important; /* Add border for definition */
+}
+
+/* Slider Track - Improve visibility */
+.rt-SliderTrack {
+  background-color: var(--gray-7) !important; /* Darker track */
+}
+
+.rt-SliderRange {
+  background-color: var(--indigo-9) !important; /* Ensure accent color */
+}
+
+.rt-SliderThumb {
+  border: 2px solid white !important; /* White border for definition */
+  box-shadow: 0 0 0 1px var(--gray-7) !important; /* Outer border */
+}
+
+.rt-SliderThumb:focus-visible {
+  outline: 2px solid var(--indigo-8) !important;
+  outline-offset: 2px !important;
+}
+
+/* Tabs - Improve inactive tab contrast */
+.rt-TabsListTrigger:not([data-state="active"]) {
+  color: var(--gray-11) !important; /* Darker text for better contrast */
+}
+
+.rt-TabsListTrigger:not([data-state="active"]):hover {
+  color: var(--gray-12) !important;
+  background-color: var(--gray-2) !important;
+}
+
+/* Progress Component - Ensure track visibility */
+.rt-ProgressIndicator {
+  background-color: var(--gray-6) !important; /* Darker track background */
+}
+
+/* Select Component - Improve placeholder and disabled states */
+.rt-SelectTrigger:where([data-placeholder]) {
+  color: var(--gray-10) !important; /* Darker placeholder text */
+}
+
+.rt-SelectTrigger:disabled {
+  background-color: var(--gray-2) !important;
+  border-color: var(--gray-6) !important;
+  color: var(--gray-8) !important;
+  cursor: not-allowed !important;
+}
+
+/* TextField - Improve disabled and placeholder states */
+.rt-TextField:disabled {
+  background-color: var(--gray-2) !important;
+  border-color: var(--gray-6) !important;
+  color: var(--gray-8) !important;
+  cursor: not-allowed !important;
+}
+
+.rt-TextField:where(:placeholder-shown) {
+  color: var(--gray-9) !important; /* Darker placeholder */
+}
+
+/* TextArea - Same fixes as TextField */
+.rt-TextArea:disabled {
+  background-color: var(--gray-2) !important;
+  border-color: var(--gray-6) !important;
+  color: var(--gray-8) !important;
+  cursor: not-allowed !important;
+}
+
+.rt-TextArea:where(:placeholder-shown) {
+  color: var(--gray-9) !important;
+}
+
+/* Pagination - Fix disabled state contrast */
+.rt-PaginationRoot .rt-Button:disabled {
+  background-color: var(--gray-2) !important;
+  border-color: var(--gray-5) !important;
+  color: var(--gray-7) !important;
+  cursor: not-allowed !important;
+}
+
+/* Segmented Control - Improve inactive item contrast */
+.rt-SegmentedControlItem:not([data-state="active"]) {
+  color: var(--gray-11) !important;
+}
+
+.rt-SegmentedControlItem:not([data-state="active"]):hover {
+  background-color: var(--gray-2) !important;
+  color: var(--gray-12) !important;
+}
+
+/* Card Surface Variant - Add border for definition */
+.rt-Card[data-variant="surface"] {
+  border: 1px solid var(--gray-6) !important;
+}
+
+.rt-Card[data-variant="ghost"] {
+  border: 1px solid var(--gray-4) !important;
+}
+
+/* Callout - Improve soft variant contrast */
+.rt-Callout[data-variant="soft"] {
+  border: 1px solid currentColor !important;
+  border-opacity: 0.3 !important;
+}
+
+/* Tooltip - Ensure sufficient contrast */
+.rt-TooltipContent {
+  background-color: var(--gray-12) !important;
+  color: white !important;
+  border: 1px solid var(--gray-11) !important;
+}
+
+/* Popover - Improve border definition */
+.rt-PopoverContent {
+  border: 1px solid var(--gray-7) !important;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06) !important;
+}
+
+/* HoverCard - Same border improvements */
+.rt-HoverCardContent {
+  border: 1px solid var(--gray-7) !important;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06) !important;
+}
+
+/* Dialog - Improve contrast and focus management */
+.rt-DialogContent {
+  border: 1px solid var(--gray-7) !important;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05) !important;
+}
+
+.rt-DialogContent:focus-visible {
+  outline: 2px solid var(--indigo-8) !important;
+  outline-offset: 2px !important;
+}
+
+/* AlertDialog - Same improvements */
+.rt-AlertDialogContent {
+  border: 1px solid var(--gray-7) !important;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05) !important;
+}
+
+.rt-AlertDialogContent:focus-visible {
+  outline: 2px solid var(--indigo-8) !important;
+  outline-offset: 2px !important;
+}
+
+/* Table - Improve row separators and hover states */
+.rt-TableRow:not(:last-child) {
+  border-bottom: 1px solid var(--gray-6) !important;
+}
+
+.rt-TableRow:hover {
+  background-color: var(--gray-1) !important;
+}
+
+.rt-TableColumnHeaderCell {
+  border-bottom: 2px solid var(--gray-7) !important;
+  background-color: var(--gray-1) !important;
+}
+
+/* Separator - Ensure visibility */
+.rt-Separator[data-orientation="horizontal"] {
+  background-color: var(--gray-6) !important;
+  height: 1px !important;
+}
+
+.rt-Separator[data-orientation="vertical"] {
+  background-color: var(--gray-6) !important;
+  width: 1px !important;
+}
+
+/* Link - Improve focus states */
+.rt-Link:focus-visible {
+  outline: 2px solid var(--indigo-8) !important;
+  outline-offset: 2px !important;
+  border-radius: 2px !important;
+}
+
+/* ScrollArea - Improve scrollbar visibility */
+.rt-ScrollAreaScrollbar {
+  background-color: var(--gray-3) !important;
+}
+
+.rt-ScrollAreaThumb {
+  background-color: var(--gray-7) !important;
+}
+
+.rt-ScrollAreaThumb:hover {
+  background-color: var(--gray-8) !important;
+}
+
+/* FINAL ACCESSIBILITY FIXES */
+
+/* Context Menu / Dropdown Menu - Improve contrast */
+.rt-ContextMenuContent,
+.rt-DropdownMenuContent {
+  border: 1px solid var(--gray-7) !important;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06) !important;
+}
+
+.rt-ContextMenuItem:hover,
+.rt-DropdownMenuItem:hover {
+  background-color: var(--indigo-3) !important;
+  color: var(--indigo-12) !important;
+}
+
+.rt-ContextMenuItem:focus,
+.rt-DropdownMenuItem:focus {
+  background-color: var(--indigo-4) !important;
+  outline: none !important;
+}
+
+/* Navigation Menu - Improve hover/focus states */
+.rt-NavigationMenuTrigger:hover {
+  background-color: var(--gray-2) !important;
+}
+
+.rt-NavigationMenuTrigger:focus-visible {
+  outline: 2px solid var(--indigo-8) !important;
+  outline-offset: 2px !important;
+}
+
+/* Skeleton - Ensure visibility */
+.rt-Skeleton {
+  background-color: var(--gray-5) !important;
+  opacity: 0.7 !important;
+}
+
+/* Spinner - Ensure visibility */
+.rt-Spinner {
+  color: var(--indigo-9) !important;
+}
+
+/* Code component - Improve contrast */
+.rt-Code[data-variant="soft"] {
+  background-color: var(--gray-3) !important;
+  color: var(--gray-12) !important;
+  border: 1px solid var(--gray-6) !important;
+}
+
+.rt-Code[data-variant="outline"] {
+  border-color: var(--gray-7) !important;
+  color: var(--gray-12) !important;
+}
+
+/* Blockquote - Improve left border visibility */
+.rt-Blockquote {
+  border-left: 3px solid var(--gray-7) !important;
+}
+
+.rt-Blockquote[data-color="indigo"] {
+  border-left-color: var(--indigo-8) !important;
+}
+
+/* Strong and Em - Ensure sufficient contrast */
+.rt-Strong {
+  color: var(--gray-12) !important;
+  font-weight: 600 !important;
+}
+
+.rt-Em {
+  color: var(--gray-11) !important;
+}
+
+/* Inset - Improve side borders */
+.rt-Inset {
+  border: 1px solid var(--gray-5) !important;
+}
+
+/* AspectRatio - Add subtle border when needed */
+.rt-AspectRatio:not(:has(img)):not(:has(video)) {
+  border: 1px solid var(--gray-4) !important;
+}
+
+/* DataList - Improve separator visibility */
+.rt-DataListItem {
+  border-bottom: 1px solid var(--gray-4) !important;
+}
+
+.rt-DataListItem:last-child {
+  border-bottom: none !important;
+}
+
+/* Accordion - Improve trigger hover states */
+.rt-AccordionTrigger:hover {
+  background-color: var(--gray-2) !important;
+}
+
+.rt-AccordionTrigger:focus-visible {
+  outline: 2px solid var(--indigo-8) !important;
+  outline-offset: -2px !important;
+}
+
+/* Collapsible - Same improvements as Accordion */
+.rt-CollapsibleTrigger:hover {
+  background-color: var(--gray-2) !important;
+}
+
+.rt-CollapsibleTrigger:focus-visible {
+  outline: 2px solid var(--indigo-8) !important;
+  outline-offset: -2px !important;
+}
+
+/* Avatar - Improve fallback contrast */
+.rt-AvatarFallback {
+  background-color: var(--gray-6) !important;
+  color: var(--gray-12) !important;
+  font-weight: 500 !important;
+}
+
+/* GLOBAL FOCUS IMPROVEMENTS */
+
+/* Ensure all focusable elements have consistent focus rings */
+.rt-Button:focus-visible,
+.rt-IconButton:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible,
+[role="button"]:focus-visible,
+[role="tab"]:focus-visible,
+[role="menuitem"]:focus-visible {
+  outline: 2px solid var(--indigo-8) !important;
+  outline-offset: 2px !important;
+}
+
+/* Special handling for elements that should have inset focus */
+.rt-Checkbox:focus-visible,
+.rt-RadioGroupItem:focus-visible,
+.rt-Switch:focus-visible,
+.rt-SelectTrigger:focus-visible,
+.rt-TextField:focus-visible,
+.rt-TextArea:focus-visible {
+  outline: 2px solid var(--indigo-8) !important;
+  outline-offset: -2px !important;
+}
+
+/* Eightfold Gradient Button */
+.rt-Button.button-eightfold {
+  background: linear-gradient(to right, #d53636 0%, #0039cc 48.077%, #8826c9 100%) !important;
+  color: white !important;
+  border: none !important;
+}
+
+.rt-Button.button-eightfold:hover:not(:disabled) {
+  opacity: 0.9;
+}
+
+.rt-Button.button-eightfold:active:not(:disabled) {
+  opacity: 0.95;
+}
+
+.rt-Button.button-eightfold:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+

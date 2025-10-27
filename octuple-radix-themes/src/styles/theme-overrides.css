@@ -1,0 +1,29 @@
+/**
+ * Octuple Radix Theme Overrides
+ * 
+ * Customizes Radix Themes to use Poppins font family
+ */
+
+/* Override Radix Themes default font family with Poppins */
+.radix-themes {
+  --default-font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif !important;
+  --code-font-family: 'SF Mono', 'Monaco', 'Inconsolata', 'Fira Code', 'Droid Sans Mono', 'Source Code Pro', monospace;
+  
+  /* Indigo accent color matches Figma's design - no overrides needed */
+  /* indigo-9 = #3e63dd (4.6:1 contrast ✅ WCAG AA compliant) */
+}
+
+/* Ensure all text uses Poppins, EXCEPT Material Symbols icons */
+.radix-themes,
+.radix-themes *:not(.material-symbols-outlined) {
+  font-family: var(--default-font-family);
+}
+
+/* Code elements use monospace */
+.radix-themes code,
+.radix-themes pre,
+.radix-themes kbd,
+.radix-themes samp {
+  font-family: var(--code-font-family);
+}
+

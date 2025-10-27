@@ -1,0 +1,19 @@
+{
+  "spacingUnits": [
+    {"tokenName": "$space-xxs", "pixelValue": "4px"},
+    {"tokenName": "$space-xs", "pixelValue": "8px"},
+    {"tokenName": "$space-s", "pixelValue": "12px"},
+    {"tokenName": "$space-m", "pixelValue": "16px"},
+    {"tokenName": "$space-l", "pixelValue": "24px"},
+    {"tokenName": "$space-xl", "pixelValue": "32px"},
+    {"tokenName": "$space-xxl", "pixelValue": "40px"},
+    {"tokenName": "$space-xxxl", "pixelValue": "64px"}
+  ],
+  "cornerRadius": [
+    {"tokenName": "$corner-radius-s", "pixelValue": "4px"},
+    {"tokenName": "$corner-radius-m", "pixelValue": "8px"},
+    {"tokenName": "$corner-radius-l", "pixelValue": "16px"},
+    {"tokenName": "$corner-radius-xl", "pixelValue": "20px"},
+    {"tokenName": "$corner-radius-xxl", "pixelValue": "24px"}
+  ]
+}

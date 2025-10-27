@@ -1,0 +1,19 @@
+// tsconfig.json
+{
+  "compilerOptions": {
+    "target": "ES6",                     // Compile to a modern JavaScript version
+    "module": "CommonJS",                // Use the standard module system for Node.js
+    "outDir": "./dist",                  // Where to put the compiled JavaScript files
+    "rootDir": "./",                     // The root directory of your source files
+    "strict": true,                      // Enable all strict type-checking options
+    "esModuleInterop": true,             // Allows better compatibility between module systems
+    "skipLibCheck": true,                // Skip type checking of declaration files
+    "forceConsistentCasingInFileNames": true
+  },
+  "include": [
+    "scripts/**/*.ts"                    // Only include files in the 'scripts' directory
+  ],
+  "exclude": [
+    "node_modules"                       // Exclude the installed dependencies
+  ]
+}

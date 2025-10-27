@@ -1,0 +1,40 @@
+{
+  "primaryColor": "#6c4500",
+  "accentName": "redOrange",
+  "gradientEndPalette": [
+    "#ffffeb",
+    "#fff89c",
+    "#ffe44e",
+    "#a88f00",
+    "#857600",
+    "#5c5500"
+  ],
+  "gradientMiddlePalette": [
+    "#fff8eb",
+    "#ffe3b0",
+    "#ffcd78",
+    "#c97e19",
+    "#9d6309",
+    "#6c4500"
+  ],
+  "gradientStartPalette": [
+    "#fff2ed",
+    "#ffd1bd",
+    "#ffb396",
+    "#d26743",
+    "#a54d2c",
+    "#78351a"
+  ],
+  "palette": [
+    "#fff8eb",
+    "#ffe3b0",
+    "#ffcd78",
+    "#ffb650",
+    "#f29d31",
+    "#ce811a",
+    "#9d6309",
+    "#6c4500",
+    "#3b2600",
+    "#0a0700"
+  ]
+}

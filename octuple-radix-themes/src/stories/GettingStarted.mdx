@@ -1,0 +1,220 @@
+import { Meta } from '@storybook/blocks';
+
+<Meta title="Documentation/Getting Started" />
+
+# Getting Started
+
+This guide will help you set up Octuple Radix in your React application.
+
+## Installation
+
+Install Octuple Radix from npm:
+
+```bash
+npm install @eightfold.ai/octuple-radix
+```
+
+Or using yarn:
+
+```bash
+yarn add @eightfold.ai/octuple-radix
+```
+
+## Basic Setup
+
+### 1. Import Global Styles
+
+Import the global CSS file at the root of your application (usually `main.tsx` or `App.tsx`):
+
+```tsx
+import '@eightfold.ai/octuple-radix/styles.css';
+```
+
+### 2. Add ThemeProvider
+
+Wrap your application with the `ThemeProvider` component:
+
+```tsx
+import React from 'react';
+import { ThemeProvider } from '@eightfold.ai/octuple-radix';
+
+function App() {
+  return (
+    <ThemeProvider>
+      <YourApp />
+    </ThemeProvider>
+  );
+}
+
+export default App;
+```
+
+### 3. Use Components
+
+Import and use components from the package:
+
+```tsx
+import { Button, Card, Flex, Text } from '@eightfold.ai/octuple-radix';
+
+function MyComponent() {
+  return (
+    <Card>
+      <Flex direction="column" gap="3">
+        <Text size="5" weight="bold">Welcome to Octuple Radix!</Text>
+        <Text>A modern design system built on Radix Themes.</Text>
+        <Button>Get Started</Button>
+      </Flex>
+    </Card>
+  );
+}
+```
+
+## Theme Configuration
+
+The `ThemeProvider` accepts several props to customize the theme:
+
+### Accent Color
+
+Change the primary accent color (default: `indigo`):
+
+```tsx
+<ThemeProvider accentColor="indigo">
+  <App />
+</ThemeProvider>
+```
+
+Available colors: `indigo`, `violet`, `blue`, `green`, `red`, `orange`, `pink`
+
+### Appearance
+
+Toggle between light and dark mode:
+
+```tsx
+<ThemeProvider appearance="dark">
+  <App />
+</ThemeProvider>
+```
+
+### Border Radius
+
+Adjust the global border radius:
+
+```tsx
+<ThemeProvider radius="medium">
+  <App />
+</ThemeProvider>
+```
+
+Options: `none`, `small`, `medium`, `large`, `full`
+
+### Scaling
+
+Adjust UI scaling:
+
+```tsx
+<ThemeProvider scaling="95%">
+  <App />
+</ThemeProvider>
+```
+
+Options: `90%`, `95%`, `100%`, `105%`, `110%`
+
+### Complete Example
+
+```tsx
+import { ThemeProvider } from '@eightfold.ai/octuple-radix';
+import '@eightfold.ai/octuple-radix/styles.css';
+
+function App() {
+  return (
+    <ThemeProvider
+      appearance="light"
+      accentColor="indigo"
+      grayColor="slate"
+      radius="full"
+      scaling="100%"
+    >
+      <YourApp />
+    </ThemeProvider>
+  );
+}
+```
+
+## Using Icons
+
+Octuple Radix uses Material Symbols Outlined for icons:
+
+```tsx
+import { Icon } from '@eightfold.ai/octuple-radix';
+
+function MyComponent() {
+  return (
+    <div>
+      <Icon name="search" size={18} />
+      <Icon name="settings" size={20} color="var(--indigo-9)" />
+    </div>
+  );
+}
+```
+
+Common icon names: `add`, `edit`, `delete`, `search`, `settings`, `check`, `close`, `arrow_forward`
+
+[Browse all Material Symbols →](https://fonts.google.com/icons)
+
+## TypeScript Support
+
+Octuple Radix is written in TypeScript and includes full type definitions:
+
+```tsx
+import { Button, type ButtonProps } from '@eightfold.ai/octuple-radix';
+
+const MyButton: React.FC<ButtonProps> = (props) => {
+  return <Button {...props} />;
+};
+```
+
+## Next Steps
+
+<div style={{ display: 'flex', gap: '16px', margin: '32px 0', flexWrap: 'wrap' }}>
+  <a href="?path=/docs/documentation-design-tokens--docs" style={{ 
+    padding: '12px 24px', 
+    background: '#3e63dd', 
+    color: 'white', 
+    borderRadius: '8px', 
+    textDecoration: 'none',
+    fontWeight: 500
+  }}>
+    Design Tokens →
+  </a>
+  <a href="?path=/docs/documentation-components-overview--docs" style={{ 
+    padding: '12px 24px', 
+    background: '#f3f4f6', 
+    color: '#1f2937', 
+    borderRadius: '8px', 
+    textDecoration: 'none',
+    fontWeight: 500
+  }}>
+    Browse Components
+  </a>
+</div>
+
+## Troubleshooting
+
+### Styles not loading
+
+Make sure you've imported the CSS file:
+```tsx
+import '@eightfold.ai/octuple-radix/styles.css';
+```
+
+### Icons not showing
+
+Icons require the Material Symbols font to be loaded. It's included automatically when you import the styles.
+
+### TypeScript errors
+
+Make sure you have `@types/react` and `@types/react-dom` installed:
+```bash
+npm install --save-dev @types/react @types/react-dom
+```
+

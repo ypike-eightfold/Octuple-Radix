@@ -1,0 +1,154 @@
+import { Meta } from '@storybook/blocks';
+
+<Meta title="Documentation/Introduction" />
+
+<div style={{ textAlign: 'center', padding: '40px 20px' }}>
+  <h1 style={{ fontSize: '48px', fontWeight: 600, margin: '0 0 16px 0', color: '#3e63dd' }}>
+    Octuple Radix
+  </h1>
+  <p style={{ fontSize: '20px', color: '#6b7280', margin: '0 0 40px 0', maxWidth: '600px', marginLeft: 'auto', marginRight: 'auto' }}>
+    A modern design system built on Radix Themes, configured for Eightfold AI
+  </p>
+</div>
+
+## What is Octuple Radix?
+
+**Octuple Radix** is the third version of the Octuple Design System, built on top of **Radix Themes** - a comprehensive, accessible, and customizable component library. It combines the power of Radix's production-ready components with Eightfold AI's design language.
+
+### Key Features
+
+<div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '24px', margin: '32px 0' }}>
+  <div style={{ padding: '24px', background: '#f9fafb', borderRadius: '12px', border: '1px solid #e5e7eb' }}>
+    <div style={{ fontSize: '32px', marginBottom: '12px' }}>🎨</div>
+      <h3 style={{ fontSize: '18px', fontWeight: 600, margin: '0 0 8px 0' }}>Indigo Accent</h3>
+    <p style={{ fontSize: '14px', color: '#6b7280', margin: 0 }}>
+      Beautiful blue accent color throughout the design system
+    </p>
+  </div>
+  
+  <div style={{ padding: '24px', background: '#f9fafb', borderRadius: '12px', border: '1px solid #e5e7eb' }}>
+    <div style={{ fontSize: '32px', marginBottom: '12px' }}>✨</div>
+    <h3 style={{ fontSize: '18px', fontWeight: 600, margin: '0 0 8px 0' }}>Radix Foundation</h3>
+    <p style={{ fontSize: '14px', color: '#6b7280', margin: 0 }}>
+      Built on battle-tested Radix Themes with WAI-ARIA compliance
+    </p>
+  </div>
+  
+  <div style={{ padding: '24px', background: '#f9fafb', borderRadius: '12px', border: '1px solid #e5e7eb' }}>
+    <div style={{ fontSize: '32px', marginBottom: '12px' }}>🔤</div>
+    <h3 style={{ fontSize: '18px', fontWeight: 600, margin: '0 0 8px 0' }}>Poppins Font</h3>
+    <p style={{ fontSize: '14px', color: '#6b7280', margin: 0 }}>
+      Modern, clean typography with weights 300-600
+    </p>
+  </div>
+  
+  <div style={{ padding: '24px', background: '#f9fafb', borderRadius: '12px', border: '1px solid #e5e7eb' }}>
+    <div style={{ fontSize: '32px', marginBottom: '12px' }}>🎯</div>
+    <h3 style={{ fontSize: '18px', fontWeight: 600, margin: '0 0 8px 0' }}>Material Icons</h3>
+    <p style={{ fontSize: '14px', color: '#6b7280', margin: 0 }}>
+      Material Symbols Outlined at weight 300 for perfect balance
+    </p>
+  </div>
+  
+  <div style={{ padding: '24px', background: '#f9fafb', borderRadius: '12px', border: '1px solid #e5e7eb' }}>
+    <div style={{ fontSize: '32px', marginBottom: '12px' }}>♿</div>
+    <h3 style={{ fontSize: '18px', fontWeight: 600, margin: '0 0 8px 0' }}>Accessible</h3>
+    <p style={{ fontSize: '14px', color: '#6b7280', margin: 0 }}>
+      WCAG compliant with keyboard navigation and screen reader support
+    </p>
+  </div>
+  
+  <div style={{ padding: '24px', background: '#f9fafb', borderRadius: '12px', border: '1px solid #e5e7eb' }}>
+    <div style={{ fontSize: '32px', marginBottom: '12px' }}>⚡</div>
+    <h3 style={{ fontSize: '18px', fontWeight: 600, margin: '0 0 8px 0' }}>60 Components</h3>
+    <p style={{ fontSize: '14px', color: '#6b7280', margin: 0 }}>
+      Comprehensive library covering all common UI patterns
+    </p>
+  </div>
+</div>
+
+## Quick Start
+
+Get started with Octuple Radix in three simple steps:
+
+```bash
+# 1. Install the package
+npm install @eightfold.ai/octuple-radix
+
+# 2. Import styles in your app
+import '@eightfold.ai/octuple-radix/styles.css'
+
+# 3. Wrap your app with ThemeProvider
+import { ThemeProvider } from '@eightfold.ai/octuple-radix'
+```
+
+```tsx
+function App() {
+  return (
+    <ThemeProvider>
+      <YourApp />
+    </ThemeProvider>
+  )
+}
+```
+
+## Component Categories
+
+Octuple Radix includes 60 components organized into these categories:
+
+- **Form Controls** - Buttons, inputs, selects, checkboxes, radio buttons, switches
+- **Data Display** - Tables, cards, badges, avatars, data lists
+- **Navigation** - Breadcrumbs, pagination, tabs, menus, navigation bars
+- **Overlays** - Dialogs, popovers, tooltips, modals, toasts
+- **Layout** - Flex, grid, containers, sections
+- **Typography** - Headings, text, links, code blocks
+- **Feedback** - Progress bars, spinners, empty states, alerts
+
+## Next Steps
+
+<div style={{ display: 'flex', gap: '16px', margin: '32px 0', flexWrap: 'wrap' }}>
+  <a href="?path=/docs/documentation-getting-started--docs" style={{ 
+    padding: '12px 24px', 
+    background: '#3e63dd', 
+    color: 'white', 
+    borderRadius: '8px', 
+    textDecoration: 'none',
+    fontWeight: 500,
+    display: 'inline-block'
+  }}>
+    Getting Started →
+  </a>
+  <a href="?path=/docs/documentation-design-tokens--docs" style={{ 
+    padding: '12px 24px', 
+    background: '#f3f4f6', 
+    color: '#1f2937', 
+    borderRadius: '8px', 
+    textDecoration: 'none',
+    fontWeight: 500,
+    display: 'inline-block'
+  }}>
+    Design Tokens
+  </a>
+  <a href="?path=/docs/documentation-components-overview--docs" style={{ 
+    padding: '12px 24px', 
+    background: '#f3f4f6', 
+    color: '#1f2937', 
+    borderRadius: '8px', 
+    textDecoration: 'none',
+    fontWeight: 500,
+    display: 'inline-block'
+  }}>
+    Browse Components
+  </a>
+</div>
+
+---
+
+<div style={{ marginTop: '48px', padding: '24px', background: '#f0f9ff', borderRadius: '12px', border: '1px solid #bae6fd' }}>
+  <h3 style={{ margin: '0 0 8px 0', color: '#0369a1' }}>💡 Tip for AI Agents</h3>
+  <p style={{ margin: 0, color: '#0c4a6e' }}>
+    Check out <a href="?path=/docs/documentation-ai-usage--docs" style={{ color: '#0369a1', fontWeight: 500 }}>AI Usage Guide</a> for comprehensive documentation 
+    on how to use Octuple Radix components in your AI-assisted development workflow.
+  </p>
+</div>
+
