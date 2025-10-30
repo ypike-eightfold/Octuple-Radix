@@ -3,7 +3,7 @@ import { create } from '@storybook/theming';
 
 const theme = create({
   base: 'light',
-  brandTitle: 'Octuple Radix',
+  brandTitle: 'Octuple Radix Alpha',
   brandUrl: 'https://ypike-eightfold.github.io/Octuple-Radix/',
   brandTarget: '_self',
   

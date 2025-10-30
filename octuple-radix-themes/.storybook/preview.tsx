@@ -2,6 +2,7 @@ import type { Preview } from '@storybook/react';
 import React from 'react';
 import { ThemeProvider } from '../src/theme/ThemeProvider';
 import '../src/styles/component-overrides.css';
+import '../src/styles/legacy-theme.css';
 
 const preview: Preview = {
   parameters: {
@@ -35,14 +36,73 @@ const preview: Preview = {
       },
     },
     layout: 'padded',
+    // Add theme switching toolbar
+    toolbar: {
+      theme: {
+        description: 'Global theme for components',
+        defaultValue: 'light',
+        toolbar: {
+          title: 'Theme',
+          icon: 'paintbrush',
+        items: [
+          { value: 'light', icon: 'sun', title: 'Radix Light' },
+          { value: 'dark', icon: 'moon', title: 'Radix Dark' },
+          { value: 'legacy-light', icon: 'component', title: 'Legacy Light' },
+          { value: 'legacy-dark', icon: 'componentdriven', title: 'Legacy Dark' },
+        ],
+          dynamicTitle: true,
+        },
+      },
+    },
   },
   decorators: [
-    (Story) => (
-      <ThemeProvider>
-        <Story />
-      </ThemeProvider>
-    ),
+    (Story, context) => {
+      const theme = context.globals.theme || 'light';
+      
+      // Determine appearance and theme class
+      const isLegacy = theme.startsWith('legacy-');
+      const isDark = theme.includes('dark');
+      const appearance = isDark ? 'dark' : 'light';
+      const accentColor = isLegacy ? 'blue' : 'violet';
+      
+      // Apply theme classes
+      const themeClasses = [];
+      if (isLegacy) {
+        themeClasses.push('legacy-theme');
+        if (isDark) {
+          themeClasses.push('legacy-theme-dark');
+        }
+      }
+      
+      return (
+        <div className={themeClasses.join(' ')}>
+          <ThemeProvider 
+            appearance={appearance}
+            accentColor={accentColor}
+          >
+            <Story />
+          </ThemeProvider>
+        </div>
+      );
+    },
   ],
+  globalTypes: {
+    theme: {
+      description: 'Global theme for components',
+      defaultValue: 'light',
+      toolbar: {
+        title: 'Theme',
+        icon: 'paintbrush',
+        items: [
+          { value: 'light', icon: 'sun', title: 'Radix Light' },
+          { value: 'dark', icon: 'moon', title: 'Radix Dark' },
+          { value: 'legacy-light', icon: 'component', title: 'Legacy Light' },
+          { value: 'legacy-dark', icon: 'componentdriven', title: 'Legacy Dark' },
+        ],
+        dynamicTitle: true,
+      },
+    },
+  },
 };
 
 export default preview;
