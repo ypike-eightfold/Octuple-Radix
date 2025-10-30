@@ -34,13 +34,14 @@ const config: StorybookConfig = {
   core: {
     builder: '@storybook/builder-vite',
   },
-  viteFinal: (config, { configType }) => {
-    if (configType === 'PRODUCTION') {
-      // Set base path for GitHub Pages
-      config.base = '/Octuple-Radix/';
-    }
-    return config;
-  },
+  // REMOVED base path configuration that was causing navigation 404s
+  // viteFinal: (config, { configType }) => {
+  //   if (configType === 'PRODUCTION') {
+  //     // Set base path for GitHub Pages
+  //     config.base = '/Octuple-Radix/';
+  //   }
+  //   return config;
+  // },
 };
 
 export default config;
