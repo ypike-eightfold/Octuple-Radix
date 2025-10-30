@@ -40,6 +40,9 @@ jobs:
       - name: Build Storybook
         run: npm run build-storybook
         
+      - name: Add .nojekyll file
+        run: touch ./storybook-static/.nojekyll
+        
       - name: Setup Pages
         uses: actions/configure-pages@v4
         
