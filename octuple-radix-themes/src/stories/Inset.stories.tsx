@@ -16,17 +16,19 @@ type Story = StoryObj<typeof meta>;
 export const Default: Story = {
   render: () => (
     <Card style={{ maxWidth: 400 }}>
-      <Inset>
+      <Inset pb="current">
         <img
           src="https://images.unsplash.com/photo-1617050318658-a9a3175e34cb?w=800&auto=format&fit=crop"
           alt="Bold typography"
           style={{ display: 'block', width: '100%', height: 200, objectFit: 'cover' }}
         />
       </Inset>
-      <Text as="p" size="3">
-        <Strong>Typography</Strong> is the art and technique of arranging type to make written 
-        language legible, readable and appealing when displayed.
-      </Text>
+      <Flex direction="column" p="4">
+        <Text as="p" size="3">
+          <Strong>Typography</Strong> is the art and technique of arranging type to make written 
+          language legible, readable and appealing when displayed.
+        </Text>
+      </Flex>
     </Card>
   ),
 };
@@ -34,14 +36,14 @@ export const Default: Story = {
 export const Top: Story = {
   render: () => (
     <Card style={{ maxWidth: 400 }}>
-      <Inset side="top">
+      <Inset side="top" pb="current">
         <img
-          src="https://images.unsplash.com/photo-1502791451862-7bd8e91a3146?w=800&auto=format&fit=crop"
+          src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&auto=format&fit=crop"
           alt="Nature"
           style={{ display: 'block', width: '100%', height: 200, objectFit: 'cover' }}
         />
       </Inset>
-      <Flex direction="column" gap="2">
+      <Flex direction="column" gap="3" p="4">
         <Text size="5" weight="bold">Beautiful Landscapes</Text>
         <Text size="2" color="gray">
           Explore stunning natural scenery from around the world.
@@ -54,13 +56,13 @@ export const Top: Story = {
 export const Bottom: Story = {
   render: () => (
     <Card style={{ maxWidth: 400 }}>
-      <Flex direction="column" gap="2" mb="3">
+      <Flex direction="column" gap="3" p="4">
         <Text size="5" weight="bold">Article Title</Text>
         <Text size="2" color="gray">
           This is a sample article with an image at the bottom.
         </Text>
       </Flex>
-      <Inset side="bottom">
+      <Inset side="bottom" pt="current">
         <img
           src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=800&auto=format&fit=crop"
           alt="Workspace"
@@ -138,16 +140,16 @@ export const AllSides: Story = {
 export const HorizontalOnly: Story = {
   render: () => (
     <Card style={{ maxWidth: 400 }}>
-      <Inset side="x">
+      <Inset side="x" pb="current">
         <div style={{ 
           padding: '20px 0',
           background: 'linear-gradient(135deg, var(--indigo-3) 0%, var(--indigo-6) 100%)',
           textAlign: 'center'
         }}>
-          <Text size="5" weight="bold">Full Width Banner</Text>
+          <Text size="5" weight="bold" style={{ color: 'white' }}>Full Width Banner</Text>
         </div>
       </Inset>
-      <Flex direction="column" gap="2">
+      <Flex direction="column" gap="3" p="4">
         <Text size="3">
           This banner extends to both left and right edges of the card.
         </Text>

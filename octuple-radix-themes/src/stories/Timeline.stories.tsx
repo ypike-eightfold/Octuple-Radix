@@ -180,3 +180,44 @@ export const SimpleTimeline = {
   },
 };
 
+export const Horizontal = {
+  render: () => (
+    <Box style={{ width: '800px' }}>
+      <Timeline items={defaultItems} orientation="horizontal" />
+    </Box>
+  ),
+};
+
+export const HorizontalWithVariants = {
+  render: () => {
+    const items = [
+      {
+        title: 'Start',
+        timestamp: '9:00 AM',
+        variant: 'success' as const,
+      },
+      {
+        title: 'In Progress',
+        timestamp: '10:30 AM',
+        variant: 'info' as const,
+      },
+      {
+        title: 'Review',
+        timestamp: '2:15 PM',
+        variant: 'warning' as const,
+      },
+      {
+        title: 'Complete',
+        timestamp: '4:00 PM',
+        variant: 'success' as const,
+      },
+    ];
+
+    return (
+      <Box style={{ width: '800px' }}>
+        <Timeline items={items} orientation="horizontal" />
+      </Box>
+    );
+  },
+};
+

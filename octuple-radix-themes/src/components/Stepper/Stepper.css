@@ -4,16 +4,17 @@
 }
 
 .stepper-horizontal {
-  align-items: flex-start;
+  align-items: flex-start; /* Changed from center to allow manual alignment */
+  gap: 0; /* No gap for horizontal - connectors handle spacing */
 }
 
 .stepper-vertical {
   align-items: stretch;
+  gap: 12px; /* Consistent gap for both orientations */
 }
 
 .stepper-step {
   position: relative;
-  flex: 1;
   min-width: 0;
 }
 
@@ -65,22 +66,58 @@
   color: var(--gray-11);
 }
 
-/* Connector */
-.stepper-connector {
-  height: 2px;
+/* Indicator wrapper */
+.stepper-indicator-wrapper {
+  flex-shrink: 0;
+  position: relative;
+}
+
+/* Content */
+.stepper-content {
   flex: 1;
-  margin: 16px 12px 0 12px;
+  min-width: 0;
+}
+
+.stepper-horizontal .stepper-content {
+  padding-top: 4px; /* Only add top padding for horizontal */
+}
+
+/* Horizontal step layout */
+.stepper-horizontal .stepper-step {
+  flex: 1;
+  display: flex;
+  gap: 12px; /* Gap between circle and content */
+}
+
+/* Connector - Base styles */
+.stepper-connector {
+  background-color: var(--gray-6); /* Base color for visibility */
   transition: all 0.3s ease;
 }
 
-.stepper-horizontal .stepper-connector {
-  min-width: 40px;
+/* Horizontal connector - positioned between steps */
+.stepper-horizontal .stepper-connector-horizontal {
+  width: 40px;
+  height: 2px;
+  flex-shrink: 0;
+  /* Center align with 32px circles: 16px from top + 4px content padding */
+  margin-top: 20px;
+  margin-left: 12px;
+  margin-right: 12px;
 }
 
-.stepper-vertical .stepper-connector {
+/* Vertical connector - inside indicator wrapper */
+.stepper-vertical .stepper-indicator-wrapper .stepper-connector {
   width: 2px;
-  height: 40px;
-  margin: 0 0 0 15px;
+  margin-top: 6px;
+  margin-bottom: 6px;
+  height: 24px; /* Adjusted for equal spacing above and below */
+}
+
+/* Vertical step layout */
+.stepper-vertical .stepper-step {
+  display: flex;
+  gap: 12px; /* Gap between circle and content in vertical */
 }
 
 .stepper-connector-completed {

@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { Card, Avatar, Box, Flex, Text, Button } from '@radix-ui/themes';
+import { Card, Avatar, Box, Flex, Text, Button, TextField } from '@radix-ui/themes';
 import { Icon } from '../components/Icon';
 
 const meta = {
@@ -53,18 +53,9 @@ export const SignInForm: Story = {
             <Text as="div" size="2" mb="1" weight="bold">
               Email
             </Text>
-            <input
+            <TextField.Root 
               type="email"
               placeholder="Enter your email"
-              style={{
-                width: '100%',
-                padding: '10px 14px',
-                borderRadius: '8px',
-                border: '1px solid var(--gray-6)',
-                fontSize: '14px',
-                fontFamily: 'Poppins',
-                outline: 'none',
-              }}
             />
           </label>
           <label>
@@ -76,18 +67,9 @@ export const SignInForm: Story = {
                 Forgot password?
               </Text>
             </Flex>
-            <input
+            <TextField.Root 
               type="password"
               placeholder="Enter your password"
-              style={{
-                width: '100%',
-                padding: '10px 14px',
-                borderRadius: '8px',
-                border: '1px solid var(--gray-6)',
-                fontSize: '14px',
-                fontFamily: 'Poppins',
-                outline: 'none',
-              }}
             />
           </label>
         </Flex>

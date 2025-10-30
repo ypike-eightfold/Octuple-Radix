@@ -172,3 +172,62 @@ export const CustomSiblingCount: Story = {
   },
 };
 
+export const WithQuickJumper: Story = {
+  render: () => <PaginationDemo totalPages={50} showQuickJumper />,
+};
+
+export const JumperSizes: Story = {
+  render: () => {
+    const [page1, setPage1] = useState(1);
+    const [page2, setPage2] = useState(1);
+    const [page3, setPage3] = useState(1);
+
+    return (
+      <Flex direction="column" gap="6">
+        <Card p="4">
+          <Flex direction="column" gap="3">
+            <Text size="3" weight="bold">Size 1 with Jumper</Text>
+            <Pagination
+              currentPage={page1}
+              totalPages={20}
+              onPageChange={setPage1}
+              size="1"
+              showQuickJumper
+            />
+          </Flex>
+        </Card>
+
+        <Card p="4">
+          <Flex direction="column" gap="3">
+            <Text size="3" weight="bold">Size 2 with Jumper (Default)</Text>
+            <Pagination
+              currentPage={page2}
+              totalPages={20}
+              onPageChange={setPage2}
+              size="2"
+              showQuickJumper
+            />
+          </Flex>
+        </Card>
+
+        <Card p="4">
+          <Flex direction="column" gap="3">
+            <Text size="3" weight="bold">Size 3 with Jumper</Text>
+            <Pagination
+              currentPage={page3}
+              totalPages={20}
+              onPageChange={setPage3}
+              size="3"
+              showQuickJumper
+            />
+          </Flex>
+        </Card>
+      </Flex>
+    );
+  },
+};
+
+export const LargeDatasetWithJumper: Story = {
+  render: () => <PaginationDemo totalPages={1000} showQuickJumper showFirstLast />,
+};
+

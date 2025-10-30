@@ -100,3 +100,120 @@
   }
 }
 
+/* Border radius inheritance fixes */
+.accordion-item:first-child .accordion-trigger {
+  border-top-left-radius: var(--radius-3);
+  border-top-right-radius: var(--radius-3);
+}
+
+.accordion-item:last-child .accordion-trigger {
+  border-bottom-left-radius: var(--radius-3);
+  border-bottom-right-radius: var(--radius-3);
+}
+
+/* When accordion content is open, it should inherit border radius */
+.accordion-item:first-child .accordion-content[data-state='open'] {
+  border-top-left-radius: var(--radius-3);
+  border-top-right-radius: var(--radius-3);
+  margin-top: -1px; /* Overlap with trigger to avoid gap */
+}
+
+.accordion-item:last-child .accordion-content[data-state='open'] {
+  border-bottom-left-radius: var(--radius-3);
+  border-bottom-right-radius: var(--radius-3);
+}
+
+/* For single item accordions */
+.accordion-item:first-child:last-child .accordion-trigger {
+  border-radius: var(--radius-3);
+}
+
+.accordion-item:first-child:last-child .accordion-content[data-state='open'] {
+  border-bottom-left-radius: var(--radius-3);
+  border-bottom-right-radius: var(--radius-3);
+  margin-top: -1px;
+}
+
+/* Reset border radius for last child trigger when content is open */
+.accordion-item:last-child .accordion-trigger[data-state='open'] {
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+/* Enhanced header layout styles */
+.accordion-trigger-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  gap: 12px;
+}
+
+.accordion-title-section {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex: 1;
+  min-width: 0; /* Allow text truncation */
+}
+
+.accordion-title-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.accordion-title {
+  font-weight: 500;
+  color: var(--gray-12);
+  line-height: 1.5;
+}
+
+/* Badge styling is now handled by Octuple Badge component */
+
+.accordion-description {
+  font-size: 12px;
+  color: var(--gray-10);
+  line-height: 1.4;
+  margin-top: 2px;
+}
+
+.accordion-controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.accordion-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  opacity: 0.7;
+  transition: opacity 0.15s ease;
+}
+
+.accordion-trigger:hover .accordion-actions {
+  opacity: 1;
+}
+
+/* Button styling is now handled by Octuple IconButton component */
+
+/* Disabled state adjustments for enhanced layout */
+.accordion-trigger[data-disabled] .accordion-title {
+  opacity: 0.5;
+}
+
+.accordion-trigger[data-disabled] .accordion-description {
+  opacity: 0.4;
+}
+
+.accordion-trigger[data-disabled] .accordion-badge {
+  opacity: 0.5;
+}
+
+.accordion-trigger[data-disabled] .accordion-actions {
+  opacity: 0.3;
+  pointer-events: none;
+}
+

@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { SegmentedControl, Flex } from '@radix-ui/themes';
+import { SegmentedControl, Flex, Text } from '@radix-ui/themes';
 
 const meta = {
   title: 'Components/Segmented Control',
@@ -110,4 +110,48 @@ export const Priority: Story = {
     </SegmentedControl.Root>
   ),
 };
+
+// Test the reverse color accessibility implementation
+export const AccessibilityDemo: Story = {
+  render: () => (
+    <Flex direction="column" gap="6" style={{ padding: '20px' }}>
+      <div>
+        <Text size="3" weight="bold" style={{ marginBottom: '8px', display: 'block' }}>
+          Accessibility Test - Reverse Color Implementation
+        </Text>
+        <Text size="2" color="gray" style={{ marginBottom: '16px', display: 'block' }}>
+          Active state should have dark background with light text for WCAG 2.2 AA compliance
+        </Text>
+        <SegmentedControl.Root defaultValue="inbox">
+          <SegmentedControl.Item value="inbox">Inbox (Active)</SegmentedControl.Item>
+          <SegmentedControl.Item value="drafts">Drafts</SegmentedControl.Item>
+          <SegmentedControl.Item value="sent">Sent</SegmentedControl.Item>
+        </SegmentedControl.Root>
+      </div>
+
+      <div>
+        <Text size="3" weight="bold" style={{ marginBottom: '8px', display: 'block' }}>
+          Multiple Sizes Test
+        </Text>
+        <Flex direction="column" gap="3">
+          <SegmentedControl.Root defaultValue="1" size="1">
+            <SegmentedControl.Item value="1">Small Active</SegmentedControl.Item>
+            <SegmentedControl.Item value="2">Small 2</SegmentedControl.Item>
+          </SegmentedControl.Root>
+          
+          <SegmentedControl.Root defaultValue="1" size="2">
+            <SegmentedControl.Item value="1">Medium Active</SegmentedControl.Item>
+            <SegmentedControl.Item value="2">Medium 2</SegmentedControl.Item>
+          </SegmentedControl.Root>
+          
+          <SegmentedControl.Root defaultValue="1" size="3">
+            <SegmentedControl.Item value="1">Large Active</SegmentedControl.Item>
+            <SegmentedControl.Item value="2">Large 2</SegmentedControl.Item>
+          </SegmentedControl.Root>
+        </Flex>
+      </div>
+    </Flex>
+  ),
+};
+
 

@@ -169,24 +169,6 @@
   border: 1px solid var(--gray-6) !important; /* Add border for definition */
 }
 
-/* Slider Track - Improve visibility */
-.rt-SliderTrack {
-  background-color: var(--gray-7) !important; /* Darker track */
-}
-
-.rt-SliderRange {
-  background-color: var(--indigo-9) !important; /* Ensure accent color */
-}
-
-.rt-SliderThumb {
-  border: 2px solid white !important; /* White border for definition */
-  box-shadow: 0 0 0 1px var(--gray-7) !important; /* Outer border */
-}
-
-.rt-SliderThumb:focus-visible {
-  outline: 2px solid var(--indigo-8) !important;
-  outline-offset: 2px !important;
-}
 
 /* Tabs - Improve inactive tab contrast */
 .rt-TabsListTrigger:not([data-state="active"]) {
@@ -198,10 +180,6 @@
   background-color: var(--gray-2) !important;
 }
 
-/* Progress Component - Ensure track visibility */
-.rt-ProgressIndicator {
-  background-color: var(--gray-6) !important; /* Darker track background */
-}
 
 /* Select Component - Improve placeholder and disabled states */
 .rt-SelectTrigger:where([data-placeholder]) {
@@ -247,14 +225,12 @@
   cursor: not-allowed !important;
 }
 
-/* Segmented Control - Improve inactive item contrast */
-.rt-SegmentedControlItem:not([data-state="active"]) {
-  color: var(--gray-11) !important;
-}
 
-.rt-SegmentedControlItem:not([data-state="active"]):hover {
-  background-color: var(--gray-2) !important;
-  color: var(--gray-12) !important;
+
+/* SegmentedControl - Simple Test (Clean Approach) */
+.rt-SegmentedControlItem[data-state="active"] {
+  background-color: var(--gray-12) !important;
+  color: var(--gray-1) !important;
 }
 
 /* Card Surface Variant - Add border for definition */
@@ -431,10 +407,6 @@
   color: var(--gray-11) !important;
 }
 
-/* Inset - Improve side borders */
-.rt-Inset {
-  border: 1px solid var(--gray-5) !important;
-}
 
 /* AspectRatio - Add subtle border when needed */
 .rt-AspectRatio:not(:has(img)):not(:has(video)) {
@@ -456,16 +428,6 @@
 }
 
 .rt-AccordionTrigger:focus-visible {
-  outline: 2px solid var(--indigo-8) !important;
-  outline-offset: -2px !important;
-}
-
-/* Collapsible - Same improvements as Accordion */
-.rt-CollapsibleTrigger:hover {
-  background-color: var(--gray-2) !important;
-}
-
-.rt-CollapsibleTrigger:focus-visible {
   outline: 2px solid var(--indigo-8) !important;
   outline-offset: -2px !important;
 }
@@ -521,5 +483,17 @@ select:focus-visible,
 .rt-Button.button-eightfold:disabled {
   opacity: 0.5;
   cursor: not-allowed;
+}
+
+/* RadioCards - Fix alignment and ensure proper full-width layout */
+.rt-RadioCardsItem {
+  text-align: left !important;
+  display: flex !important;
+  width: 100% !important;
+}
+
+.rt-RadioCardsItem > * {
+  flex: 1 !important;
+  width: 100% !important;
 }
 

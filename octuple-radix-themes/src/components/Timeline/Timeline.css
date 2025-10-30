@@ -3,9 +3,19 @@
   width: 100%;
 }
 
+/* Horizontal timeline */
+.timeline-horizontal {
+  align-items: flex-start;
+}
+
+/* Vertical timeline */
+.timeline-vertical {
+  /* Keep existing vertical styles */
+}
+
 .timeline-item {
   position: relative;
-  padding-bottom: 24px;
+  padding-bottom: 4px;
 }
 
 .timeline-item:last-child {
@@ -29,10 +39,16 @@
 }
 
 .timeline-connector {
-  width: 2px;
+  /* Base connector - no dimensions here, let specific classes handle it */
   flex: 1;
   margin-top: 4px;
-  min-height: 24px;
+  transition: all 0.3s ease;
+}
+
+/* Vertical connectors only */
+.timeline-vertical .timeline-connector {
+  width: 2px;
+  min-height: 28px; /* Only for vertical connectors */
 }
 
 .timeline-content {
@@ -44,5 +60,46 @@
 .timeline-timestamp {
   flex-shrink: 0;
   white-space: nowrap;
+}
+
+/* Horizontal timeline item */
+.timeline-item-horizontal {
+  flex: none; /* Don't expand to fill space - size to content */
+  max-width: 200px; /* Maximum width constraint */
+  width: auto; /* Size to content */
+  display: flex;
+  gap: 8px; /* Reduced gap for horizontal */
+  align-items: flex-start; /* Align to top for consistent layout */
+  padding-bottom: 0; /* No bottom padding in horizontal */
+  padding-right: 4px; /* Reduced right padding */
+}
+
+.timeline-item-horizontal:last-child {
+  padding-right: 0;
+}
+
+/* Horizontal connectors - completely independent */
+.timeline-connector-horizontal {
+  width: 28px !important; /* Increased from 12px to 28px */
+  height: 2px !important; /* Match vertical connector thickness */
+  min-height: 2px !important; /* Override any base class */
+  max-height: 2px !important; /* Force consistent thickness */
+  flex: none !important; /* Don't flex, fixed size */
+  flex-shrink: 0;
+  margin-top: 15px; /* Adjusted to center with 32px circles (16px - 1px for 2px height) */
+  margin-left: 4px;
+  margin-right: 4px;
+}
+
+/* Horizontal content layout - consistent left alignment */
+.timeline-horizontal .timeline-content {
+  padding-top: 4px; /* Consistent with vertical */
+  text-align: left; /* Left align all content for consistency */
+  min-width: auto; /* Remove fixed min-width - size to content */
+  max-width: 200px; /* Content constraint */
+}
+
+.timeline-horizontal .timeline-timestamp {
+  display: none; /* Hide timestamps in horizontal version */
 }
 

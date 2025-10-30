@@ -65,7 +65,6 @@ export const Stepper: React.FC<StepperProps> = ({
   return (
     <Flex
       direction={orientation === 'horizontal' ? 'row' : 'column'}
-      gap={orientation === 'horizontal' ? '0' : '3'}
       className={`stepper-root stepper-${orientation}`}
     >
       {steps.map((step, index) => {
@@ -75,22 +74,45 @@ export const Stepper: React.FC<StepperProps> = ({
         return (
           <React.Fragment key={index}>
             <Flex
-              align="center"
-              gap="3"
               className={`stepper-step stepper-step-${status} ${clickable ? 'stepper-step-clickable' : ''}`}
               onClick={() => handleStepClick(index)}
             >
-              <Box className={`stepper-indicator stepper-indicator-${status}`}>
-                {status === 'completed' ? (
-                  <Icon name="check" size={16} />
-                ) : step.icon ? (
-                  <Icon name={step.icon} size={16} />
-                ) : (
-                  <Text size="2" weight="bold">{index + 1}</Text>
-                )}
-              </Box>
-              
-              <Flex direction="column" gap="1">
+              {/* Indicator wrapper - different structure for horizontal vs vertical */}
+              {orientation === 'horizontal' ? (
+                // Horizontal: Simple indicator without connector
+                <Box className={`stepper-indicator stepper-indicator-${status}`}>
+                  {status === 'completed' ? (
+                    <Icon name="check" size={16} />
+                  ) : step.icon ? (
+                    <Icon name={step.icon} size={16} />
+                  ) : (
+                    <Text size="2" weight="bold">{index + 1}</Text>
+                  )}
+                </Box>
+              ) : (
+                // Vertical: Indicator wrapper with connector inside
+                <Flex direction="column" align="center" className="stepper-indicator-wrapper">
+                  <Box className={`stepper-indicator stepper-indicator-${status}`}>
+                    {status === 'completed' ? (
+                      <Icon name="check" size={16} />
+                    ) : step.icon ? (
+                      <Icon name={step.icon} size={16} />
+                    ) : (
+                      <Text size="2" weight="bold">{index + 1}</Text>
+                    )}
+                  </Box>
+                  
+                  {/* Vertical connector as sibling inside wrapper */}
+                  {!isLast && (
+                    <Box className={`stepper-connector stepper-connector-${
+                      index < currentStep ? 'completed' : 'upcoming'
+                    }`} />
+                  )}
+                </Flex>
+              )}
+
+              {/* Content separate from indicator */}
+              <Flex direction="column" gap="1" className="stepper-content">
                 <Text size="2" weight="medium" className={`stepper-label-${status}`}>
                   {step.label}
                 </Text>
@@ -102,8 +124,9 @@ export const Stepper: React.FC<StepperProps> = ({
               </Flex>
             </Flex>
 
-            {!isLast && (
-              <Box className={`stepper-connector stepper-connector-${
+            {/* Horizontal connector - positioned between steps */}
+            {orientation === 'horizontal' && !isLast && (
+              <Box className={`stepper-connector stepper-connector-horizontal stepper-connector-${
                 index < currentStep ? 'completed' : 'upcoming'
               }`} />
             )}

@@ -56,3 +56,39 @@ export const WithCallbacks: Story = {
   ),
 };
 
+export const Compact: Story = {
+  render: () => (
+    <Uploader variant="compact" />
+  ),
+};
+
+export const CompactMultiple: Story = {
+  render: () => (
+    <Uploader 
+      variant="compact" 
+      multiple 
+      accept=".doc,.docx,.pdf,.txt" 
+    />
+  ),
+};
+
+export const CompactSingleFile: Story = {
+  render: () => (
+    <Uploader 
+      variant="compact" 
+      multiple={false}
+      accept="image/*"
+    />
+  ),
+};
+
+export const CompactWithSmallMaxSize: Story = {
+  render: () => (
+    <Uploader 
+      variant="compact"
+      maxSize={2 * 1024 * 1024} // 2MB limit
+      multiple
+    />
+  ),
+};
+

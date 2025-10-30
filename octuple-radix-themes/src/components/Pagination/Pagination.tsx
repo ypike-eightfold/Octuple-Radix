@@ -1,5 +1,5 @@
-import React from 'react';
-import { Flex, Button, Text, IconButton } from '@radix-ui/themes';
+import React, { useState } from 'react';
+import { Flex, Button, Text, IconButton, TextField } from '@radix-ui/themes';
 import { Icon } from '../Icon';
 
 export interface PaginationProps {
@@ -30,6 +30,11 @@ export interface PaginationProps {
    * @default true
    */
   showFirstLast?: boolean;
+  /**
+   * Show quick jumper input to navigate to specific page
+   * @default false
+   */
+  showQuickJumper?: boolean;
 }
 
 export const Pagination = React.forwardRef<HTMLDivElement, PaginationProps>(
@@ -40,8 +45,38 @@ export const Pagination = React.forwardRef<HTMLDivElement, PaginationProps>(
     siblingCount = 1,
     size = '2',
     showFirstLast = true,
+    showQuickJumper = false,
   }, ref) => {
     const iconSize = size === '1' ? 14 : size === '2' ? 16 : 18;
+
+    // Page jumper state
+    const [jumperValue, setJumperValue] = useState('');
+
+    // Jumper validation and navigation
+    const handleJumperSubmit = () => {
+      const pageNumber = parseInt(jumperValue, 10);
+      if (!isNaN(pageNumber) && pageNumber >= 1 && pageNumber <= totalPages) {
+        onPageChange(pageNumber);
+        setJumperValue('');
+      } else {
+        setJumperValue(''); // Clear invalid input
+      }
+    };
+
+    const handleJumperKeyDown = (e: React.KeyboardEvent) => {
+      if (e.key === 'Enter') {
+        e.preventDefault();
+        handleJumperSubmit();
+      }
+    };
+
+    const handleJumperChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+      const value = e.target.value;
+      // Only allow numbers
+      if (value === '' || /^\d+$/.test(value)) {
+        setJumperValue(value);
+      }
+    };
 
     const getPageNumbers = () => {
       const pages: (number | string)[] = [];
@@ -150,6 +185,22 @@ export const Pagination = React.forwardRef<HTMLDivElement, PaginationProps>(
           >
             <Icon name="skip_next" size={iconSize} />
           </IconButton>
+        )}
+
+        {showQuickJumper && (
+          <Flex align="center" gap="2" ml="3">
+            <Text size={size} color="gray">Go to</Text>
+            <TextField.Root
+              size={size}
+              style={{ width: size === '1' ? '50px' : size === '2' ? '60px' : '70px' }}
+              value={jumperValue}
+              onChange={handleJumperChange}
+              onKeyDown={handleJumperKeyDown}
+              onBlur={handleJumperSubmit}
+              placeholder="1"
+              aria-label={`Go to page (1-${totalPages})`}
+            />
+          </Flex>
         )}
       </Flex>
     );

@@ -1,5 +1,6 @@
 import React from 'react';
 import * as AccordionPrimitive from '@radix-ui/react-accordion';
+import { Badge } from '@radix-ui/themes';
 import { Icon } from '../Icon';
 import './Accordion.css';
 
@@ -12,6 +13,18 @@ export interface AccordionItemProps {
    * Header/trigger content
    */
   title: string;
+  /**
+   * Optional description text shown below the title
+   */
+  description?: string;
+  /**
+   * Optional badge/count to display (number or string)
+   */
+  badge?: string | number;
+  /**
+   * Optional action buttons (settings, delete, etc.)
+   */
+  actions?: React.ReactNode;
   /**
    * Body content
    */
@@ -50,7 +63,7 @@ export interface AccordionProps {
 export const AccordionItem = React.forwardRef<
   HTMLDivElement,
   AccordionItemProps
->(({ value, title, children, disabled }, ref) => (
+>(({ value, title, description, badge, actions, children, disabled }, ref) => (
   <AccordionPrimitive.Item
     ref={ref}
     className="accordion-item"
@@ -59,8 +72,33 @@ export const AccordionItem = React.forwardRef<
   >
     <AccordionPrimitive.Header className="accordion-header">
       <AccordionPrimitive.Trigger className="accordion-trigger">
-        <span>{title}</span>
-        <Icon name="expand_more" size={20} className="accordion-chevron" />
+        <div className="accordion-trigger-content">
+          <div className="accordion-title-section">
+            <div className="accordion-title-row">
+              <span className="accordion-title">{title}</span>
+              {badge && (
+                <Badge 
+                  variant="soft" 
+                  color="indigo"
+                  aria-label={typeof badge === 'number' ? `Count: ${badge}` : `Status: ${badge}`}
+                >
+                  {badge}
+                </Badge>
+              )}
+            </div>
+            {description && (
+              <span className="accordion-description">{description}</span>
+            )}
+          </div>
+          <div className="accordion-controls">
+            {actions && (
+              <div className="accordion-actions" onClick={(e) => e.stopPropagation()}>
+                {actions}
+              </div>
+            )}
+            <Icon name="expand_more" size={20} className="accordion-chevron" />
+          </div>
+        </div>
       </AccordionPrimitive.Trigger>
     </AccordionPrimitive.Header>
     <AccordionPrimitive.Content className="accordion-content">
