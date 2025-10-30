@@ -14,6 +14,17 @@ const config: StorybookConfig = {
   docs: {
     autodocs: 'tag',
   },
+  // Configure base path for GitHub Pages deployment
+  core: {
+    builder: '@storybook/builder-vite',
+  },
+  viteFinal: (config, { configType }) => {
+    if (configType === 'PRODUCTION') {
+      // Set base path for GitHub Pages
+      config.base = '/Octuple-Radix/';
+    }
+    return config;
+  },
 };
 
 export default config;
