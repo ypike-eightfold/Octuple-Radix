@@ -63,7 +63,7 @@ const preview: Preview = {
       const isLegacy = theme.startsWith('legacy-');
       const isDark = theme.includes('dark');
       const appearance = isDark ? 'dark' : 'light';
-      const accentColor = isLegacy ? 'blue' : 'violet';
+      const accentColor = isLegacy ? 'blue' : 'indigo';
       
       // Apply theme classes
       const themeClasses = [];
