@@ -34,14 +34,8 @@ const config: StorybookConfig = {
   core: {
     builder: '@storybook/builder-vite',
   },
-  // REMOVED base path configuration that was causing navigation 404s
-  // viteFinal: (config, { configType }) => {
-  //   if (configType === 'PRODUCTION') {
-  //     // Set base path for GitHub Pages
-  //     config.base = '/Octuple-Radix/';
-  //   }
-  //   return config;
-  // },
+  // Base path removed - GitHub Pages deployment works better without explicit base path
+  // This ensures assets load correctly on GitHub Pages without path prefix issues
 };
 
 export default config;
