@@ -4,7 +4,7 @@ import { create } from '@storybook/theming';
 const theme = create({
   base: 'light',
   brandTitle: 'Octuple Radix',
-  brandUrl: 'https://github.com/EightfoldAI/octuple-radix',
+  brandUrl: 'https://ypike-eightfold.github.io/Octuple-Radix/',
   brandTarget: '_self',
   
   colorPrimary: '#8b5cf6', // violet
