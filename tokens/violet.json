@@ -1,0 +1,40 @@
+{
+  "primaryColor": "#5d2156",
+  "accentName": "blueViolet",
+  "gradientEndPalette": [
+    "#fff0f9",
+    "#fcc8e7",
+    "#f3a5d4",
+    "#b5548e",
+    "#943d71",
+    "#702853"
+  ],
+  "gradientMiddlePalette": [
+    "#fbf6fb",
+    "#ead3e8",
+    "#dab4d6",
+    "#975590",
+    "#7e3a77",
+    "#5d2156"
+  ],
+  "gradientStartPalette": [
+    "#f1f2ff",
+    "#cacffc",
+    "#a9b0f5",
+    "#5962b7",
+    "#414996",
+    "#2b3271"
+  ],
+  "palette": [
+    "#fbf6fb",
+    "#ead3e8",
+    "#d8b1d4",
+    "#c491bf",
+    "#ae72a8",
+    "#975590",
+    "#7e3a77",
+    "#5d2156",
+    "#350e31",
+    "#060106"
+  ]
+}

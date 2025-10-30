@@ -1,0 +1,23 @@
+{
+  "devDependencies": {
+    "@types/node": "^24.0.12",
+    "react-docgen-typescript": "^2.4.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.8.3"
+  },
+  "name": "ai-context-octuple",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "sync:tokens": "ts-node scripts/sync_tokens.ts",
+    "parse:props": "ts-node scripts/parse_props.ts",
+    "build": "tsc"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@figma/code-connect": "^1.3.4"
+  }
+}

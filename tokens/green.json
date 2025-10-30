@@ -1,0 +1,40 @@
+{
+  "primaryColor": "#1b5143",
+  "accentName": "yellowGreen",
+  "gradientEndPalette": [
+    "#ebfdff",
+    "#b0f3fe",
+    "#7be4f4",
+    "#1999ac",
+    "#0b7b8b",
+    "#025966"
+  ],
+  "gradientMiddlePalette": [
+    "#f0fefa",
+    "#b9f4e4",
+    "#8ce1ca",
+    "#3d8f79",
+    "#2b715f",
+    "#1b5143"
+  ],
+  "gradientStartPalette": [
+    "#fdfeeb",
+    "#f3f5b0",
+    "#e2e575",
+    "#858707",
+    "#6d6f00",
+    "#525400"
+  ],
+  "palette": [
+    "#f0fefa",
+    "#b9f4e4",
+    "#8ce1ca",
+    "#67c5ac",
+    "#51ab93",
+    "#3d8f79",
+    "#2b715f",
+    "#1b5143",
+    "#0e2e26",
+    "#030a08"
+  ]
+}
