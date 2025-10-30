@@ -5,6 +5,11 @@ const config: StorybookConfig = {
     '../src/stories/**/*.mdx',
     '../src/stories/**/*.stories.@(js|jsx|mjs|ts|tsx)'
   ],
+  // Set Components Overview as default landing page
+  refs: {},
+  features: {
+    buildStoriesJson: true,
+  },
   addons: [
     '@storybook/addon-links',
     '@storybook/addon-essentials',

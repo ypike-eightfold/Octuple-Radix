@@ -41,5 +41,10 @@ addons.setConfig({
   sidebar: {
     showRoots: true,
   },
+  // Set Components Overview as the default landing page
+  initialActive: 'docs',
+  previewTabs: {
+    'storybook/docs/panel': { index: -1 },
+  },
 });
 

@@ -20,3 +20,18 @@
   }
 </style>
 
+<script>
+  // Redirect to Components Overview as default landing page
+  window.addEventListener('DOMContentLoaded', function() {
+    // Check if we're on the root path without any story selected
+    if (window.location.pathname === '/' || 
+        (window.location.search === '' && window.location.hash === '')) {
+      // Redirect to Components Overview page
+      const componentsOverviewUrl = '/?path=/docs/documentation-components-overview--docs';
+      if (window.location.href !== window.location.origin + componentsOverviewUrl) {
+        window.location.href = componentsOverviewUrl;
+      }
+    }
+  });
+</script>
+

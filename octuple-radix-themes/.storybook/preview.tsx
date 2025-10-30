@@ -5,6 +5,14 @@ import '../src/styles/component-overrides.css';
 
 const preview: Preview = {
   parameters: {
+    // Set Components Overview as the default landing page
+    options: {
+      storySort: {
+        order: ['Documentation', 'Components'],
+      },
+    },
+    // Set default page to Components Overview
+    viewMode: 'docs',
     actions: { argTypesRegex: '^on[A-Z].*' },
     controls: {
       expanded: true,
