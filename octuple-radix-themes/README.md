@@ -2,6 +2,18 @@
 
 > Modern, accessible design system built on Radix Themes with Violet accent, Full radius, Poppins font, and Material Icons.
 
+## 🌐 Live Storybook
+
+**Explore all components interactively:** [**https://ypike-eightfold.github.io/Octuple-Radix/**](https://ypike-eightfold.github.io/Octuple-Radix/)
+
+### 🎯 Featured Components
+
+- **[Enhanced Table Playground](https://ypike-eightfold.github.io/Octuple-Radix/?path=/story/components-enhanced-table--playground)** - Interactive controls for all table features
+- **[Accordion with Actions](https://ypike-eightfold.github.io/Octuple-Radix/?path=/story/components-accordion--with-actions)** - Enhanced accordion with badges and buttons
+- **[Timeline Horizontal](https://ypike-eightfold.github.io/Octuple-Radix/?path=/story/components-timeline--horizontal)** - New horizontal timeline variant
+- **[Stepper Variants](https://ypike-eightfold.github.io/Octuple-Radix/?path=/story/components-stepper--all-states)** - Complete stepper component
+- **[Compact Uploader](https://ypike-eightfold.github.io/Octuple-Radix/?path=/story/components-uploader--compact)** - Space-efficient file upload
+
 ## Features
 
 ✅ **40+ Production-Ready Components** - Button, Select, Dialog, Table, Card, and more  
@@ -160,19 +172,38 @@ import { Card, Flex, Avatar, Box, Text } from '@eightfold.ai/octuple-radix';
 
 ## Development
 
+### Local Development
+
 ```bash
 # Install dependencies
 npm install
 
-# Start Storybook
-npm run storybook
+# Start Storybook locally
+npm run dev          # Port 6007 (development)
+npm run storybook    # Port 6006 (alternative)
 
 # Build library
 npm run build
 
+# Build Storybook for production
+npm run build-storybook
+
 # Type check
 npm run type-check
 ```
+
+### 🚀 Live Deployment
+
+The Storybook is automatically deployed to GitHub Pages on every push to `main`:
+
+- **Live URL**: https://ypike-eightfold.github.io/Octuple-Radix/
+- **GitHub Actions**: Automatic build and deployment
+- **Base Path**: Configured for GitHub Pages with proper asset loading
+- **Production Optimized**: Built with Vite for fast loading
+
+#### Manual Deployment Trigger
+
+You can also trigger deployment manually from the GitHub Actions tab in the repository.
 
 ## Design Tokens
 
