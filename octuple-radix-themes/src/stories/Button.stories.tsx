@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { Button, Flex } from '@radix-ui/themes';
 import { Icon } from '../components/Icon';
+import { ButtonV2 } from '../components/ButtonV2/ButtonV2';
 
 const meta = {
   title: 'Components/Button',
@@ -104,6 +105,28 @@ export const EightfoldGradient: Story = {
         <Icon name="star" size={20} />
         Featured Action
       </Button>
+    </Flex>
+  ),
+};
+
+// V2.5 Button Primitive Stories - moved to separate section
+// See ButtonV2.stories.tsx for V2.5 buttons
+export const V25Primary: Story = {
+  render: () => (
+    <Flex direction="column" gap="3" align="start">
+      <ButtonV2 variant="primary" size="large">Primary Large</ButtonV2>
+      <ButtonV2 variant="primary" size="medium">Primary Medium</ButtonV2>
+      <ButtonV2 variant="primary" size="small">Primary Small</ButtonV2>
+    </Flex>
+  ),
+};
+
+export const V25Secondary: Story = {
+  render: () => (
+    <Flex direction="column" gap="3" align="start">
+      <ButtonV2 variant="secondary" size="large">Secondary Large</ButtonV2>
+      <ButtonV2 variant="secondary" size="medium">Secondary Medium</ButtonV2>
+      <ButtonV2 variant="secondary" size="small">Secondary Small</ButtonV2>
     </Flex>
   ),
 };

@@ -1,0 +1,148 @@
+/* ===========================
+   Radio V2 Component Styles
+   =========================== */
+
+/* Base label container */
+.radio-v2 {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  position: relative;
+  font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-weight: 400;
+  color: #1a212e;
+}
+
+.radio-v2:has(.radio-v2__input:disabled) {
+  cursor: not-allowed;
+  opacity: 0.4;
+}
+
+/* Hide native radio input */
+.radio-v2__input {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+  margin: 0;
+  padding: 0;
+}
+
+/* Custom radio circle */
+.radio-v2__circle {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background-color: #ffffff;
+  border: 2px solid #4f5666;
+  transition: all 0.2s ease;
+}
+
+/* Inner dot (only visible when checked) */
+.radio-v2__dot {
+  position: absolute;
+  border-radius: 50%;
+  background-color: #146da6;
+  opacity: 0;
+  transform: scale(0);
+  transition: all 0.2s ease;
+}
+
+/* Label text */
+.radio-v2__label {
+  user-select: none;
+}
+
+/* === SIZE VARIANTS === */
+
+/* Large - 24px */
+.radio-v2--large .radio-v2__circle {
+  width: 24px;
+  height: 24px;
+}
+
+.radio-v2--large .radio-v2__dot {
+  width: 8px;
+  height: 8px;
+}
+
+.radio-v2--large .radio-v2__label {
+  font-size: 18px;
+  line-height: 24px;
+}
+
+/* Medium - 20px */
+.radio-v2--medium .radio-v2__circle {
+  width: 20px;
+  height: 20px;
+}
+
+.radio-v2--medium .radio-v2__dot {
+  width: 6px;
+  height: 6px;
+}
+
+.radio-v2--medium .radio-v2__label {
+  font-size: 16px;
+  line-height: 20px;
+}
+
+/* Small - 16px */
+.radio-v2--small .radio-v2__circle {
+  width: 16px;
+  height: 16px;
+}
+
+.radio-v2--small .radio-v2__dot {
+  width: 5px;
+  height: 5px;
+}
+
+.radio-v2--small .radio-v2__label {
+  font-size: 14px;
+  line-height: 16px;
+}
+
+/* === CHECKED STATE === */
+.radio-v2__input:checked + .radio-v2__circle {
+  background-color: #b0f3fe;
+  border-color: #146da6;
+}
+
+.radio-v2__input:checked + .radio-v2__circle .radio-v2__dot {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* === INTERACTION STATES === */
+
+/* Hover - Light cyan background */
+.radio-v2:hover:not(:has(.radio-v2__input:disabled)) .radio-v2__circle {
+  background-color: #ebfdff;
+}
+
+.radio-v2__input:checked:hover:not(:disabled) + .radio-v2__circle {
+  background-color: #b0f3fe;
+}
+
+/* Pressed/Active - Darker cyan background */
+.radio-v2:active:not(:has(.radio-v2__input:disabled)) .radio-v2__circle {
+  background-color: #7be4f4;
+}
+
+.radio-v2__input:checked:active:not(:disabled) + .radio-v2__circle {
+  background-color: #7be4f4;
+}
+
+/* Focus (Accessibility) - Purple outline */
+.radio-v2__input:focus-visible + .radio-v2__circle {
+  outline: 2px solid #7b61ff;
+  outline-offset: 2px;
+}
+
+/* Disabled state - handled by parent opacity */
+
