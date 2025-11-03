@@ -1,0 +1,150 @@
+/* V2.5 Button Primitive - Built from scratch */
+
+/* Base button styling */
+.btn-v2 {
+  /* Reset */
+  margin: 0;
+  border: none;
+  background: none;
+  cursor: pointer;
+  text-decoration: none;
+  
+  /* Layout */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  
+  /* Rounded shape - 24px radius from Figma */
+  border-radius: 24px;
+  
+  /* Typography - from Figma specs */
+  font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-weight: 600;
+  text-align: center;
+  white-space: nowrap;
+  
+  /* Smooth transitions */
+  transition: all 150ms ease-in-out;
+  
+  /* Accessibility */
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Focus state */
+.btn-v2:focus-visible {
+  outline: 2px solid #3e63dd;
+  outline-offset: 2px;
+}
+
+/* Disabled state - from Figma: 40% opacity */
+.btn-v2:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+/* === SIZE VARIANTS === */
+
+/* Large - Default size */
+.btn-v2--large {
+  padding: 10px 16px;
+  font-size: 18px;
+  line-height: 24px;
+}
+
+/* Medium */
+.btn-v2--medium {
+  padding: 8px 12px;
+  font-size: 16px;
+  line-height: 20px;
+}
+
+/* Small */
+.btn-v2--small {
+  padding: 6px 8px;
+  font-size: 14px;
+  line-height: 16px;
+}
+
+/* === VARIANT STYLES === */
+
+/* Primary - Cyan/Blue filled */
+.btn-v2--primary {
+  background-color: #b0f3fe;
+  color: #054d7b;
+  border: none;
+}
+
+.btn-v2--primary:hover:not(:disabled) {
+  background-color: #ebfdff;
+}
+
+.btn-v2--primary:active:not(:disabled) {
+  background-color: #7be4f4;
+}
+
+/* Secondary - Cyan outline */
+.btn-v2--secondary {
+  background-color: #ffffff;
+  color: #054d7b;
+  border: 1px solid #1999ac;
+}
+
+.btn-v2--secondary:hover:not(:disabled) {
+  background-color: #ebfdff;
+}
+
+.btn-v2--secondary:active:not(:disabled) {
+  background-color: #b0f3fe;
+}
+
+/* Default - Light cyan/blue */
+.btn-v2--default {
+  background-color: #ebf7ff;
+  color: #054d7b;
+  border: none;
+}
+
+/* Neutral - Gray filled */
+.btn-v2--neutral {
+  background-color: #f6f7f8;
+  color: #343c4c;
+  border: none;
+}
+
+/* System UI - White background */
+.btn-v2--system-ui {
+  background-color: #ffffff;
+  color: #343c4c;
+  border: none;
+}
+
+/* Disruptive Primary - Pink/Red filled */
+.btn-v2--disruptive-primary {
+  background-color: #ffc6c6;
+  color: #6c2222;
+  border: none;
+}
+
+/* Disruptive Secondary - Red outline */
+.btn-v2--disruptive-secondary {
+  background-color: #ffffff;
+  color: #6c2222;
+  border: 1px solid #c15151;
+}
+
+/* Disruptive Default - Light pink */
+.btn-v2--disruptive-default {
+  background-color: #ffefef;
+  color: #6c2222;
+  border: none;
+}
+
+/* Two-state active state (teal/green) - these are separate buttons, not a toggle */
+.btn-v2--two-state-active {
+  background-color: #f0fefa;
+  color: #025966;
+  border: none;
+}
+

@@ -1,0 +1,133 @@
+/* ===========================
+   Slider V2 Component Styles
+   =========================== */
+
+/* Container */
+.slider-v2 {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  width: 100%;
+  font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+.slider-v2--disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+/* Track container */
+.slider-v2__track-container {
+  position: relative;
+  height: 28px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+/* Track background (unfilled) */
+.slider-v2__track-bg {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 4px;
+  background-color: #ebfdff;
+  border: 1px solid #2c8cc9;
+  border-radius: 4px;
+}
+
+/* Track fill (progress indicator) */
+.slider-v2__track-fill {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 4px;
+  background-color: #2c8cc9;
+  border-radius: 4px;
+  transition: width 0.1s ease, left 0.1s ease;
+  pointer-events: none;
+}
+
+/* Thumb (draggable handle) */
+.slider-v2__thumb {
+  position: absolute;
+  top: 0;
+  transform: translateX(-50%);
+  width: 28px;
+  height: 28px;
+  background-color: #b0f3fe;
+  border: none;
+  border-radius: 24px;
+  box-shadow: 0px -1px 2px 0px rgba(15, 20, 31, 0.12), 
+              0px 1px 4px 0px rgba(15, 20, 31, 0.16);
+  cursor: grab;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.1s ease;
+  z-index: 2;
+}
+
+.slider-v2__thumb:active {
+  cursor: grabbing;
+}
+
+.slider-v2__thumb:disabled {
+  cursor: not-allowed;
+}
+
+.slider-v2__thumb:hover:not(:disabled) {
+  background-color: #ebfdff;
+}
+
+/* Thumb icon (Material Design Icons drag handle) */
+.slider-v2__thumb-icon {
+  font-family: 'Material Design Icons', sans-serif;
+  font-size: 16px;
+  color: #054d7b;
+  line-height: 1;
+  user-select: none;
+}
+
+/* Fallback if Material Icons not loaded - use text */
+.slider-v2__thumb-icon::before {
+  content: '⋮⋮';
+  font-size: 12px;
+  letter-spacing: -2px;
+}
+
+/* Labels container */
+.slider-v2__labels {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 20px;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+/* Min/Max labels */
+.slider-v2__label-min,
+.slider-v2__label-max {
+  font-weight: 400;
+  color: #69717f;
+}
+
+/* Current value label (positioned dynamically in component) */
+.slider-v2__label-value {
+  font-weight: 600;
+  color: #4f5666;
+}
+
+/* Ensure thumbs are above track */
+.slider-v2__thumb {
+  z-index: 10;
+}
+
+.slider-v2__track-fill {
+  z-index: 1;
+}
+

@@ -1,0 +1,143 @@
+/* V2.5 Checkbox Primitive - Built from Figma specs */
+
+/* Container label */
+.checkbox-v2 {
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+  user-select: none;
+  position: relative;
+}
+
+/* Hidden native input */
+.checkbox-v2__input {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+  pointer-events: none;
+}
+
+/* Custom checkbox box */
+.checkbox-v2__box {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  border: 2px solid #69717f;
+  background-color: #ffffff;
+  transition: all 150ms ease-in-out;
+  position: relative;
+  flex-shrink: 0;
+}
+
+/* Checkmark icon (for checked state) */
+.checkbox-v2__checkmark {
+  position: absolute;
+  color: #054d7b;
+  opacity: 0;
+  transform: scale(0.8);
+  transition: all 150ms ease-in-out;
+  line-height: 1;
+}
+
+/* Indeterminate icon (for partial state) */
+.checkbox-v2__indeterminate {
+  position: absolute;
+  color: #054d7b;
+  opacity: 0;
+  transform: scale(0.8);
+  transition: all 150ms ease-in-out;
+  line-height: 1;
+}
+
+/* === SIZE VARIANTS === */
+
+/* Large - 24px */
+.checkbox-v2--large .checkbox-v2__box {
+  width: 24px;
+  height: 24px;
+}
+
+.checkbox-v2--large .checkbox-v2__checkmark,
+.checkbox-v2--large .checkbox-v2__indeterminate {
+  font-size: 20px;
+}
+
+/* Medium - 20px */
+.checkbox-v2--medium .checkbox-v2__box {
+  width: 20px;
+  height: 20px;
+}
+
+.checkbox-v2--medium .checkbox-v2__checkmark,
+.checkbox-v2--medium .checkbox-v2__indeterminate {
+  font-size: 18px;
+}
+
+/* Small - 16px */
+.checkbox-v2--small .checkbox-v2__box {
+  width: 16px;
+  height: 16px;
+}
+
+.checkbox-v2--small .checkbox-v2__checkmark,
+.checkbox-v2--small .checkbox-v2__indeterminate {
+  font-size: 14px;
+}
+
+/* === STATE VARIANTS === */
+
+/* Checked state */
+.checkbox-v2__input:checked ~ .checkbox-v2__box {
+  background-color: #b0f3fe;
+  border-color: #146da6;
+}
+
+.checkbox-v2__input:checked ~ .checkbox-v2__box .checkbox-v2__checkmark {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Indeterminate state */
+.checkbox-v2__input:indeterminate ~ .checkbox-v2__box {
+  background-color: #b0f3fe;
+  border-color: #146da6;
+}
+
+.checkbox-v2__input:indeterminate ~ .checkbox-v2__box .checkbox-v2__indeterminate {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Hover state - light cyan background */
+.checkbox-v2:hover:not(.checkbox-v2--disabled) .checkbox-v2__box {
+  background-color: #ebfdff;
+}
+
+.checkbox-v2:hover:not(.checkbox-v2--disabled) .checkbox-v2__input:checked ~ .checkbox-v2__box,
+.checkbox-v2:hover:not(.checkbox-v2--disabled) .checkbox-v2__input:indeterminate ~ .checkbox-v2__box {
+  background-color: #b0f3fe;
+}
+
+/* Active/Pressed state - cyan background */
+.checkbox-v2:active:not(.checkbox-v2--disabled) .checkbox-v2__box {
+  background-color: #b0f3fe;
+}
+
+/* Focus state - purple border */
+.checkbox-v2__input:focus-visible ~ .checkbox-v2__box {
+  outline: 2px solid #7b61ff;
+  outline-offset: 2px;
+}
+
+/* Disabled state - 40% opacity from Figma */
+.checkbox-v2--disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.checkbox-v2--disabled .checkbox-v2__box {
+  cursor: not-allowed;
+}
+
