@@ -1,0 +1,57 @@
+/* SpinnerV2 Styles - Figma Design Specifications */
+
+.spinnerv2 {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.spinnerv2__svg {
+  animation: spinnerv2-rotate 1s linear infinite;
+}
+
+.spinnerv2__circle {
+  transform-origin: center;
+}
+
+.spinnerv2__sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+@keyframes spinnerv2-rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Respect user preferences for reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .spinnerv2__svg {
+    animation: none;
+  }
+  
+  .spinnerv2__circle {
+    animation: spinnerv2-pulse 1.5s ease-in-out infinite;
+  }
+  
+  @keyframes spinnerv2-pulse {
+    0%, 100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.5;
+    }
+  }
+}
+

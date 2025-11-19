@@ -29,6 +29,12 @@ export type { SwitchV2Props, SwitchV2Size } from './components/SwitchV2';
 export { SliderV2 } from './components/SliderV2';
 export type { SliderV2Props } from './components/SliderV2';
 
+export { NavbarV2 } from './components/NavbarV2';
+export type { NavbarV2Props, NavbarV2Tab } from './components/NavbarV2';
+
+export { NavigationMenuV2 } from './components/NavigationMenuV2';
+export type { NavigationMenuV2Props, NavigationMenuV2Item } from './components/NavigationMenuV2';
+
 export { Accordion, AccordionItem } from './components/Accordion';
 export type { AccordionProps, AccordionItemProps } from './components/Accordion';
 
@@ -43,6 +49,42 @@ export type { StepperProps, StepItem } from './components/Stepper';
 
 export { Timeline } from './components/Timeline';
 export type { TimelineProps, TimelineItemData } from './components/Timeline';
+
+export { NavTabV2 } from './components/NavTabV2';
+export type { NavTabV2Props, NavTabV2Item, NavTabV2Size } from './components/NavTabV2';
+
+export { PageTabV2 } from './components/PageTabV2';
+export type { PageTabV2Props, PageTabV2Item, PageTabV2Size } from './components/PageTabV2';
+
+export { ToastV2, ToastV2Provider, ToastV2Viewport } from './components/ToastV2';
+export type { ToastV2Props, ToastV2Action, ToastV2Variant } from './components/ToastV2';
+
+export { ProgressV2 } from './components/ProgressV2';
+export type { ProgressV2Props, ProgressV2Style, ProgressV2Size } from './components/ProgressV2';
+
+export { TimelineV2 } from './components/TimelineV2';
+export type {
+  TimelineV2Props,
+  TimelineV2Item,
+  TimelineV2Status,
+  TimelineV2Orientation,
+  TimelineV2Size,
+} from './components/TimelineV2';
+
+export { TooltipV2 } from './components/TooltipV2';
+export type { TooltipV2Props, TooltipV2Variant } from './components/TooltipV2';
+
+export { UploaderV2 } from './components/UploaderV2';
+export type { UploaderV2Props, UploaderV2Size, UploaderV2File } from './components/UploaderV2';
+
+export { EmptyStateIllustration } from './components/EmptyStateIllustration';
+export type { EmptyStateIllustrationProps, EmptyStateIllustrationType } from './components/EmptyStateIllustration';
+
+export { SpinnerV2 } from './components/SpinnerV2';
+export type { SpinnerV2Props, SpinnerV2Size } from './components/SpinnerV2';
+
+export { ThinkingV2 } from './components/ThinkingV2';
+export type { ThinkingV2Props } from './components/ThinkingV2';
 
 // Enhanced Table exports
 export { 

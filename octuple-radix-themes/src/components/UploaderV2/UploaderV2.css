@@ -1,0 +1,334 @@
+/* UploaderV2 Styles - Figma Design Specifications */
+
+.uploaderv2-container {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+}
+
+/* Drop Zone */
+.uploaderv2-dropzone {
+  background-color: #ffffff;
+  border: 1px dashed #bec2ca;
+  border-radius: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  position: relative;
+}
+
+.uploaderv2-dropzone:hover:not(.uploaderv2-dropzone--disabled) {
+  border-color: #146da6;
+  background-color: #f6f7f8;
+}
+
+.uploaderv2-dropzone--dragging {
+  border-color: #146da6;
+  background-color: #f0fefa;
+  border-style: solid;
+}
+
+.uploaderv2-dropzone--disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Size Variants */
+.uploaderv2-dropzone--small {
+  height: 88px;
+  min-width: 400px;
+}
+
+.uploaderv2-dropzone--medium {
+  height: 120px;
+  min-width: 500px;
+  padding: 24px;
+}
+
+.uploaderv2-dropzone--large {
+  height: 160px;
+  min-width: 600px;
+  padding: 32px;
+}
+
+/* Drop Zone Content */
+.uploaderv2-dropzone__content {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex: 1;
+}
+
+/* Upload Button - Custom Figma Design */
+.uploaderv2-button {
+  background-color: #b0f3fe;
+  border: none;
+  border-radius: 24px;
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  flex-shrink: 0;
+}
+
+.uploaderv2-button span {
+  font-family: 'Gilroy', 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-weight: 600; /* Gilroy SemiBold */
+  font-size: 16px;
+  line-height: 20px;
+  color: #054d7b;
+  padding: 0 4px;
+}
+
+.uploaderv2-button:hover:not(:disabled) {
+  background-color: #9ee8f7;
+}
+
+.uploaderv2-button:active:not(:disabled) {
+  background-color: #8cddf5;
+}
+
+.uploaderv2-button:focus {
+  outline: 2px solid #146da6;
+  outline-offset: 2px;
+}
+
+.uploaderv2-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.uploaderv2-dropzone__text {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.uploaderv2-dropzone__title {
+  font-family: 'Gilroy', 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-weight: 600; /* Gilroy SemiBold */
+  font-size: 16px;
+  line-height: 24px;
+  color: #1a212e;
+}
+
+.uploaderv2-dropzone__subtitle {
+  font-family: 'Gilroy', 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-weight: 400; /* Gilroy Medium */
+  font-size: 14px;
+  line-height: 20px;
+  color: #69717f;
+}
+
+/* Medium & Large adjustments */
+.uploaderv2-dropzone--medium .uploaderv2-dropzone__title {
+  font-size: 18px;
+  line-height: 26px;
+}
+
+.uploaderv2-dropzone--large .uploaderv2-dropzone__title {
+  font-size: 20px;
+  line-height: 28px;
+}
+
+.uploaderv2-dropzone--medium .uploaderv2-dropzone__subtitle {
+  font-size: 15px;
+  line-height: 22px;
+}
+
+.uploaderv2-dropzone--large .uploaderv2-dropzone__subtitle {
+  font-size: 16px;
+  line-height: 24px;
+}
+
+/* Legal Text */
+.uploaderv2-legal {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  font-family: 'Gilroy', 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-weight: 400; /* Gilroy Medium */
+  font-size: 12px;
+  line-height: 16px;
+  color: #1a212e;
+  text-align: center;
+}
+
+.uploaderv2-legal__text {
+  color: #1a212e;
+}
+
+.uploaderv2-legal__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-family: 'Gilroy', 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-weight: 600; /* Gilroy SemiBold */
+  font-size: 12px;
+  line-height: 16px;
+  color: #146da6;
+  text-decoration: underline;
+  text-decoration-skip-ink: none;
+  text-underline-position: from-font;
+  transition: color 0.2s ease;
+}
+
+.uploaderv2-legal__link:hover {
+  color: #054d7b;
+}
+
+.uploaderv2-legal__link:visited {
+  color: #146da6;
+}
+
+/* File List */
+.uploaderv2-filelist {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.uploaderv2-file {
+  background-color: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 16px;
+  padding: 12px 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  transition: all 0.2s ease;
+  position: relative;
+}
+
+.uploaderv2-file:hover {
+  border-color: #bec2ca;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.uploaderv2-file--success {
+  border-color: #2b715f;
+  background-color: #f0fefa;
+}
+
+.uploaderv2-file--error {
+  border-color: #a63232;
+  background-color: #fff5f5;
+}
+
+.uploaderv2-file__info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex: 1;
+  min-width: 0;
+}
+
+.uploaderv2-file__details {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  flex: 1;
+  min-width: 0;
+}
+
+.uploaderv2-file__name {
+  font-family: 'Gilroy', 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-weight: 600; /* Gilroy SemiBold */
+  font-size: 14px;
+  line-height: 20px;
+  color: #1a212e;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.uploaderv2-file__size {
+  font-family: 'Gilroy', 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-weight: 400; /* Gilroy Medium */
+  font-size: 12px;
+  line-height: 16px;
+  color: #69717f;
+}
+
+.uploaderv2-file__progress {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background-color: #e5e7eb;
+  border-radius: 0 0 16px 16px;
+  overflow: hidden;
+}
+
+.uploaderv2-file__progress-bar {
+  height: 100%;
+  background-color: #146da6;
+  transition: width 0.3s ease;
+}
+
+.uploaderv2-file__remove {
+  background: none;
+  border: none;
+  padding: 4px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #69717f;
+  transition: color 0.2s ease;
+  border-radius: 4px;
+  flex-shrink: 0;
+}
+
+.uploaderv2-file__remove:hover {
+  color: #a63232;
+  background-color: #fff5f5;
+}
+
+.uploaderv2-file__remove:focus {
+  outline: 2px solid #146da6;
+  outline-offset: 2px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 640px) {
+  .uploaderv2-dropzone--small,
+  .uploaderv2-dropzone--medium,
+  .uploaderv2-dropzone--large {
+    min-width: 100%;
+    flex-direction: column;
+    gap: 16px;
+    height: auto;
+    padding: 20px;
+  }
+
+  .uploaderv2-dropzone__content {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .uploaderv2-legal {
+    font-size: 11px;
+  }
+}
+
+/* Accessibility: Respect user preferences for reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .uploaderv2-dropzone,
+  .uploaderv2-file,
+  .uploaderv2-legal__link,
+  .uploaderv2-file__progress-bar {
+    transition: none;
+  }
+}
+

@@ -1,0 +1,298 @@
+/* ToastV2 Component - Built on Radix UI Toast Primitive */
+
+/* Viewport - where toasts appear */
+.toastv2-viewport {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: auto;
+  max-width: calc(100vw - 48px);
+  margin: 0;
+  list-style: none;
+  z-index: 2147483647;
+  outline: none;
+}
+
+/* Toast root container */
+.toastv2-root {
+  border-radius: 20px;
+  box-shadow: 
+    0px -1px 2px 0px rgba(15, 20, 31, 0.12),
+    0px 4px 16px 0px rgba(15, 20, 31, 0.16);
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 6px 10px 6px 16px;
+  min-width: 400px;
+  max-width: 600px;
+  box-sizing: border-box;
+}
+
+/* Variant backgrounds */
+.toastv2-root--neutral {
+  background-color: #f6f7f8; /* Background-1 grey */
+}
+
+.toastv2-root--success {
+  background-color: #f0fefa; /* Background-1 green */
+}
+
+.toastv2-root--error {
+  background-color: #fff5f5; /* Background-1 red */
+}
+
+.toastv2-root--warning {
+  background-color: #fffcf0; /* Background-1 orange */
+}
+
+.toastv2-root--info {
+  background-color: #f0f8ff; /* Background-1 blue */
+}
+
+/* Animations */
+@keyframes toastSlideIn {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes toastSlideOut {
+  from {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+}
+
+.toastv2-root[data-state='open'] {
+  animation: toastSlideIn 200ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.toastv2-root[data-state='closed'] {
+  animation: toastSlideOut 150ms ease-in;
+}
+
+/* Swipe gesture */
+.toastv2-root[data-swipe='move'] {
+  transform: translateX(var(--radix-toast-swipe-move-x));
+}
+
+.toastv2-root[data-swipe='cancel'] {
+  transform: translateX(0);
+  transition: transform 200ms ease-out;
+}
+
+.toastv2-root[data-swipe='end'] {
+  animation: toastSlideOut 150ms ease-in;
+}
+
+/* Content wrapper */
+.toastv2-content {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  flex: 1;
+  min-width: 0;
+}
+
+/* Main content (icon + text) */
+.toastv2-main {
+  display: flex;
+  align-items: flex-start;
+  gap: 6px;
+  flex: 1;
+  min-width: 0;
+  padding: 6px 0;
+}
+
+/* Icon */
+.toastv2-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  padding: 1px 0;
+}
+
+/* Message text */
+.toastv2-message {
+  font-family: 'Gilroy', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Variant text colors */
+.toastv2-root--neutral .toastv2-message {
+  color: #4f5666; /* Secondary grey */
+}
+
+.toastv2-root--success .toastv2-message {
+  color: #2b715f; /* Secondary green */
+}
+
+.toastv2-root--error .toastv2-message {
+  color: #a63232; /* Secondary red */
+}
+
+.toastv2-root--warning .toastv2-message {
+  color: #a66f32; /* Secondary orange */
+}
+
+.toastv2-root--info .toastv2-message {
+  color: #146da6; /* Secondary blue */
+}
+
+/* Buttons (action and close) */
+.toastv2-button {
+  all: unset;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 24px;
+  padding: 8px;
+  cursor: pointer;
+  transition: all 150ms ease-in-out;
+  box-sizing: border-box;
+}
+
+/* Neutral variant buttons */
+.toastv2-root--neutral .toastv2-button {
+  background-color: #f6f7f8;
+}
+
+.toastv2-root--neutral .toastv2-button:hover {
+  background-color: #e8eaed;
+}
+
+.toastv2-root--neutral .toastv2-button:active {
+  background-color: #dfe2e6;
+}
+
+/* Success variant buttons */
+.toastv2-root--success .toastv2-button {
+  background-color: #f0fefa;
+}
+
+.toastv2-root--success .toastv2-button:hover {
+  background-color: #e1f7f0;
+}
+
+.toastv2-root--success .toastv2-button:active {
+  background-color: #d2f0e6;
+}
+
+/* Error variant buttons */
+.toastv2-root--error .toastv2-button {
+  background-color: #fff5f5;
+}
+
+.toastv2-root--error .toastv2-button:hover {
+  background-color: #ffe5e5;
+}
+
+.toastv2-root--error .toastv2-button:active {
+  background-color: #ffd5d5;
+}
+
+/* Warning variant buttons */
+.toastv2-root--warning .toastv2-button {
+  background-color: #fffcf0;
+}
+
+.toastv2-root--warning .toastv2-button:hover {
+  background-color: #fff8e0;
+}
+
+.toastv2-root--warning .toastv2-button:active {
+  background-color: #fff3d0;
+}
+
+/* Info variant buttons */
+.toastv2-root--info .toastv2-button {
+  background-color: #f0f8ff;
+}
+
+.toastv2-root--info .toastv2-button:hover {
+  background-color: #e0f0ff;
+}
+
+.toastv2-root--info .toastv2-button:active {
+  background-color: #d0e8ff;
+}
+
+.toastv2-button:focus-visible {
+  outline: 2px solid #146da6;
+  outline-offset: 2px;
+}
+
+.toastv2-button__label {
+  font-family: 'Gilroy', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 20px;
+  color: #343c4c; /* Primary grey from tokens */
+  padding: 0 4px;
+  white-space: nowrap;
+}
+
+/* Action button specific */
+.toastv2-action {
+  all: unset;
+  display: flex;
+}
+
+.toastv2-button--action {
+  gap: 6px;
+}
+
+/* Close button specific */
+.toastv2-close {
+  all: unset;
+  display: flex;
+}
+
+.toastv2-button--close {
+  padding: 6px;
+}
+
+/* Variant colors - handled via Icon component color prop */
+
+/* Responsive */
+@media (max-width: 768px) {
+  .toastv2-viewport {
+    bottom: 16px;
+    max-width: calc(100vw - 32px);
+  }
+
+  .toastv2-root {
+    min-width: 300px;
+    padding: 6px 8px 6px 12px;
+  }
+
+  .toastv2-message {
+    font-size: 14px;
+    line-height: 20px;
+  }
+
+  .toastv2-button__label {
+    font-size: 14px;
+    line-height: 18px;
+  }
+}
+

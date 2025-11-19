@@ -1,0 +1,273 @@
+/* TimelineV2 Component - Custom component built to Figma specs */
+
+/* Root */
+.timelinev2-root {
+  display: flex;
+  width: 100%;
+}
+
+.timelinev2-root--vertical {
+  flex-direction: column;
+}
+
+.timelinev2-root--horizontal {
+  flex-direction: row;
+}
+
+/* Item */
+.timelinev2-item {
+  display: flex;
+  gap: 24px;
+  position: relative;
+}
+
+.timelinev2-root--vertical .timelinev2-item:not(:last-child) {
+  padding-bottom: 0;
+}
+
+.timelinev2-root--horizontal .timelinev2-item {
+  flex: 1;
+}
+
+/* Marker (icon + connector) */
+.timelinev2-marker {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+/* Icon */
+.timelinev2-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 24px;
+  padding: 6px;
+  flex-shrink: 0;
+  transition: all 200ms ease-in-out;
+}
+
+/* Icon status variants */
+.timelinev2-icon--completed {
+  background-color: #ebf7ff; /* Background-1 blue */
+  color: #146da6; /* Secondary blue */
+}
+
+.timelinev2-icon--active {
+  background-color: #bce4ff; /* Background-2 blue */
+  border: 1px solid #2c8cc9; /* Primary blue border */
+  color: #054d7b; /* Primary dark blue */
+}
+
+.timelinev2-icon--pending {
+  background-color: #ebf7ff; /* Background-1 blue */
+  color: #146da6; /* Secondary blue */
+}
+
+/* Connector */
+.timelinev2-connector {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 40px;
+  width: 2px;
+}
+
+.timelinev2-connector svg {
+  width: 100%;
+  height: 100%;
+}
+
+/* Content */
+.timelinev2-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  padding-bottom: 40px;
+  flex: 1;
+}
+
+.timelinev2-root--vertical .timelinev2-item:last-child .timelinev2-content {
+  padding-bottom: 0;
+}
+
+/* Label */
+.timelinev2-label {
+  font-family: 'Gilroy', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 24px;
+  color: #1a212e; /* Default text color */
+}
+
+/* Description */
+.timelinev2-description {
+  font-family: 'Gilroy', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  color: #69717f; /* Tertiary grey */
+}
+
+/* Size variants */
+.timelinev2-root--large .timelinev2-item {
+  gap: 32px;
+}
+
+.timelinev2-root--large .timelinev2-icon {
+  padding: 8px;
+}
+
+.timelinev2-root--large .timelinev2-label {
+  font-size: 18px;
+  line-height: 28px;
+}
+
+.timelinev2-root--large .timelinev2-description {
+  font-size: 18px;
+  line-height: 28px;
+}
+
+.timelinev2-root--large .timelinev2-content {
+  padding-bottom: 48px;
+}
+
+.timelinev2-root--large .timelinev2-connector {
+  min-height: 48px;
+}
+
+.timelinev2-root--medium .timelinev2-item {
+  gap: 24px;
+}
+
+.timelinev2-root--medium .timelinev2-icon {
+  padding: 6px;
+}
+
+.timelinev2-root--medium .timelinev2-label {
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.timelinev2-root--medium .timelinev2-description {
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.timelinev2-root--medium .timelinev2-content {
+  padding-bottom: 40px;
+}
+
+.timelinev2-root--medium .timelinev2-connector {
+  min-height: 40px;
+}
+
+.timelinev2-root--small .timelinev2-item {
+  gap: 16px;
+}
+
+.timelinev2-root--small .timelinev2-icon {
+  padding: 4px;
+}
+
+.timelinev2-root--small .timelinev2-label {
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.timelinev2-root--small .timelinev2-description {
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.timelinev2-root--small .timelinev2-content {
+  padding-bottom: 32px;
+}
+
+.timelinev2-root--small .timelinev2-connector {
+  min-height: 32px;
+}
+
+/* Horizontal orientation adjustments */
+.timelinev2-root--horizontal {
+  flex-direction: row;
+}
+
+.timelinev2-root--horizontal .timelinev2-item {
+  flex-direction: column;
+  gap: 16px;
+  width: 200px;
+  flex-shrink: 0;
+}
+
+.timelinev2-root--horizontal .timelinev2-marker {
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+}
+
+.timelinev2-root--horizontal .timelinev2-icon {
+  flex-shrink: 0;
+}
+
+.timelinev2-root--horizontal .timelinev2-connector {
+  flex: 1;
+  width: 100%;
+  height: 2px;
+  min-height: 2px;
+  min-width: auto;
+}
+
+.timelinev2-root--horizontal .timelinev2-connector--horizontal {
+  display: flex;
+  align-items: center;
+}
+
+.timelinev2-root--horizontal .timelinev2-connector--horizontal svg {
+  width: 100%;
+  height: 2px;
+}
+
+.timelinev2-root--horizontal .timelinev2-item:last-child .timelinev2-marker {
+  justify-content: flex-start;
+}
+
+.timelinev2-root--horizontal .timelinev2-item:last-child .timelinev2-connector {
+  display: none;
+}
+
+.timelinev2-root--horizontal .timelinev2-content {
+  padding-bottom: 0;
+  width: 100%;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .timelinev2-item {
+    gap: 16px;
+  }
+
+  .timelinev2-label {
+    font-size: 14px;
+    line-height: 20px;
+  }
+
+  .timelinev2-description {
+    font-size: 14px;
+    line-height: 20px;
+  }
+
+  .timelinev2-content {
+    padding-bottom: 32px;
+  }
+}
+
+/* Accessibility - respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .timelinev2-icon {
+    transition: none;
+  }
+}
+
