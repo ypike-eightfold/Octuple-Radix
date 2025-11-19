@@ -1,0 +1,152 @@
+/* AvatarV2 - Base styles */
+.avatarv2 {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  box-sizing: border-box;
+}
+
+/* Variant - Count */
+.avatarv2--count .rt-AvatarFallback {
+  background-color: #e8eaed !important;
+  color: #1a212e !important;
+  font-weight: 600 !important;
+  padding: 0 !important;
+  line-height: 1 !important;
+}
+
+/* Override Radix Avatar styles */
+.avatarv2 .rt-AvatarRoot {
+  width: 100% !important;
+  height: 100% !important;
+  border-radius: 50% !important;
+}
+
+.avatarv2 .rt-AvatarImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.avatarv2 .rt-AvatarFallback {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #e8eaed;
+  color: #6b7280;
+  font-family: 'Gilroy', 'Poppins', sans-serif;
+  font-weight: 600;
+  border-radius: 50%;
+}
+
+/* Size-specific fallback font sizes */
+.avatarv2--xs .rt-AvatarFallback {
+  font-size: 10px;
+}
+
+.avatarv2--s .rt-AvatarFallback {
+  font-size: 16px;
+}
+
+.avatarv2--m .rt-AvatarFallback {
+  font-size: 24px;
+}
+
+.avatarv2--l .rt-AvatarFallback {
+  font-size: 32px;
+}
+
+.avatarv2--xl .rt-AvatarFallback {
+  font-size: 40px;
+}
+
+.avatarv2--xxl .rt-AvatarFallback {
+  font-size: 48px;
+}
+
+.avatarv2--xxxl .rt-AvatarFallback {
+  font-size: 80px;
+}
+
+/* Status indicator */
+.avatarv2__status {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 25%;
+  height: 25%;
+  min-width: 8px;
+  min-height: 8px;
+  border-radius: 50%;
+  border: 2px solid #ffffff;
+  box-sizing: border-box;
+}
+
+/* Status colors */
+.avatarv2__status--green {
+  background-color: #10b981;
+}
+
+.avatarv2__status--yellow {
+  background-color: #f59e0b;
+}
+
+.avatarv2__status--red {
+  background-color: #ef4444;
+}
+
+.avatarv2__status--gray {
+  background-color: #9ca3af;
+}
+
+.avatarv2__status--blue {
+  background-color: #3b82f6;
+}
+
+/* Adjust status indicator size for extra small avatars */
+.avatarv2--xs .avatarv2__status {
+  width: 8px;
+  height: 8px;
+  border-width: 1px;
+}
+
+.avatarv2--s .avatarv2__status {
+  width: 10px;
+  height: 10px;
+  border-width: 2px;
+}
+
+.avatarv2--m .avatarv2__status {
+  width: 16px;
+  height: 16px;
+  border-width: 2px;
+}
+
+.avatarv2--l .avatarv2__status {
+  width: 20px;
+  height: 20px;
+  border-width: 2px;
+}
+
+.avatarv2--xl .avatarv2__status {
+  width: 25px;
+  height: 25px;
+  border-width: 3px;
+}
+
+.avatarv2--xxl .avatarv2__status {
+  width: 30px;
+  height: 30px;
+  border-width: 3px;
+}
+
+.avatarv2--xxxl .avatarv2__status {
+  width: 50px;
+  height: 50px;
+  border-width: 4px;
+}
+

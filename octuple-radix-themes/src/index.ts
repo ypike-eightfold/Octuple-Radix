@@ -86,6 +86,44 @@ export type { SpinnerV2Props, SpinnerV2Size } from './components/SpinnerV2';
 export { ThinkingV2 } from './components/ThinkingV2';
 export type { ThinkingV2Props } from './components/ThinkingV2';
 
+export { AccordionV2 } from './components/AccordionV2';
+export type { AccordionV2Props, AccordionV2Item } from './components/AccordionV2';
+
+export { BreadcrumbV2 } from './components/BreadcrumbV2';
+export type { BreadcrumbV2Props, BreadcrumbItem } from './components/BreadcrumbV2';
+
+export { LinkV2 } from './components/LinkV2';
+export type { LinkV2Props, LinkV2Size } from './components/LinkV2';
+
+export { PillV2 } from './components/PillV2';
+export type { PillV2Props, PillV2Size, PillV2Color } from './components/PillV2';
+
+export { AvatarV2 } from './components/AvatarV2';
+export type { AvatarV2Props, AvatarV2Size, AvatarV2StatusColor, AvatarV2Variant } from './components/AvatarV2';
+
+export { AvatarGroupV2 } from './components/AvatarGroupV2';
+export type { AvatarGroupV2Props, AvatarGroupV2Item } from './components/AvatarGroupV2';
+
+export { ChipV2 } from './components/ChipV2';
+export type { ChipV2Props, ChipV2Size } from './components/ChipV2';
+
+export { DialogV2 } from './components/DialogV2';
+export type { DialogV2Props, DialogV2Size, DialogV2Usage } from './components/DialogV2';
+
+export { InfoBarV2 } from './components/InfoBarV2';
+export type { InfoBarV2Props, InfoBarV2Size, InfoBarV2Variant } from './components/InfoBarV2';
+
+export { InputV2 } from './components/InputV2';
+export type { InputV2Props, InputV2Size, InputV2Variant } from './components/InputV2';
+
+export { SkillTagV2 } from './components/SkillTagV2';
+export type {
+  SkillTagV2Props,
+  SkillTagV2Size,
+  SkillTagV2Type,
+  SkillTagV2AssessmentStatus,
+} from './components/SkillTagV2';
+
 // Enhanced Table exports
 export { 
   EnhancedTable,

@@ -1,0 +1,162 @@
+/* DialogV2 - Modal Component */
+
+/* Overlay */
+.dialogv2-overlay {
+  background-color: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  inset: 0;
+  z-index: 9998;
+  animation: dialogv2-overlayShow 0.2s ease-out;
+}
+
+@keyframes dialogv2-overlayShow {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Dialog Content */
+.dialogv2-content {
+  background: #ffffff;
+  border-radius: 24px;
+  box-shadow:
+    0px -1px 2px 0px rgba(15, 20, 31, 0.12),
+    0px 8px 32px 0px rgba(15, 20, 31, 0.16);
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 9999;
+  animation: dialogv2-contentShow 0.2s ease-out;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+@keyframes dialogv2-contentShow {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -48%) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+/* Size variants */
+.dialogv2-content--small {
+  width: 360px;
+  max-width: calc(100vw - 32px);
+}
+
+.dialogv2-content--medium {
+  width: 560px;
+  max-width: calc(100vw - 32px);
+}
+
+/* Inner container */
+.dialogv2-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding: 24px;
+}
+
+/* Header */
+.dialogv2-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.dialogv2-title {
+  flex: 1;
+  font-family: 'Gilroy', 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 28px;
+  color: #1a212e;
+  margin: 0;
+}
+
+/* Close Button */
+.dialogv2-close-button {
+  all: unset;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 24px;
+  background: #f6f7f8;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: background-color 0.15s ease;
+}
+
+.dialogv2-close-button:hover {
+  background: #eef0f3;
+}
+
+.dialogv2-close-button:active {
+  background: #e2e5ea;
+}
+
+.dialogv2-close-button:focus-visible {
+  outline: 2px solid #146da6;
+  outline-offset: 2px;
+}
+
+/* Description */
+.dialogv2-description {
+  font-family: 'Gilroy', 'Poppins', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  color: #1a212e;
+  margin: 0;
+}
+
+/* Confirmation Checkbox Section */
+.dialogv2-confirmation {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.dialogv2-confirmation-label {
+  flex: 1;
+  font-family: 'Gilroy', 'Poppins', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  color: #1a212e;
+}
+
+/* Buttons */
+.dialogv2-buttons {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-end;
+  gap: 16px;
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .dialogv2-overlay,
+  .dialogv2-content {
+    animation: none;
+  }
+}
+
+/* Mobile responsive */
+@media (max-width: 640px) {
+  .dialogv2-content {
+    width: calc(100vw - 32px);
+    max-width: calc(100vw - 32px);
+  }
+}
+

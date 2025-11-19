@@ -1,0 +1,124 @@
+/* AvatarGroupV2 - Base styles */
+.avatar-groupv2 {
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.avatar-groupv2__item {
+  position: relative;
+  box-sizing: border-box;
+}
+
+/* Add white border ring to each avatar */
+.avatar-groupv2__item .avatarv2 {
+  border: 2px solid #ffffff;
+  border-radius: 50%;
+  box-sizing: border-box;
+}
+
+/* XS Size (24px) */
+.avatar-groupv2--xs {
+  padding-right: 4px;
+}
+
+.avatar-groupv2--xs .avatar-groupv2__item {
+  margin-right: -4px;
+}
+
+.avatar-groupv2--xs .avatar-groupv2__item .avatarv2 {
+  border-width: 1px;
+}
+
+/* S Size (40px) */
+.avatar-groupv2--s {
+  padding-right: 6px;
+}
+
+.avatar-groupv2--s .avatar-groupv2__item {
+  margin-right: -6px;
+}
+
+.avatar-groupv2--s .avatar-groupv2__item .avatarv2 {
+  border-width: 2px;
+}
+
+/* M Size (64px) */
+.avatar-groupv2--m {
+  padding-right: 12px;
+}
+
+.avatar-groupv2--m .avatar-groupv2__item {
+  margin-right: -12px;
+}
+
+.avatar-groupv2--m .avatar-groupv2__item .avatarv2 {
+  border-width: 2px;
+}
+
+/* L Size (80px) */
+.avatar-groupv2--l {
+  padding-right: 12px;
+}
+
+.avatar-groupv2--l .avatar-groupv2__item {
+  margin-right: -12px;
+}
+
+.avatar-groupv2--l .avatar-groupv2__item .avatarv2 {
+  border-width: 4px;
+}
+
+/* XL Size (100px) */
+.avatar-groupv2--xl {
+  padding-right: 16px;
+}
+
+.avatar-groupv2--xl .avatar-groupv2__item {
+  margin-right: -16px;
+}
+
+.avatar-groupv2--xl .avatar-groupv2__item .avatarv2 {
+  border-width: 4px;
+}
+
+/* XXL Size (120px) */
+.avatar-groupv2--xxl {
+  padding-right: 24px;
+}
+
+.avatar-groupv2--xxl .avatar-groupv2__item {
+  margin-right: -24px;
+}
+
+.avatar-groupv2--xxl .avatar-groupv2__item .avatarv2 {
+  border-width: 4px;
+}
+
+/* XXXL Size (200px) */
+.avatar-groupv2--xxxl {
+  padding-right: 40px;
+}
+
+.avatar-groupv2--xxxl .avatar-groupv2__item {
+  margin-right: -40px;
+}
+
+.avatar-groupv2--xxxl .avatar-groupv2__item .avatarv2 {
+  border-width: 4px;
+}
+
+/* Z-index stacking for proper overlap */
+.avatar-groupv2__item:nth-child(1) { z-index: 12; }
+.avatar-groupv2__item:nth-child(2) { z-index: 11; }
+.avatar-groupv2__item:nth-child(3) { z-index: 10; }
+.avatar-groupv2__item:nth-child(4) { z-index: 9; }
+.avatar-groupv2__item:nth-child(5) { z-index: 8; }
+.avatar-groupv2__item:nth-child(6) { z-index: 7; }
+.avatar-groupv2__item:nth-child(7) { z-index: 6; }
+.avatar-groupv2__item:nth-child(8) { z-index: 5; }
+.avatar-groupv2__item:nth-child(9) { z-index: 4; }
+.avatar-groupv2__item:nth-child(10) { z-index: 3; }
+.avatar-groupv2__item:nth-child(11) { z-index: 2; }
+.avatar-groupv2__item:nth-child(12) { z-index: 1; }
+

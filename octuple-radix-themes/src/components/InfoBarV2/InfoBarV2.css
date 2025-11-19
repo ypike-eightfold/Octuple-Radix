@@ -1,0 +1,296 @@
+/* InfoBarV2 - Persistent banner component */
+
+.infobarv2 {
+  display: flex;
+  align-items: flex-start;
+  width: 100%;
+  border: 1px solid;
+  border-radius: 24px;
+  box-sizing: border-box;
+  font-family: 'Gilroy', 'Poppins', sans-serif;
+}
+
+/* === SIZE VARIANTS === */
+
+/* Large */
+.infobarv2--large {
+  padding: 6px 12px 6px 20px;
+  gap: 16px;
+  border-radius: 24px;
+}
+
+.infobarv2--large .infobarv2__icon-and-text {
+  gap: 8px;
+  padding: 10px 0;
+}
+
+.infobarv2--large .infobarv2__message {
+  font-size: 18px;
+  line-height: 24px;
+}
+
+/* Medium */
+.infobarv2--medium {
+  padding: 6px 10px 6px 16px;
+  gap: 12px;
+  border-radius: 20px;
+}
+
+.infobarv2--medium .infobarv2__icon-and-text {
+  gap: 6px;
+  padding: 6px 0;
+}
+
+.infobarv2--medium .infobarv2__message {
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.infobarv2--medium .infobarv2__icon {
+  padding: 1px 0;
+}
+
+/* Mobile - Vertical layout */
+.infobarv2--mobile {
+  padding: 6px 10px 6px 16px;
+  gap: 16px;
+  border-radius: 20px;
+  max-width: 480px;
+}
+
+.infobarv2--mobile .infobarv2__content {
+  flex-direction: column;
+  gap: 0;
+}
+
+.infobarv2--mobile .infobarv2__icon-and-text {
+  gap: 8px;
+  padding: 6px 0;
+  width: 100%;
+}
+
+.infobarv2--mobile .infobarv2__icon {
+  padding: 1px 0;
+}
+
+.infobarv2--mobile .infobarv2__message {
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.infobarv2--mobile .infobarv2__action {
+  padding: 0 16px;
+}
+
+/* === STRUCTURE === */
+
+.infobarv2__content {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 16px;
+  flex: 1;
+  min-width: 0;
+}
+
+.infobarv2__icon-and-text {
+  display: flex;
+  align-items: flex-start;
+  flex: 1;
+  min-width: 0;
+}
+
+.infobarv2__icon {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+}
+
+.infobarv2__icon--custom {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2px;
+}
+
+.infobarv2__message {
+  font-weight: 400;
+  margin: 0;
+  flex: 1;
+  min-width: 0;
+  word-wrap: break-word;
+}
+
+.infobarv2__action {
+  display: flex;
+  align-items: flex-start;
+  flex-shrink: 0;
+}
+
+.infobarv2__close {
+  display: flex;
+  align-items: flex-start;
+  flex-shrink: 0;
+}
+
+/* === BUTTON STYLES === */
+
+.infobarv2__button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  cursor: pointer;
+  font-family: 'Gilroy', 'Poppins', sans-serif;
+  font-weight: 600;
+  transition: background-color 150ms ease-in-out;
+  white-space: nowrap;
+}
+
+/* Large button */
+.infobarv2__button--large {
+  padding: 10px;
+  border-radius: 24px;
+  font-size: 18px;
+  line-height: 24px;
+}
+
+.infobarv2__button--large.infobarv2__button--icon {
+  padding: 10px;
+}
+
+/* Medium button */
+.infobarv2__button--medium {
+  padding: 8px;
+  border-radius: 24px;
+  font-size: 16px;
+  line-height: 20px;
+}
+
+.infobarv2__button--medium.infobarv2__button--icon {
+  padding: 8px;
+}
+
+/* Button colors based on variant */
+/* Neutral - grey buttons */
+.infobarv2--neutral .infobarv2__button {
+  background-color: #f6f7f8;
+  color: #343c4c;
+}
+
+.infobarv2--neutral .infobarv2__button:hover {
+  background-color: #eeeff0;
+}
+
+/* Success - grey buttons */
+.infobarv2--success .infobarv2__button {
+  background-color: #f6f7f8;
+  color: #343c4c;
+}
+
+.infobarv2--success .infobarv2__button:hover {
+  background-color: #eeeff0;
+}
+
+/* Warning - grey buttons */
+.infobarv2--warning .infobarv2__button {
+  background-color: #f6f7f8;
+  color: #343c4c;
+}
+
+.infobarv2--warning .infobarv2__button:hover {
+  background-color: #eeeff0;
+}
+
+/* Error - grey buttons */
+.infobarv2--error .infobarv2__button {
+  background-color: #f6f7f8;
+  color: #343c4c;
+}
+
+.infobarv2--error .infobarv2__button:hover {
+  background-color: #eeeff0;
+}
+
+/* Copilot/AI Agent - white buttons */
+.infobarv2--copilot .infobarv2__button,
+.infobarv2--ai-agent .infobarv2__button {
+  background-color: #ffffff;
+  color: #343c4c;
+}
+
+.infobarv2--copilot .infobarv2__button:hover,
+.infobarv2--ai-agent .infobarv2__button:hover {
+  background-color: #f6f7f8;
+}
+
+/* === COLOR VARIANTS === */
+
+/* Neutral (grey) */
+.infobarv2--neutral {
+  background-color: #f6f7f8;
+  border-color: #d9dce1;
+}
+
+.infobarv2--neutral .infobarv2__icon {
+  color: #4f5666;
+}
+
+.infobarv2--neutral .infobarv2__message {
+  color: #4f5666;
+}
+
+/* Success (green) */
+.infobarv2--success {
+  background-color: #f0fefa;
+  border-color: #b9f4e4;
+}
+
+.infobarv2--success .infobarv2__icon {
+  color: #2b715f;
+}
+
+.infobarv2--success .infobarv2__message {
+  color: #2b715f;
+}
+
+/* Warning (orange) */
+.infobarv2--warning {
+  background-color: #fff8eb;
+  border-color: #ffe3b0;
+}
+
+.infobarv2--warning .infobarv2__icon {
+  color: #9d6309;
+}
+
+.infobarv2--warning .infobarv2__message {
+  color: #9d6309;
+}
+
+/* Error (red) */
+.infobarv2--error {
+  background-color: #ffefef;
+  border-color: #ffc6c6;
+}
+
+.infobarv2--error .infobarv2__icon {
+  color: #993838;
+}
+
+.infobarv2--error .infobarv2__message {
+  color: #993838;
+}
+
+/* Copilot/AI Agent (gradient) */
+.infobarv2--copilot,
+.infobarv2--ai-agent {
+  background: linear-gradient(90deg, #ebf7ff 0%, #f1f2ff 49%, #fbf6fb 100%);
+  border-color: #cacffc;
+}
+
+.infobarv2--copilot .infobarv2__message,
+.infobarv2--ai-agent .infobarv2__message {
+  color: #414996;
+}
+

@@ -1,0 +1,136 @@
+/* PillV2 - Base styles */
+.pillv2 {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-family: 'Gilroy', 'Poppins', sans-serif;
+  font-weight: 600;
+  white-space: nowrap;
+  box-sizing: border-box;
+}
+
+/* Size variants */
+.pillv2--small {
+  font-size: 14px;
+  line-height: 20px;
+  padding: 2px 4px;
+  border-radius: 4px;
+}
+
+.pillv2--small .pillv2__icon {
+  font-size: 16px;
+}
+
+.pillv2--medium {
+  font-size: 16px;
+  line-height: 24px;
+  padding: 3px 6px;
+  border-radius: 6px;
+}
+
+.pillv2--medium .pillv2__icon {
+  font-size: 18px;
+}
+
+.pillv2--large {
+  font-size: 18px;
+  line-height: 24px;
+  padding: 10px 8px;
+  border-radius: 8px;
+}
+
+.pillv2--large .pillv2__icon {
+  font-size: 20px;
+}
+
+/* Color variants - Yellow-Green */
+.pillv2--yellowGreen {
+  background-color: #f3f5b0 !important;
+  color: #525400 !important;
+}
+
+/* Color variants - Red */
+.pillv2--red {
+  background-color: #ffeded !important;
+  color: #8b0000 !important;
+}
+
+/* Color variants - Orange */
+.pillv2--orange {
+  background-color: #fff4e6 !important;
+  color: #c2410c !important;
+}
+
+/* Color variants - Yellow */
+.pillv2--yellow {
+  background-color: #fefce8 !important;
+  color: #a16207 !important;
+}
+
+/* Color variants - Green */
+.pillv2--green {
+  background-color: #f0fdf4 !important;
+  color: #166534 !important;
+}
+
+/* Color variants - Blue */
+.pillv2--blue {
+  background-color: #eff6ff !important;
+  color: #1e40af !important;
+}
+
+/* Color variants - Violet */
+.pillv2--violet {
+  background-color: #f5f3ff !important;
+  color: #6d28d9 !important;
+}
+
+/* Color variants - Gray */
+.pillv2--gray {
+  background-color: #f3f4f6 !important;
+  color: #374151 !important;
+}
+
+/* Color variants - Blue-Green */
+.pillv2--blueGreen {
+  background-color: #e0f7fa !important;
+  color: #006064 !important;
+}
+
+/* Color variants - Blue-Violet */
+.pillv2--blueViolet {
+  background-color: #e8eaf6 !important;
+  color: #3949ab !important;
+}
+
+/* Color variants - Red-Orange */
+.pillv2--redOrange {
+  background-color: #ffe4e1 !important;
+  color: #d32f2f !important;
+}
+
+/* Color variants - Violet-Red */
+.pillv2--violetRed {
+  background-color: #fce4ec !important;
+  color: #c2185b !important;
+}
+
+/* Disabled state */
+.pillv2--disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Icon styling */
+.pillv2__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Text styling */
+.pillv2__text {
+  display: inline-flex;
+  align-items: center;
+}
+
