@@ -1,0 +1,185 @@
+/* PaginationV2 Root */
+.paginationv2-root {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Base Button Styles */
+.paginationv2-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  background-color: #f6f7f8;
+  color: #4f5666;
+  font-family: 'Gilroy', 'Poppins', sans-serif;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s, color 0.2s, border 0.2s;
+  flex-shrink: 0;
+}
+
+.paginationv2-button:focus-visible {
+  outline: 2px solid #2c8cc9;
+  outline-offset: 2px;
+}
+
+/* Full Pagination Button Sizes */
+.paginationv2-root--full .paginationv2-button--large {
+  padding: 10px;
+  border-radius: 8px;
+  font-size: 18px;
+  line-height: 24px;
+  min-width: 44px;
+}
+
+.paginationv2-root--full .paginationv2-button--medium {
+  padding: 8px;
+  border-radius: 6px;
+  font-size: 16px;
+  line-height: 20px;
+  min-width: 36px;
+}
+
+.paginationv2-root--full .paginationv2-button--small {
+  padding: 6px;
+  border-radius: 4px;
+  font-size: 14px;
+  line-height: 16px;
+  min-width: 28px;
+}
+
+/* Carousel Dots Button Sizes */
+.paginationv2-root--carousel .paginationv2-button--carousel.paginationv2-button--large {
+  width: 24px;
+  height: 24px;
+  border-radius: 12px;
+  font-size: 14px;
+  line-height: 16px;
+  padding: 0;
+  border: 1px solid #1999ac;
+}
+
+.paginationv2-root--carousel .paginationv2-button--carousel.paginationv2-button--medium {
+  width: 20px;
+  height: 20px;
+  border-radius: 10px;
+  font-size: 12px;
+  line-height: 14px;
+  padding: 0;
+  border: 1px solid #1999ac;
+}
+
+.paginationv2-root--carousel .paginationv2-button--carousel.paginationv2-button--small {
+  width: 16px;
+  height: 16px;
+  border-radius: 8px;
+  font-size: 10px;
+  line-height: 12px;
+  padding: 0;
+  border: 1px solid #1999ac;
+}
+
+/* Control Buttons (Prev/Next) - remove border for carousel */
+.paginationv2-root--carousel .paginationv2-button--control {
+  border: none !important;
+}
+
+/* Micro Pagination Sizes */
+.paginationv2-root--micro .paginationv2-button--large {
+  width: 24px;
+  height: 24px;
+  border-radius: 12px;
+  padding: 0;
+}
+
+.paginationv2-root--micro .paginationv2-button--medium {
+  width: 20px;
+  height: 20px;
+  border-radius: 10px;
+  padding: 0;
+}
+
+.paginationv2-root--micro .paginationv2-button--small {
+  width: 16px;
+  height: 16px;
+  border-radius: 8px;
+  padding: 0;
+}
+
+/* Micro Pagination Text */
+.paginationv2-micro-text {
+  font-family: 'Gilroy', 'Poppins', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  color: #1a212e;
+  white-space: nowrap;
+}
+
+/* Button States - Hover */
+.paginationv2-button:hover:not(:disabled) {
+  background-color: #ebfdff;
+  color: #146da6;
+}
+
+/* Button States - Active (Selected) */
+.paginationv2-button--active {
+  background-color: #b0f3fe !important;
+  border: 1px solid #2c8cc9 !important;
+  color: #146da6 !important;
+}
+
+/* Button States - Disabled */
+.paginationv2-button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+/* Page Number Buttons */
+.paginationv2-button--page {
+  text-align: center;
+}
+
+/* Jumper Button */
+.paginationv2-button--jumper {
+  cursor: default;
+}
+
+.paginationv2-button--jumper:hover {
+  background-color: #f6f7f8;
+  color: #4f5666;
+}
+
+/* Icon Sizing for Different Button Sizes */
+.paginationv2-button--large .iconv2 {
+  font-size: 24px;
+}
+
+.paginationv2-button--medium .iconv2 {
+  font-size: 20px;
+}
+
+.paginationv2-button--small .iconv2 {
+  font-size: 16px;
+}
+
+/* Carousel Icon Sizing */
+.paginationv2-root--carousel .paginationv2-button--large .iconv2 {
+  font-size: 16px;
+}
+
+.paginationv2-root--carousel .paginationv2-button--medium .iconv2 {
+  font-size: 14px;
+}
+
+.paginationv2-root--carousel .paginationv2-button--small .iconv2 {
+  font-size: 12px;
+}
+
+/* Ensure proper icon color inheritance */
+.paginationv2-button .iconv2 {
+  color: inherit;
+}
+

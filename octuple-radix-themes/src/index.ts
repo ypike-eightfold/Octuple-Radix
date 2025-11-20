@@ -119,6 +119,18 @@ export type { DialogV2Props, DialogV2Size, DialogV2Usage } from './components/Di
 export { InfoBarV2 } from './components/InfoBarV2';
 export type { InfoBarV2Props, InfoBarV2Size, InfoBarV2Variant } from './components/InfoBarV2';
 
+export { MessageBarV2 } from './components/MessageBarV2';
+export type { MessageBarV2Props, MessageBarV2Variant } from './components/MessageBarV2';
+
+export { PanelFloatV2 } from './components/PanelFloatV2';
+export type { PanelFloatV2Props, PanelFloatV2Size } from './components/PanelFloatV2';
+
+export { ModalV2 } from './components/ModalV2';
+export type { ModalV2Props, ModalV2Size } from './components/ModalV2';
+
+export { PaginationV2 } from './components/PaginationV2';
+export type { PaginationV2Props, PaginationV2Style, PaginationV2Size } from './components/PaginationV2';
+
 export { InputV2 } from './components/InputV2';
 export type { InputV2Props, InputV2Size, InputV2Variant } from './components/InputV2';
 
