@@ -1,0 +1,232 @@
+/* SkillTagV2 Base */
+.skilltagv2 {
+  display: inline-flex;
+  align-items: center;
+  font-family: 'Gilroy', 'Poppins', sans-serif;
+  transition: all 150ms ease;
+}
+
+.skilltagv2__badge {
+  display: flex !important;
+  align-items: center !important;
+  background-color: #ffffff !important;
+  border: 1px solid #d9dce1 !important;
+  border-radius: 4px !important;
+  padding: 4px !important;
+  gap: 4px !important;
+  font-family: 'Gilroy', 'Poppins', sans-serif !important;
+  font-weight: 600 !important;
+  color: #4f5666 !important;
+  font-size: 14px !important;
+  line-height: 16px !important;
+  cursor: inherit !important;
+  transition: all 150ms ease !important;
+}
+
+.skilltagv2__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: inherit;
+}
+
+.skilltagv2__text {
+  white-space: nowrap;
+  color: inherit;
+  font-weight: inherit;
+  font-size: inherit;
+  line-height: inherit;
+}
+
+.skilltagv2__assessment-badge-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-right: -4px;
+}
+
+.skilltagv2__assessment-badge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.skilltagv2__assessment-icon {
+  color: #1a212e;
+}
+
+/* ========================================
+   SIZE VARIANTS
+======================================== */
+
+/* Small (default) */
+.skilltagv2--small .skilltagv2__badge {
+  padding: 4px !important;
+  gap: 4px !important;
+  border-radius: 4px !important;
+  font-size: 14px !important;
+  line-height: 16px !important;
+}
+
+/* Medium */
+.skilltagv2--medium .skilltagv2__badge {
+  padding: 6px !important;
+  gap: 6px !important;
+  border-radius: 6px !important;
+  font-size: 16px !important;
+  line-height: 20px !important;
+}
+
+/* Large */
+.skilltagv2--large .skilltagv2__badge {
+  padding: 8px !important;
+  gap: 8px !important;
+  border-radius: 8px !important;
+  font-size: 18px !important;
+  line-height: 22px !important;
+}
+
+/* ========================================
+   TYPE VARIANTS
+======================================== */
+
+/* Default - base styles already applied */
+
+/* Matched */
+.skilltagv2--matched .skilltagv2__badge {
+  border-color: #b9f4e4 !important;
+  color: #2b715f !important;
+}
+
+.skilltagv2--matched .skilltagv2__icon {
+  color: #2b715f;
+}
+
+/* Highlighted */
+.skilltagv2--highlighted .skilltagv2__badge {
+  background-color: #fdfeeb !important;
+  border-color: #f3f5b0 !important;
+  color: #6d6f00 !important;
+}
+
+.skilltagv2--highlighted .skilltagv2__icon {
+  color: #6d6f00;
+}
+
+/* Make the star icon filled for highlighted variant */
+.skilltagv2--highlighted .skilltagv2__icon .material-symbols-outlined {
+  font-variation-settings:
+    'FILL' 1,
+    'wght' 300,
+    'GRAD' 0,
+    'opsz' 20;
+}
+
+/* Assessment - base styles, specific colors applied inline via JS */
+.skilltagv2--assessment .skilltagv2__badge {
+  border-color: #d9dce1 !important;
+  color: #4f5666 !important;
+}
+
+/* ========================================
+   CLICKABLE STATES
+======================================== */
+
+.skilltagv2--clickable {
+  cursor: pointer;
+}
+
+.skilltagv2--clickable .skilltagv2__badge {
+  cursor: pointer !important;
+}
+
+/* Hover state */
+.skilltagv2--clickable:hover .skilltagv2__badge {
+  opacity: 0.85;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Pressed/Active state */
+.skilltagv2--clickable:active .skilltagv2__badge {
+  opacity: 0.7;
+  transform: translateY(0);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* Focus state for accessibility */
+.skilltagv2--clickable:focus-visible {
+  outline: 2px solid #2c8cc9;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+.skilltagv2--clickable:focus {
+  outline: none;
+}
+
+/* ========================================
+   HOVER STATES (NON-CLICKABLE)
+======================================== */
+
+/* Default type hover */
+.skilltagv2--default:not(.skilltagv2--clickable):hover .skilltagv2__badge {
+  background-color: #f6f7f8 !important;
+}
+
+/* Matched type hover */
+.skilltagv2--matched:not(.skilltagv2--clickable):hover .skilltagv2__badge {
+  background-color: #f0fefa !important;
+}
+
+/* Highlighted type hover */
+.skilltagv2--highlighted:not(.skilltagv2--clickable):hover .skilltagv2__badge {
+  background-color: #f3f5b0 !important;
+}
+
+/* Assessment type hover */
+.skilltagv2--assessment:not(.skilltagv2--clickable):hover .skilltagv2__badge {
+  background-color: #f6f7f8 !important;
+}
+
+/* ========================================
+   PRESSED STATES (CLICKABLE)
+======================================== */
+
+/* Highlighted type pressed */
+.skilltagv2--highlighted.skilltagv2--clickable:active .skilltagv2__badge {
+  background-color: #e2e575 !important;
+  border-color: #f3f5b0 !important;
+}
+
+/* ========================================
+   ACCESSIBILITY
+======================================== */
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .skilltagv2,
+  .skilltagv2__badge {
+    transition: none !important;
+  }
+  
+  .skilltagv2--clickable:hover .skilltagv2__badge {
+    transform: none;
+  }
+  
+  .skilltagv2--clickable:active .skilltagv2__badge {
+    transform: none;
+  }
+}
+
+/* High contrast mode */
+@media (prefers-contrast: high) {
+  .skilltagv2__badge {
+    border-width: 2px !important;
+  }
+}
+

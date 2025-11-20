@@ -1,0 +1,155 @@
+/* Large Navigation Tabs Component - Built on Radix UI Tabs Primitive */
+
+/* Root container */
+.navtab-root {
+  width: 100%;
+}
+
+/* Tabs list */
+.navtab-list {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  position: relative;
+}
+
+/* Individual tab trigger */
+.navtab-trigger {
+  /* Reset */
+  all: unset;
+  
+  /* Layout */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0 8px;
+  box-sizing: border-box;
+  flex-shrink: 0;
+  cursor: pointer;
+  
+  /* Smooth transitions */
+  transition: all 150ms ease-in-out;
+  
+  /* Accessibility */
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Tab label */
+.navtab-trigger__label {
+  font-family: 'Gilroy', 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 24px;
+  color: #4f5666; /* Secondary grey - from tokens */
+  white-space: nowrap;
+  text-align: left;
+  padding: 24px 0;
+  transition: color 150ms ease-in-out;
+}
+
+/* Tab indicator (underline) */
+.navtab-trigger__indicator {
+  width: 100%;
+  height: 4px;
+  border-radius: 4px 4px 0 0;
+  background-color: transparent;
+  transition: background-color 150ms ease-in-out;
+  flex-shrink: 0;
+}
+
+/* === STATE VARIANTS (using Radix data attributes) === */
+
+/* Hover state */
+.navtab-trigger:hover:not([data-disabled]) .navtab-trigger__label {
+  color: #146da6; /* Secondary blue - from tokens */
+}
+
+.navtab-trigger:hover:not([data-disabled]) .navtab-trigger__indicator {
+  background-color: rgba(20, 109, 166, 0.2);
+}
+
+/* Active/Selected state (Radix uses data-state="active") */
+.navtab-trigger[data-state='active'] .navtab-trigger__label {
+  color: #146da6; /* Secondary blue - from tokens */
+}
+
+.navtab-trigger[data-state='active'] .navtab-trigger__indicator {
+  background-color: #146da6; /* Secondary blue - from tokens */
+}
+
+/* Focus state for keyboard navigation */
+.navtab-trigger:focus-visible {
+  outline: 2px solid #3e63dd;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Disabled state (Radix uses data-disabled) */
+.navtab-trigger[data-disabled] {
+  cursor: not-allowed;
+  opacity: 0.4;
+}
+
+/* === SIZE VARIANTS === */
+
+/* Large (default) */
+.navtab-list--large .navtab-trigger__label {
+  padding: 24px 0;
+  font-size: 18px;
+  line-height: 24px;
+}
+
+/* Medium */
+.navtab-list--medium .navtab-trigger__label {
+  padding: 16px 0;
+  font-size: 16px;
+  line-height: 20px;
+}
+
+/* Small */
+.navtab-list--small .navtab-trigger__label {
+  padding: 12px 0;
+  font-size: 14px;
+  line-height: 18px;
+}
+
+/* Tab content (Radix Content component) */
+.navtab-content {
+  padding: 24px 0;
+  animation: fadeIn 200ms ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .navtab-list {
+    gap: 12px;
+  }
+  
+  .navtab-trigger {
+    padding: 0 4px;
+  }
+  
+  .navtab-list--large .navtab-trigger__label {
+    font-size: 16px;
+  }
+  
+  .navtab-list--medium .navtab-trigger__label {
+    font-size: 14px;
+  }
+  
+  .navtab-list--small .navtab-trigger__label {
+    font-size: 12px;
+  }
+}
+

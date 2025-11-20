@@ -1,0 +1,97 @@
+/* NavigationMenuV2 - Dropdown menu for Navbar */
+
+.nav-menu-v2 {
+  display: flex;
+  flex-direction: column;
+  width: 360px;
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000;
+  margin-top: 0;
+  filter: drop-shadow(0px -1px 2px rgba(15, 20, 31, 0.12)) 
+          drop-shadow(0px 8px 32px rgba(15, 20, 31, 0.16));
+}
+
+/* Arrow Pointer */
+.nav-menu-v2__arrow-container {
+  display: flex;
+  justify-content: flex-start;
+  padding-right: 24px;
+  height: 16px;
+}
+
+.nav-menu-v2__arrow {
+  width: 0;
+  height: 0;
+  border-left: 16px solid transparent;
+  border-right: 16px solid transparent;
+  border-bottom: 16px solid #ffffff;
+}
+
+/* Menu Content */
+.nav-menu-v2__content {
+  background: #ffffff;
+  border-radius: 24px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* Menu Item */
+.nav-menu-v2__item {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 8px;
+  border-radius: 16px;
+  text-decoration: none;
+  transition: background-color 0.2s ease;
+  cursor: pointer;
+}
+
+.nav-menu-v2__item:hover {
+  background-color: #f6f7f8;
+}
+
+/* Icon Container */
+.nav-menu-v2__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px;
+  background-color: #f6f7f8;
+  border-radius: 8px;
+  flex-shrink: 0;
+  color: #343c4c;
+}
+
+/* Text Container */
+.nav-menu-v2__text {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-width: 0;
+}
+
+/* Label */
+.nav-menu-v2__label {
+  font-family: 'Gilroy', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 16px;
+  color: #4f5666;
+  padding: 4px 0;
+}
+
+/* Description */
+.nav-menu-v2__description {
+  font-family: 'Gilroy', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 16px;
+  color: #4f5666;
+}
+

@@ -1,0 +1,70 @@
+.linkv2 {
+  font-family: 'Gilroy', 'Poppins', sans-serif;
+  font-weight: 600;
+  color: #0479ac !important;
+  text-decoration: none !important;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  transition: color 0.2s ease, opacity 0.2s ease;
+}
+
+/* Size variants */
+.linkv2--large {
+  font-size: 18px;
+  line-height: 24px;
+  gap: 8px;
+}
+
+.linkv2--medium {
+  font-size: 16px;
+  line-height: 24px;
+  gap: 6px;
+}
+
+.linkv2--small {
+  font-size: 14px;
+  line-height: 20px;
+  gap: 6px;
+}
+
+/* Hover state */
+.linkv2:hover:not([data-disabled="true"]) {
+  color: #0479ac !important;
+  text-decoration: underline !important;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
+}
+
+/* Visited state - using :where() for lower specificity to work with Radix */
+:where(.linkv2):visited:not([data-disabled="true"]) {
+  color: #0e5985 !important;
+}
+
+/* Focus state */
+.linkv2:focus-visible {
+  outline: 2px solid #8b5cf6;
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+/* Disabled state */
+.linkv2--disabled,
+.linkv2[data-disabled="true"] {
+  color: #bec2ca !important;
+  cursor: not-allowed;
+  pointer-events: none;
+  opacity: 0.6;
+  text-decoration: none !important;
+}
+
+/* Active/pressed state */
+.linkv2:active:not([data-disabled="true"]) {
+  color: #054d7b !important;
+}
+
+/* Force visited style for demo purposes */
+.linkv2--force-visited {
+  color: #0e5985 !important;
+}
+

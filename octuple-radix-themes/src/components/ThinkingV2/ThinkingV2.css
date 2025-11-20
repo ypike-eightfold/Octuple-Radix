@@ -1,0 +1,62 @@
+.thinkingv2 {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.thinkingv2__dot {
+  border-radius: 50%;
+  animation: thinkingBounce 1.4s infinite ease-in-out both;
+}
+
+.thinkingv2__dot--1 {
+  animation-delay: -0.32s;
+}
+
+.thinkingv2__dot--2 {
+  animation-delay: -0.16s;
+}
+
+.thinkingv2__dot--3 {
+  animation-delay: 0s;
+}
+
+@keyframes thinkingBounce {
+  0%, 60%, 100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  30% {
+    transform: translateY(-8px);
+    opacity: 1;
+  }
+}
+
+.thinkingv2__sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Accessibility: Respect user's motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .thinkingv2__dot {
+    animation: thinkingPulse 2s infinite ease-in-out;
+  }
+
+  @keyframes thinkingPulse {
+    0%, 100% {
+      opacity: 0.5;
+    }
+    50% {
+      opacity: 1;
+    }
+  }
+}
+
