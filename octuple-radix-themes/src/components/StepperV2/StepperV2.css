@@ -10,7 +10,7 @@
 .stepperv2__circle {
   display: flex;
   align-items: center;
-  justify-center: center;
+  justify-content: center;
   width: 44px;
   height: 44px;
   min-width: 44px;

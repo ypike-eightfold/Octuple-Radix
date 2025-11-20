@@ -6,7 +6,7 @@ export { Icon } from './components/Icon';
 export type { IconProps } from './components/Icon';
 
 export { IconV2 } from './components/IconV2';
-export type { IconV2Props, IconV2Type } from './components/IconV2';
+export type { IconV2Props, IconV2Type, BrandIconName, BrandIconSize } from './components/IconV2';
 
 export { ButtonV2 } from './components/ButtonV2';
 export type { ButtonV2Props, ButtonV2Variant, ButtonV2Size } from './components/ButtonV2';

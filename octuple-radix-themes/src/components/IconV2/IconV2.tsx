@@ -1,7 +1,61 @@
 import React from 'react';
 import './IconV2.css';
 
+// Import all brand icon SVGs
+import campaignsMedium from './brand-icons/campaigns-medium.svg';
+import campaignsSmall from './brand-icons/campaigns-small.svg';
+import careerExchangeMedium from './brand-icons/career-exchange-medium.svg';
+import careerExchangeSmall from './brand-icons/career-exchange-small.svg';
+import careerHubMedium from './brand-icons/career-hub-medium.svg';
+import careerHubSmall from './brand-icons/career-hub-small.svg';
+import customerCommunityMedium from './brand-icons/customer-community-medium.svg';
+import customerCommunitySmall from './brand-icons/customer-community-small.svg';
+import delegationCenterMedium from './brand-icons/delegation-center-medium.svg';
+import delegationCenterSmall from './brand-icons/delegation-center-small.svg';
+import managedServicesMedium from './brand-icons/managed-services-medium.svg';
+import managedServicesSmall from './brand-icons/managed-services-small.svg';
+import octupleMedium from './brand-icons/octuple-medium.svg';
+import octupleSmall from './brand-icons/octuple-small.svg';
+import pcsMedium from './brand-icons/pcs-medium.svg';
+import pcsSmall from './brand-icons/pcs-small.svg';
+import resourceManagementMedium from './brand-icons/resource-management-medium.svg';
+import resourceManagementSmall from './brand-icons/resource-management-small.svg';
+import selfServiceMedium from './brand-icons/self-service-medium.svg';
+import selfServiceSmall from './brand-icons/self-service-small.svg';
+import talentAcquisitionMedium from './brand-icons/talent-acquisition-medium.svg';
+import talentAcquisitionSmall from './brand-icons/talent-acquisition-small.svg';
+import talentDesignMedium from './brand-icons/talent-design-medium.svg';
+import talentDesignSmall from './brand-icons/talent-design-small.svg';
+import talentFlexMedium from './brand-icons/talent-flex-medium.svg';
+import talentFlexSmall from './brand-icons/talent-flex-small.svg';
+import talentIntelligencePlatformMedium from './brand-icons/talent-intelligence-platform-medium.svg';
+import talentIntelligencePlatformSmall from './brand-icons/talent-intelligence-platform-small.svg';
+import talentTrackingMedium from './brand-icons/talent-tracking-medium.svg';
+import talentTrackingSmall from './brand-icons/talent-tracking-small.svg';
+import talentUniversityMedium from './brand-icons/talent-university-medium.svg';
+import talentUniversitySmall from './brand-icons/talent-university-small.svg';
+
 export type IconV2Type = 'material' | 'brand';
+
+export type BrandIconName =
+  | 'campaigns'
+  | 'career-exchange'
+  | 'career-hub'
+  | 'customer-community'
+  | 'delegation-center'
+  | 'managed-services'
+  | 'octuple'
+  | 'pcs'
+  | 'resource-management'
+  | 'self-service'
+  | 'talent-acquisition'
+  | 'talent-design'
+  | 'talent-flex'
+  | 'talent-intelligence-platform'
+  | 'talent-tracking'
+  | 'talent-university';
+
+export type BrandIconSize = 'medium' | 'small';
 
 export interface IconV2Props {
   /**
@@ -12,14 +66,14 @@ export interface IconV2Props {
   /**
    * Icon name
    * For Material: e.g. "home", "settings", "person", "check"
-   * For Brand: e.g. "eightfold", "talent-design", "talent-flex", etc.
+   * For Brand: e.g. "talent-design", "talent-flex", "career-hub", etc.
    */
   name: string;
   /**
-   * Icon size in pixels
-   * @default 24
+   * Icon size in pixels (for Material icons) or 'medium'/'small' (for Brand icons)
+   * @default 24 for Material, 'medium' for Brand
    */
-  size?: number | string;
+  size?: number | string | BrandIconSize;
   /**
    * Icon color (CSS color value)
    */
@@ -42,56 +96,53 @@ export interface IconV2Props {
   ariaLabel?: string;
 }
 
-/**
- * IconV2 component supporting both Material Symbols and Eightfold Brand icons
- * 
- * Material icons use the Material Symbols Outlined font.
- * Brand icons are custom SVG icons specific to Eightfold products/features.
- * 
- * @example
- * ```tsx
- * // Material icon
- * <IconV2 name="home" size={24} />
- * <IconV2 type="material" name="settings" color="#0479ac" />
- * 
- * // Brand icon
- * <IconV2 type="brand" name="eightfold" size={20} />
- * <IconV2 type="brand" name="talent-design" color="#50CEE1" />
- * ```
- * 
- * Browse Material icons: https://fonts.google.com/icons
- */
+// Map brand icons to their SVG imports
+const BRAND_ICONS: Record<BrandIconName, Record<BrandIconSize, string>> = {
+  'campaigns': { medium: campaignsMedium, small: campaignsSmall },
+  'career-exchange': { medium: careerExchangeMedium, small: careerExchangeSmall },
+  'career-hub': { medium: careerHubMedium, small: careerHubSmall },
+  'customer-community': { medium: customerCommunityMedium, small: customerCommunitySmall },
+  'delegation-center': { medium: delegationCenterMedium, small: delegationCenterSmall },
+  'managed-services': { medium: managedServicesMedium, small: managedServicesSmall },
+  'octuple': { medium: octupleMedium, small: octupleSmall },
+  'pcs': { medium: pcsMedium, small: pcsSmall },
+  'resource-management': { medium: resourceManagementMedium, small: resourceManagementSmall },
+  'self-service': { medium: selfServiceMedium, small: selfServiceSmall },
+  'talent-acquisition': { medium: talentAcquisitionMedium, small: talentAcquisitionSmall },
+  'talent-design': { medium: talentDesignMedium, small: talentDesignSmall },
+  'talent-flex': { medium: talentFlexMedium, small: talentFlexSmall },
+  'talent-intelligence-platform': { medium: talentIntelligencePlatformMedium, small: talentIntelligencePlatformSmall },
+  'talent-tracking': { medium: talentTrackingMedium, small: talentTrackingSmall },
+  'talent-university': { medium: talentUniversityMedium, small: talentUniversitySmall },
+};
+
 export const IconV2: React.FC<IconV2Props> = ({
   type = 'material',
   name,
-  size = 24,
+  size,
   color,
   className = '',
   style,
   onClick,
   ariaLabel,
 }) => {
-  const commonStyles: React.CSSProperties = {
-    width: typeof size === 'number' ? `${size}px` : size,
-    height: typeof size === 'number' ? `${size}px` : size,
-    color,
-    cursor: onClick ? 'pointer' : undefined,
-    ...style,
-  };
-
+  // For Material icons
   if (type === 'material') {
+    const iconSize = typeof size === 'number' || typeof size === 'string' ? size : 24;
+    const sizeValue = typeof iconSize === 'number' ? `${iconSize}px` : iconSize;
+
     return (
       <span
-        className={`iconv2 iconv2--material material-symbols-outlined ${className}`}
+        className={`iconv2 iconv2--material ${className}`}
         style={{
-          fontSize: typeof size === 'number' ? `${size}px` : size,
+          fontSize: sizeValue,
+          width: sizeValue,
+          height: sizeValue,
           color,
-          cursor: onClick ? 'pointer' : undefined,
           ...style,
         }}
         onClick={onClick}
         role={onClick ? 'button' : undefined}
-        tabIndex={onClick ? 0 : undefined}
         aria-label={ariaLabel || name}
       >
         {name}
@@ -99,144 +150,48 @@ export const IconV2: React.FC<IconV2Props> = ({
     );
   }
 
-  // Brand icons - SVG based
-  return (
-    <span
-      className={`iconv2 iconv2--brand iconv2--brand-${name} ${className}`}
-      style={commonStyles}
-      onClick={onClick}
-      role={onClick ? 'button' : 'img'}
-      tabIndex={onClick ? 0 : undefined}
-      aria-label={ariaLabel || name}
-    >
-      {renderBrandIcon(name, size, color)}
-    </span>
-  );
-};
+  // For Brand icons
+  if (type === 'brand') {
+    const brandIconName = name as BrandIconName;
+    const brandIconSize = (size === 'small' || size === 'medium' ? size : 'medium') as BrandIconSize;
+    
+    // Get the SVG path
+    const brandIcon = BRAND_ICONS[brandIconName];
+    if (!brandIcon) {
+      console.warn(`Brand icon "${name}" not found`);
+      return null;
+    }
 
-/**
- * Render Eightfold brand SVG icons
- */
-const renderBrandIcon = (name: string, size: number | string, color?: string): React.ReactNode => {
-  const fillColor = color || 'currentColor';
-  const sizeValue = typeof size === 'number' ? size : parseInt(size as string, 10) || 24;
+    const svgPath = brandIcon[brandIconSize];
+    
+    // Determine pixel size based on brand icon size
+    const pixelSize = brandIconSize === 'medium' ? 40 : 32;
+    const sizeValue = `${pixelSize}px`;
 
-  switch (name) {
-    case 'eightfold':
-    case 'eightfold-ai':
-      return (
-        <svg
-          width={sizeValue}
-          height={sizeValue}
-          viewBox="0 0 20 20"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M10 0C4.477 0 0 4.477 0 10s4.477 10 10 10 10-4.477 10-10S15.523 0 10 0zm0 18.333c-4.595 0-8.333-3.738-8.333-8.333S5.405 1.667 10 1.667s8.333 3.738 8.333 8.333-3.738 8.333-8.333 8.333z"
-            fill={fillColor}
-          />
-          <path
-            d="M14.167 10c0 2.301-1.866 4.167-4.167 4.167S5.833 12.301 5.833 10 7.699 5.833 10 5.833s4.167 1.866 4.167 4.167z"
-            fill={fillColor}
-          />
-          <path
-            d="M10 3.333c-3.682 0-6.667 2.985-6.667 6.667S6.318 16.667 10 16.667s6.667-2.985 6.667-6.667S13.682 3.333 10 3.333zm0 11.667c-2.761 0-5-2.239-5-5s2.239-5 5-5 5 2.239 5 5-2.239 5-5 5z"
-            fill={fillColor}
-          />
-        </svg>
-      );
-
-    case 'talent-design':
-      return (
-        <svg
-          width={sizeValue}
-          height={sizeValue}
-          viewBox="0 0 24 24"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M19.5 3h-15A1.5 1.5 0 0 0 3 4.5v15A1.5 1.5 0 0 0 4.5 21h15a1.5 1.5 0 0 0 1.5-1.5v-15A1.5 1.5 0 0 0 19.5 3zM12 18a6 6 0 1 1 0-12 6 6 0 0 1 0 12z"
-            fill={fillColor}
-          />
-          <circle cx="12" cy="12" r="3" fill={fillColor} />
-        </svg>
-      );
-
-    case 'talent-flex':
-      return (
-        <svg
-          width={sizeValue}
-          height={sizeValue}
-          viewBox="0 0 24 24"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M4 6h16v2H4V6zm0 5h16v2H4v-2zm0 5h16v2H4v-2z"
-            fill={fillColor}
-          />
-        </svg>
-      );
-
-    case 'career-hub':
-      return (
-        <svg
-          width={sizeValue}
-          height={sizeValue}
-          viewBox="0 0 24 24"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M12 2L2 7v10c0 5.5 3.8 10.7 10 12 6.2-1.3 10-6.5 10-12V7l-10-5zm0 18c-4.4 0-8-3.6-8-8s3.6-8 8-8 8 3.6 8 8-3.6 8-8 8z"
-            fill={fillColor}
-          />
-        </svg>
-      );
-
-    case 'talent-acquisition':
-      return (
-        <svg
-          width={sizeValue}
-          height={sizeValue}
-          viewBox="0 0 24 24"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"
-            fill={fillColor}
-          />
-        </svg>
-      );
-
-    // Placeholder for icons not yet implemented
-    default:
-      return (
-        <svg
-          width={sizeValue}
-          height={sizeValue}
-          viewBox="0 0 24 24"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <rect x="3" y="3" width="18" height="18" rx="2" stroke={fillColor} strokeWidth="2" fill="none" />
-          <text
-            x="12"
-            y="15"
-            textAnchor="middle"
-            fill={fillColor}
-            fontSize="10"
-            fontFamily="Arial, sans-serif"
-          >
-            ?
-          </text>
-        </svg>
-      );
+    return (
+      <span
+        className={`iconv2 iconv2--brand ${className}`}
+        style={{
+          width: sizeValue,
+          height: sizeValue,
+          ...style,
+        }}
+        onClick={onClick}
+        role={onClick ? 'button' : undefined}
+        aria-label={ariaLabel || name}
+      >
+        <img 
+          src={svgPath} 
+          alt={ariaLabel || name}
+          style={{
+            width: '100%',
+            height: '100%',
+            display: 'block',
+          }}
+        />
+      </span>
+    );
   }
+
+  return null;
 };
-
-IconV2.displayName = 'IconV2';
-

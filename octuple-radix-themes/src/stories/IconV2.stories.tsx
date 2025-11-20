@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { IconV2 } from '../components/IconV2';
+import { IconV2, BrandIconName } from '../components/IconV2';
 
 const meta: Meta<typeof IconV2> = {
   title: 'Octuple V2.5/Icon',
@@ -42,303 +42,200 @@ export const MaterialIconColored: Story = {
 };
 
 /**
- * Brand icon - Eightfold AI logo
+ * Material Icons Gallery - Common icons at different sizes
  */
-export const BrandIconEightfold: Story = {
-  args: {
-    type: 'brand',
-    name: 'eightfold',
-    size: 24,
-    color: '#343C4C',
+export const MaterialIconsGallery: Story = {
+  render: () => (
+    <div style={{ display: 'flex', flexDirection: 'column', gap: '32px' }}>
+      <div>
+        <h3 style={{ margin: '0 0 16px 0', fontSize: '16px', fontWeight: 600 }}>Size: 16px</h3>
+        <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap' }}>
+          {['home', 'settings', 'person', 'check', 'close', 'search', 'menu', 'more_vert'].map((iconName) => (
+            <div key={iconName} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '8px' }}>
+              <IconV2 type="material" name={iconName} size={16} />
+              <span style={{ fontSize: '12px', color: '#666' }}>{iconName}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+      
+      <div>
+        <h3 style={{ margin: '0 0 16px 0', fontSize: '16px', fontWeight: 600 }}>Size: 24px (Default)</h3>
+        <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap' }}>
+          {['home', 'settings', 'person', 'check', 'close', 'search', 'menu', 'more_vert'].map((iconName) => (
+            <div key={iconName} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '8px' }}>
+              <IconV2 type="material" name={iconName} size={24} />
+              <span style={{ fontSize: '12px', color: '#666' }}>{iconName}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+      
+      <div>
+        <h3 style={{ margin: '0 0 16px 0', fontSize: '16px', fontWeight: 600 }}>Size: 32px</h3>
+        <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap' }}>
+          {['home', 'settings', 'person', 'check', 'close', 'search', 'menu', 'more_vert'].map((iconName) => (
+            <div key={iconName} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '8px' }}>
+              <IconV2 type="material" name={iconName} size={32} />
+              <span style={{ fontSize: '12px', color: '#666' }}>{iconName}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  ),
+};
+
+/**
+ * Brand Icons - All Eightfold products with Medium and Small sizes
+ */
+export const BrandIcons: Story = {
+  render: () => {
+    const brandIcons: { name: BrandIconName; label: string }[] = [
+      { name: 'talent-design', label: 'Talent Design' },
+      { name: 'talent-flex', label: 'Talent Flex' },
+      { name: 'talent-acquisition', label: 'Talent Acquisition' },
+      { name: 'talent-university', label: 'Talent University' },
+      { name: 'talent-tracking', label: 'Talent Tracking' },
+      { name: 'talent-intelligence-platform', label: 'Talent Intelligence Platform' },
+      { name: 'career-hub', label: 'Career Hub' },
+      { name: 'career-exchange', label: 'Career Exchange' },
+      { name: 'customer-community', label: 'Customer Community' },
+      { name: 'campaigns', label: 'Campaigns' },
+      { name: 'self-service', label: 'Self-Service' },
+      { name: 'resource-management', label: 'Resource Management' },
+      { name: 'delegation-center', label: 'Delegation Center' },
+      { name: 'managed-services', label: 'Managed Services' },
+      { name: 'pcs', label: 'PCS' },
+      { name: 'octuple', label: 'Octuple' },
+    ];
+
+    return (
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '24px', padding: '20px' }}>
+        <div>
+          <h2 style={{ margin: '0 0 16px 0', fontSize: '18px', fontWeight: 600 }}>
+            Eightfold Brand Icons
+          </h2>
+          <p style={{ margin: '0 0 24px 0', fontSize: '14px', color: '#666' }}>
+            All product icons shown in Medium (40px) and Small (32px) sizes
+          </p>
+        </div>
+        
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))', gap: '24px' }}>
+          {brandIcons.map(({ name, label }) => (
+            <div 
+              key={name} 
+              style={{ 
+                display: 'flex', 
+                flexDirection: 'column', 
+                gap: '12px',
+                padding: '16px',
+                border: '1px solid #e5e7eb',
+                borderRadius: '8px',
+                backgroundColor: '#fff',
+              }}
+            >
+              <div style={{ fontSize: '14px', fontWeight: 600, marginBottom: '8px' }}>{label}</div>
+              
+              <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+                <IconV2 type="brand" name={name} size="medium" />
+                <span style={{ fontSize: '12px', color: '#999' }}>Medium</span>
+              </div>
+              
+              <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+                <IconV2 type="brand" name={name} size="small" />
+                <span style={{ fontSize: '12px', color: '#999' }}>Small</span>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    );
   },
 };
 
 /**
- * Brand icon with custom color
+ * Brand Icon - Single Medium Icon
  */
-export const BrandIconColored: Story = {
+export const BrandIconMedium: Story = {
   args: {
     type: 'brand',
     name: 'talent-design',
-    size: 24,
-    color: '#50CEE1',
+    size: 'medium',
   },
 };
 
 /**
- * Gallery of common Material icons
+ * Brand Icon - Single Small Icon
  */
-export const MaterialIconGallery: Story = {
-  render: () => {
-    const commonIcons = [
-      'home', 'settings', 'person', 'check', 'close', 'add', 'remove',
-      'search', 'menu', 'more_vert', 'arrow_forward', 'arrow_back',
-      'star', 'favorite', 'edit', 'delete', 'info', 'warning',
-      'notifications', 'mail', 'lock', 'visibility', 'download', 'upload'
-    ];
-
-    return (
-      <div style={{ 
-        display: 'grid', 
-        gridTemplateColumns: 'repeat(6, 1fr)', 
-        gap: '24px',
-        padding: '20px'
-      }}>
-        {commonIcons.map((icon) => (
-          <div
-            key={icon}
-            style={{
-              display: 'flex',
-              flexDirection: 'column',
-              alignItems: 'center',
-              gap: '8px'
-            }}
-          >
-            <IconV2 name={icon} size={24} color="#343C4C" />
-            <span style={{ fontSize: '12px', color: '#69717f', textAlign: 'center' }}>
-              {icon}
-            </span>
-          </div>
-        ))}
-      </div>
-    );
+export const BrandIconSmall: Story = {
+  args: {
+    type: 'brand',
+    name: 'talent-design',
+    size: 'small',
   },
 };
 
 /**
- * Gallery of Eightfold Brand icons
+ * Icons in context - Material and Brand together
  */
-export const BrandIconGallery: Story = {
-  render: () => {
-    const brandIcons = [
-      { name: 'eightfold', label: 'Eightfold AI' },
-      { name: 'talent-design', label: 'Talent Design' },
-      { name: 'talent-flex', label: 'Talent Flex' },
-      { name: 'career-hub', label: 'Career Hub' },
-      { name: 'talent-acquisition', label: 'Talent Acquisition' },
-    ];
-
-    return (
-      <div style={{ 
-        display: 'grid', 
-        gridTemplateColumns: 'repeat(3, 1fr)', 
-        gap: '32px',
-        padding: '20px'
-      }}>
-        {brandIcons.map((icon) => (
-          <div
-            key={icon.name}
-            style={{
-              display: 'flex',
-              flexDirection: 'column',
-              alignItems: 'center',
-              gap: '12px',
-              padding: '16px',
-              border: '1px solid #e5e7eb',
-              borderRadius: '8px'
-            }}
-          >
-            <IconV2 
-              type="brand" 
-              name={icon.name} 
-              size={32} 
-              color="#50CEE1" 
-            />
-            <span style={{ 
-              fontSize: '14px', 
-              color: '#69717f', 
-              textAlign: 'center',
-              fontWeight: 500 
-            }}>
-              {icon.label}
-            </span>
-          </div>
-        ))}
+export const MixedIcons: Story = {
+  render: () => (
+    <div style={{ display: 'flex', flexDirection: 'column', gap: '24px', padding: '20px' }}>
+      <div style={{ display: 'flex', alignItems: 'center', gap: '16px', padding: '16px', backgroundColor: '#f9fafb', borderRadius: '8px' }}>
+        <IconV2 type="material" name="home" size={24} />
+        <span style={{ fontSize: '16px' }}>Home Dashboard</span>
       </div>
-    );
-  },
+      
+      <div style={{ display: 'flex', alignItems: 'center', gap: '16px', padding: '16px', backgroundColor: '#f9fafb', borderRadius: '8px' }}>
+        <IconV2 type="brand" name="talent-design" size="medium" />
+        <span style={{ fontSize: '16px' }}>Talent Design Portal</span>
+      </div>
+      
+      <div style={{ display: 'flex', alignItems: 'center', gap: '16px', padding: '16px', backgroundColor: '#f9fafb', borderRadius: '8px' }}>
+        <IconV2 type="brand" name="career-hub" size="small" />
+        <span style={{ fontSize: '14px' }}>Career Hub</span>
+        <IconV2 type="material" name="arrow_forward" size={20} style={{ marginLeft: 'auto' }} />
+      </div>
+    </div>
+  ),
 };
 
 /**
- * Different icon sizes
- */
-export const IconSizes: Story = {
-  render: () => {
-    const sizes = [16, 20, 24, 32, 40, 48];
-
-    return (
-      <div style={{ display: 'flex', flexDirection: 'column', gap: '40px' }}>
-        {/* Material Icons */}
-        <div>
-          <h3 style={{ marginBottom: '20px', color: '#1A212E' }}>Material Icons</h3>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '20px' }}>
-            {sizes.map((size) => (
-              <div key={size} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '8px' }}>
-                <IconV2 name="star" size={size} color="#343C4C" />
-                <span style={{ fontSize: '12px', color: '#69717f' }}>{size}px</span>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Brand Icons */}
-        <div>
-          <h3 style={{ marginBottom: '20px', color: '#1A212E' }}>Brand Icons</h3>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '20px' }}>
-            {sizes.map((size) => (
-              <div key={size} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '8px' }}>
-                <IconV2 type="brand" name="eightfold" size={size} color="#50CEE1" />
-                <span style={{ fontSize: '12px', color: '#69717f' }}>{size}px</span>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
-    );
-  },
-};
-
-/**
- * Interactive icons with click handlers
+ * Interactive icons with onClick
  */
 export const InteractiveIcons: Story = {
   render: () => (
-    <div style={{ display: 'flex', gap: '16px' }}>
-      <IconV2
-        name="favorite"
-        size={32}
+    <div style={{ display: 'flex', gap: '16px', padding: '20px' }}>
+      <IconV2 
+        type="material" 
+        name="favorite" 
+        size={32} 
         color="#ff4444"
-        onClick={() => alert('Favorite clicked!')}
-        ariaLabel="Add to favorites"
+        onClick={() => alert('Material icon clicked!')}
+        style={{ cursor: 'pointer' }}
       />
-      <IconV2
-        name="share"
-        size={32}
-        color="#0479ac"
-        onClick={() => alert('Share clicked!')}
-        ariaLabel="Share"
-      />
-      <IconV2
-        type="brand"
-        name="eightfold"
-        size={32}
-        color="#50CEE1"
-        onClick={() => alert('Eightfold clicked!')}
-        ariaLabel="Eightfold AI"
+      <IconV2 
+        type="brand" 
+        name="talent-acquisition" 
+        size="medium"
+        onClick={() => alert('Brand icon clicked!')}
+        style={{ cursor: 'pointer' }}
       />
     </div>
   ),
 };
 
 /**
- * Icons in different contexts
+ * Color Variations - Material Icons
  */
-export const IconsInContext: Story = {
+export const ColoredMaterialIcons: Story = {
   render: () => (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
-      {/* Button with icon */}
-      <button
-        style={{
-          display: 'flex',
-          alignItems: 'center',
-          gap: '8px',
-          padding: '8px 16px',
-          background: '#0479ac',
-          color: 'white',
-          border: 'none',
-          borderRadius: '4px',
-          fontSize: '14px',
-          cursor: 'pointer',
-        }}
-      >
-        <IconV2 name="add" size={20} color="white" />
-        Add Item
-      </button>
-
-      {/* Card header with brand icon */}
-      <div
-        style={{
-          display: 'flex',
-          alignItems: 'center',
-          gap: '12px',
-          padding: '16px',
-          border: '1px solid #e5e7eb',
-          borderRadius: '8px',
-        }}
-      >
-        <IconV2 type="brand" name="talent-design" size={24} color="#50CEE1" />
-        <div>
-          <h4 style={{ margin: 0, color: '#1A212E', fontSize: '16px' }}>Talent Design</h4>
-          <p style={{ margin: '4px 0 0', color: '#69717f', fontSize: '14px' }}>
-            Design your perfect team structure
-          </p>
-        </div>
-      </div>
-
-      {/* Icon list */}
-      <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
-        {[
-          { icon: 'check_circle', text: 'Completed onboarding', color: '#10b981' },
-          { icon: 'schedule', text: 'Pending review', color: '#f59e0b' },
-          { icon: 'error', text: 'Action required', color: '#ef4444' },
-        ].map((item, index) => (
-          <div key={index} style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-            <IconV2 name={item.icon} size={20} color={item.color} />
-            <span style={{ color: '#343C4C', fontSize: '14px' }}>{item.text}</span>
-          </div>
-        ))}
-      </div>
+    <div style={{ display: 'flex', gap: '16px', padding: '20px', alignItems: 'center' }}>
+      <IconV2 type="material" name="check_circle" size={32} color="#10b981" />
+      <IconV2 type="material" name="error" size={32} color="#ef4444" />
+      <IconV2 type="material" name="warning" size={32} color="#f59e0b" />
+      <IconV2 type="material" name="info" size={32} color="#3b82f6" />
     </div>
   ),
 };
-
-/**
- * Color variations
- */
-export const ColorVariations: Story = {
-  render: () => {
-    const colors = [
-      { name: 'Primary', value: '#0479ac' },
-      { name: 'Success', value: '#10b981' },
-      { name: 'Warning', value: '#f59e0b' },
-      { name: 'Error', value: '#ef4444' },
-      { name: 'Brand Blue-Green', value: '#50CEE1' },
-      { name: 'Grey', value: '#343C4C' },
-    ];
-
-    return (
-      <div style={{ display: 'flex', flexDirection: 'column', gap: '40px' }}>
-        {/* Material Icons */}
-        <div>
-          <h3 style={{ marginBottom: '20px', color: '#1A212E' }}>Material Icons</h3>
-          <div style={{ display: 'flex', gap: '24px', flexWrap: 'wrap' }}>
-            {colors.map((color) => (
-              <div key={color.name} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '8px' }}>
-                <IconV2 name="star" size={32} color={color.value} />
-                <span style={{ fontSize: '12px', color: '#69717f', textAlign: 'center' }}>
-                  {color.name}
-                </span>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Brand Icons */}
-        <div>
-          <h3 style={{ marginBottom: '20px', color: '#1A212E' }}>Brand Icons</h3>
-          <div style={{ display: 'flex', gap: '24px', flexWrap: 'wrap' }}>
-            {colors.map((color) => (
-              <div key={color.name} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '8px' }}>
-                <IconV2 type="brand" name="eightfold" size={32} color={color.value} />
-                <span style={{ fontSize: '12px', color: '#69717f', textAlign: 'center' }}>
-                  {color.name}
-                </span>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
-    );
-  },
-};
-
