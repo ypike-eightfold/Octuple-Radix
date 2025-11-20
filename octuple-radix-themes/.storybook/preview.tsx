@@ -1,6 +1,7 @@
 import type { Preview } from '@storybook/react';
 import React from 'react';
 import { ThemeProvider } from '../src/theme/ThemeProvider';
+import '../src/styles/fonts.css';
 import '../src/styles/component-overrides.css';
 import '../src/styles/legacy-theme.css';
 
