@@ -47,6 +47,9 @@ export type { PaginationProps } from './components/Pagination';
 export { Stepper } from './components/Stepper';
 export type { StepperProps, StepItem } from './components/Stepper';
 
+export { StepperV2 } from './components/StepperV2';
+export type { StepperV2Props, StepperV2Style, StepStatus, StepItem as StepperV2Item } from './components/StepperV2';
+
 export { Timeline } from './components/Timeline';
 export type { TimelineProps, TimelineItemData } from './components/Timeline';
 
