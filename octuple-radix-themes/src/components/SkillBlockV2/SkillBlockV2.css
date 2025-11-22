@@ -1,0 +1,267 @@
+/* SkillBlockV2 - Simplified implementation based on Octuple */
+
+.skill-block-v2 {
+  display: flex;
+  flex-direction: column;
+  background: var(--white-color, #ffffff);
+  border: 1px solid var(--grey-border-color, #d6d6d6);
+  border-radius: 8px;
+  padding: 12px 16px;
+  gap: 12px;
+  transition: all 0.2s ease;
+  position: relative;
+}
+
+.skill-block-v2-borderless {
+  border: none;
+}
+
+/* Sizes */
+.skill-block-v2-small {
+  padding: 8px 12px;
+  gap: 8px;
+  font-size: 12px;
+}
+
+.skill-block-v2-medium {
+  padding: 12px 16px;
+  gap: 12px;
+  font-size: 14px;
+}
+
+.skill-block-v2-large {
+  padding: 16px 20px;
+  gap: 16px;
+  font-size: 16px;
+}
+
+/* Status Variants */
+.skill-block-v2-highlight {
+  background: #FFF9E6;
+  border-color: #FFD666;
+}
+
+.skill-block-v2-match {
+  background: #E6F7F1;
+  border-color: #52C41A;
+}
+
+/* Assessment Variants */
+.skill-block-v2-assessment-below {
+  border-left: 4px solid #FF4D4F;
+}
+
+.skill-block-v2-assessment-meet {
+  border-left: 4px solid #52C41A;
+}
+
+.skill-block-v2-assessment-exceed {
+  border-left: 4px solid #1890FF;
+}
+
+.skill-block-v2-assessment-upskilling {
+  border-left: 4px solid #9B7CB6;
+}
+
+.skill-block-v2-assessment-below-upskilling {
+  border-left: 4px solid #FF4D4F;
+  background: #FFF1F0;
+}
+
+.skill-block-v2-assessment-meet-upskilling {
+  border-left: 4px solid #52C41A;
+  background: #F6FFED;
+}
+
+.skill-block-v2-assessment-exceed-upskilling {
+  border-left: 4px solid #1890FF;
+  background: #E6F7FF;
+}
+
+/* Interactive States */
+.skill-block-v2-clickable {
+  cursor: pointer;
+}
+
+.skill-block-v2-clickable:hover:not(.skill-block-v2-disabled) {
+  border-color: var(--primary-color, #6791C4);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.skill-block-v2-hoverable:hover:not(.skill-block-v2-disabled) {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.skill-block-v2-disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.skill-block-v2-endorsed {
+  border-color: #52C41A;
+}
+
+/* Header */
+.skill-block-v2-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.skill-block-v2-label-section {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex: 1;
+  min-width: 0;
+}
+
+.skill-block-v2-icon {
+  flex-shrink: 0;
+  color: var(--text-secondary-color, #595959);
+}
+
+.skill-block-v2-label-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex: 1;
+  min-width: 0;
+}
+
+.skill-block-v2-label {
+  font-family: 'Gilroy', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+  font-weight: 600;
+  color: var(--text-primary-color, #262626);
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.skill-block-v2-required-mark {
+  color: #FF4D4F;
+  font-weight: 600;
+  flex-shrink: 0;
+}
+
+.skill-block-v2-endorsement-icon {
+  color: #52C41A;
+  flex-shrink: 0;
+}
+
+/* Actions */
+.skill-block-v2-actions {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex-shrink: 0;
+}
+
+.skill-block-v2-expand-button,
+.skill-block-v2-menu-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: none;
+  border-radius: 4px;
+  padding: 4px;
+  cursor: pointer;
+  color: var(--text-secondary-color, #595959);
+  transition: all 0.2s ease;
+}
+
+.skill-block-v2-expand-button:hover:not(:disabled),
+.skill-block-v2-menu-button:hover:not(:disabled) {
+  background: var(--grey-background2-color, #f5f5f5);
+  color: var(--text-primary-color, #262626);
+}
+
+.skill-block-v2-expand-button:disabled,
+.skill-block-v2-menu-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Content */
+.skill-block-v2-content {
+  font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--text-secondary-color, #595959);
+}
+
+.skill-block-v2-small .skill-block-v2-content {
+  font-size: 12px;
+}
+
+.skill-block-v2-large .skill-block-v2-content {
+  font-size: 16px;
+}
+
+/* Expanded Content */
+.skill-block-v2-expanded-content {
+  padding-top: 8px;
+  border-top: 1px solid var(--grey-border-color, #d6d6d6);
+  font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--text-secondary-color, #595959);
+}
+
+.skill-block-v2-small .skill-block-v2-expanded-content {
+  padding-top: 6px;
+  font-size: 12px;
+}
+
+.skill-block-v2-large .skill-block-v2-expanded-content {
+  padding-top: 12px;
+  font-size: 16px;
+}
+
+/* Dropdown Menu */
+.skill-block-v2-menu-content {
+  min-width: 160px;
+  background: var(--white-color, #ffffff);
+  border-radius: 8px;
+  padding: 4px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  z-index: 1000;
+}
+
+.skill-block-v2-menu-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  border-radius: 4px;
+  font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+  font-size: 14px;
+  color: var(--text-primary-color, #262626);
+  cursor: pointer;
+  outline: none;
+  user-select: none;
+  transition: background 0.2s ease;
+}
+
+.skill-block-v2-menu-item:hover {
+  background: var(--grey-background2-color, #f5f5f5);
+}
+
+.skill-block-v2-menu-item:focus-visible {
+  background: var(--grey-background2-color, #f5f5f5);
+}
+
+.skill-block-v2-menu-item[data-disabled] {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.skill-block-v2-menu-item-icon {
+  color: var(--text-secondary-color, #595959);
+  flex-shrink: 0;
+}
+

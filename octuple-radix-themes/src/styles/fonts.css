@@ -8,14 +8,8 @@
 /* Google Fonts - Poppins (300-600 only: light, normal, medium, semibold) */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
 
-/* Material Symbols Outlined - Local font file */
-@font-face {
-  font-family: 'Material Symbols Outlined';
-  font-style: normal;
-  font-weight: 100 700;
-  src: url('/material-symbols-outlined.woff2') format('woff2');
-  font-display: block;
-}
+/* Material Symbols Outlined - From Google CDN (loaded in Storybook preview-head.html) */
+@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap');
 
 /* Material Symbols default styling with font variations */
 .material-symbols-outlined {

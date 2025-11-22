@@ -1,241 +1,251 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { SelectV2, SelectV2Option } from '../components/SelectV2/SelectV2';
-import { Flex, Text } from '@radix-ui/themes';
+import { SelectV2, SelectOption } from '../components/SelectV2';
+import React, { useState, useRef } from 'react';
 
-const meta = {
+const meta: Meta<typeof SelectV2> = {
   title: 'Octuple V2.5/Select',
   component: SelectV2,
   parameters: {
-    layout: 'padded',
+    layout: 'centered',
+    docs: {
+      description: {
+        component: 'Basic select component which supports searching, multi select',
+      },
+    },
   },
   tags: ['autodocs'],
   argTypes: {
-    shape: {
-      control: 'select',
-      options: ['rounded', 'pill', 'inline'],
-      description: 'Shape variant',
-    },
     size: {
       control: 'select',
       options: ['small', 'medium', 'large'],
-      description: 'Size variant',
     },
-    error: {
-      control: 'boolean',
-      description: 'Error state',
+    mode: {
+      control: 'select',
+      options: ['single', 'multiple', 'tags'],
     },
-    multiple: {
-      control: 'boolean',
-      description: 'Multi-select mode',
-    },
+    disabled: { control: 'boolean' },
+    allowClear: { control: 'boolean' },
+    showSearch: { control: 'boolean' },
+    loading: { control: 'boolean' },
   },
-} satisfies Meta<typeof SelectV2>;
+};
 
 export default meta;
-type Story = StoryObj<typeof meta>;
+type Story = StoryObj<typeof SelectV2>;
 
-const sampleOptions: SelectV2Option[] = [
-  { value: 'ux', label: 'UX Designer' },
-  { value: 'ui', label: 'UI Designer' },
-  { value: 'product', label: 'Product Designer' },
-  { value: 'frontend', label: 'Frontend Developer' },
-  { value: 'backend', label: 'Backend Developer' },
-  { value: 'fullstack', label: 'Full Stack Developer' },
+const defaultOptions: SelectOption[] = [
+  { label: 'School', value: 'school' },
+  { label: 'Date', value: 'date' },
+  { label: 'Supercalifragilisticexpialidocious and another Supercalifragilisticexpialidocious', value: 'verylarge' },
+  { label: 'Account', value: 'account' },
+  { label: 'Hat', value: 'hat' },
+  { label: 'Tie', value: 'tie' },
+  { label: 'Date alert', value: 'datealert' },
+  { label: 'Bell', value: 'bell' },
 ];
 
-const fruitOptions: SelectV2Option[] = [
-  { value: 'apple', label: 'Apple' },
-  { value: 'banana', label: 'Banana' },
-  { value: 'orange', label: 'Orange' },
-  { value: 'grape', label: 'Grape' },
-  { value: 'mango', label: 'Mango' },
-];
-
-export const Shapes: Story = {
-  render: () => (
-    <Flex direction="column" gap="4" style={{ width: '400px' }}>
-      <div>
-        <Text size="2" weight="bold" mb="2" as="div">Rounded (12px)</Text>
-        <SelectV2 
-          shape="rounded" 
-          options={sampleOptions}
-          placeholder="Select a role"
-        />
-      </div>
-      
-      <div>
-        <Text size="2" weight="bold" mb="2" as="div">Pill (fully rounded)</Text>
-        <SelectV2 
-          shape="pill" 
-          options={sampleOptions}
-          placeholder="Select a role"
-        />
-      </div>
-      
-      <div>
-        <Text size="2" weight="bold" mb="2" as="div">Inline (underline)</Text>
-        <SelectV2 
-          shape="inline" 
-          options={sampleOptions}
-          placeholder="Select a role"
-        />
-      </div>
-    </Flex>
-  ),
-};
-
-export const Sizes: Story = {
-  render: () => (
-    <Flex direction="column" gap="4" style={{ width: '400px' }}>
-      <div>
-        <Text size="2" weight="bold" mb="2" as="div">Large (44px)</Text>
-        <SelectV2 
-          size="large" 
-          options={sampleOptions}
-          placeholder="Select a role"
-        />
-      </div>
-      
-      <div>
-        <Text size="2" weight="bold" mb="2" as="div">Medium (36px)</Text>
-        <SelectV2 
-          size="medium" 
-          options={sampleOptions}
-          placeholder="Select a role"
-        />
-      </div>
-      
-      <div>
-        <Text size="2" weight="bold" mb="2" as="div">Small (28px)</Text>
-        <SelectV2 
-          size="small" 
-          options={sampleOptions}
-          placeholder="Select a role"
-        />
-      </div>
-    </Flex>
-  ),
-};
-
-export const States: Story = {
-  render: () => (
-    <Flex direction="column" gap="4" style={{ width: '400px' }}>
-      <div>
-        <Text size="2" weight="bold" mb="2" as="div">Enabled (default)</Text>
-        <SelectV2 
-          options={sampleOptions}
-          placeholder="Select a role"
-        />
-      </div>
-      
-      <div>
-        <Text size="2" weight="bold" mb="2" as="div">With selected value</Text>
-        <SelectV2 
-          options={sampleOptions}
-          value="ux"
-          placeholder="Select a role"
-        />
-      </div>
-      
-      <div>
-        <Text size="2" weight="bold" mb="2" as="div">Error state</Text>
-        <SelectV2 
-          options={sampleOptions}
-          error
-          placeholder="Select a role"
-        />
-      </div>
-      
-      <div>
-        <Text size="2" weight="bold" mb="2" as="div">Disabled (40% opacity)</Text>
-        <SelectV2 
-          options={sampleOptions}
-          disabled
-          placeholder="Select a role"
-        />
-      </div>
-    </Flex>
-  ),
-};
-
-export const MultiSelect: Story = {
-  render: () => (
-    <Flex direction="column" gap="4" style={{ width: '400px' }}>
-      <div>
-        <Text size="2" weight="bold" mb="2" as="div">Multi-select mode</Text>
-        <SelectV2 
-          options={fruitOptions}
-          multiple
-          placeholder="Select fruits"
-        />
-      </div>
-      
-      <div>
-        <Text size="2" weight="bold" mb="2" as="div">Multi-select with defaults</Text>
-        <SelectV2 
-          options={fruitOptions}
-          multiple
-          value={['apple', 'banana']}
-          placeholder="Select fruits"
-        />
-      </div>
-    </Flex>
-  ),
-};
-
-export const WithDisabledOptions: Story = {
+export const Basic: Story = {
   render: () => {
-    const optionsWithDisabled: SelectV2Option[] = [
-      { value: 'ux', label: 'UX Designer' },
-      { value: 'ui', label: 'UI Designer', disabled: true },
-      { value: 'product', label: 'Product Designer' },
-      { value: 'frontend', label: 'Frontend Developer', disabled: true },
-      { value: 'backend', label: 'Backend Developer' },
-    ];
-
+    const [value, setValue] = useState('');
     return (
-      <Flex direction="column" gap="4" style={{ width: '400px' }}>
-        <div>
-          <Text size="2" weight="bold" mb="2" as="div">Some options disabled</Text>
-          <SelectV2 
-            options={optionsWithDisabled}
-            placeholder="Select a role"
-          />
-        </div>
-      </Flex>
+      <SelectV2
+        value={value}
+        onChange={(val) => setValue(String(val))}
+        options={defaultOptions}
+        placeholder="Select an option"
+        width={256}
+      />
     );
   },
 };
 
-export const Interactive: Story = {
-  render: () => (
-    <Flex direction="column" gap="4" style={{ width: '400px' }}>
-      <SelectV2 
-        options={sampleOptions}
-        placeholder="Try clicking to open menu"
-      />
-      
-      <SelectV2 
-        options={sampleOptions}
-        error
-        value="backend"
-        placeholder="Select a role"
-      />
-      
-      <SelectV2 
-        shape="pill"
-        options={fruitOptions}
-        multiple
-        placeholder="Select multiple fruits"
-      />
-      
-      <SelectV2 
-        shape="inline"
-        size="small"
-        options={sampleOptions}
-        placeholder="Inline small select"
-      />
-    </Flex>
-  ),
+export const Dynamic_Width: Story = {
+  render: () => {
+    const [value, setValue] = useState('');
+    return (
+      <div style={{ width: '400px' }}>
+        <SelectV2
+          value={value}
+          onChange={(val) => setValue(String(val))}
+          options={defaultOptions}
+          placeholder="Select an option"
+          width="100%"
+        />
+      </div>
+    );
+  },
 };
 
+export const With_Default_Value: Story = {
+  render: () => {
+    const [value, setValue] = useState('hat');
+    return (
+      <SelectV2
+        value={value}
+        onChange={(val) => setValue(String(val))}
+        options={defaultOptions}
+        width={256}
+      />
+    );
+  },
+};
+
+export const With_Default_Value_Multiple: Story = {
+  render: () => {
+    const [values, setValues] = useState<(string | number)[]>(['verylarge', 'account', 'hat']);
+    return (
+      <SelectV2
+        value={values}
+        onChange={(val) => setValues(Array.isArray(val) ? val : [val])}
+        options={defaultOptions}
+        mode="multiple"
+        width={324}
+      />
+    );
+  },
+};
+
+export const Disabled: Story = {
+  render: () => {
+    return (
+      <SelectV2
+        value="hat"
+        options={defaultOptions}
+        disabled={true}
+        width={256}
+      />
+    );
+  },
+};
+
+export const With_Clear: Story = {
+  render: () => {
+    const [value, setValue] = useState('hat');
+    return (
+      <SelectV2
+        value={value}
+        onChange={(val) => setValue(String(val))}
+        options={defaultOptions}
+        allowClear={true}
+        width={256}
+      />
+    );
+  },
+};
+
+export const Options_Disabled: Story = {
+  render: () => {
+    const [value, setValue] = useState('');
+    const optionsWithDisabled: SelectOption[] = [
+      { label: 'Option taken', value: 'option1', disabled: true },
+      ...defaultOptions,
+    ];
+    
+    return (
+      <SelectV2
+        value={value}
+        onChange={(val) => setValue(String(val))}
+        options={optionsWithDisabled}
+        placeholder="Select an option"
+        width={256}
+      />
+    );
+  },
+};
+
+export const Filterable: Story = {
+  render: () => {
+    const [value, setValue] = useState('');
+    return (
+      <SelectV2
+        value={value}
+        onChange={(val) => setValue(String(val))}
+        options={defaultOptions}
+        showSearch={true}
+        allowClear={true}
+        placeholder="Search and select"
+        width={256}
+      />
+    );
+  },
+};
+
+export const Multiple: Story = {
+  render: () => {
+    const [values, setValues] = useState<(string | number)[]>([]);
+    return (
+      <div style={{ width: '400px' }}>
+        <SelectV2
+          value={values}
+          onChange={(val) => setValues(Array.isArray(val) ? val : [val])}
+          options={defaultOptions}
+          mode="multiple"
+          showSearch={true}
+          allowClear={true}
+          placeholder="Select multiple"
+          width="100%"
+        />
+      </div>
+    );
+  },
+};
+
+export const Multiple_With_No_Filter: Story = {
+  render: () => {
+    const [values, setValues] = useState<(string | number)[]>([]);
+    return (
+      <div style={{ width: '400px' }}>
+        <SelectV2
+          value={values}
+          onChange={(val) => setValues(Array.isArray(val) ? val : [val])}
+          options={defaultOptions}
+          mode="multiple"
+          showSearch={false}
+          allowClear={true}
+          placeholder="Select multiple"
+          width="100%"
+        />
+      </div>
+    );
+  },
+};
+
+export const Dynamic: Story = {
+  render: () => {
+    const timer = useRef<ReturnType<typeof setTimeout> | null>(null);
+    const [value, setValue] = useState('');
+    const [options, setOptions] = useState(defaultOptions);
+    const [isLoading, setIsLoading] = useState(false);
+
+    const handleSearch = (searchString: string) => {
+      setIsLoading(true);
+      if (timer.current) {
+        clearTimeout(timer.current);
+      }
+      timer.current = setTimeout(() => {
+        const filtered = defaultOptions.filter((option) =>
+          option.label.toLowerCase().includes(searchString.toLowerCase())
+        );
+        setOptions(filtered);
+        setIsLoading(false);
+      }, 2000);
+    };
+
+    return (
+      <SelectV2
+        value={value}
+        onChange={(val) => setValue(String(val))}
+        options={options}
+        showSearch={true}
+        allowClear={true}
+        loading={isLoading}
+        placeholder="Type to search (2s delay)"
+        width={256}
+        filterOption={(inputValue, option) => {
+          handleSearch(inputValue);
+          return true;
+        }}
+      />
+    );
+  },
+};

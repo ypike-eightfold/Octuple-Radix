@@ -1,0 +1,231 @@
+/* TabsV2 - Radix-based tabs with Octuple styling */
+
+/* Root container */
+.tabs-v2-root {
+  width: 100%;
+}
+
+/* ========== TABS LIST (Container for tab buttons) ========== */
+
+.tabs-v2-list {
+  display: flex;
+  gap: 0;
+  border-bottom: 1px solid transparent;
+  position: relative;
+}
+
+/* Scrollable tabs */
+.tabs-v2-list-scrollable {
+  overflow-x: auto;
+  overflow-y: hidden;
+  scrollbar-width: thin;
+  -webkit-overflow-scrolling: touch;
+}
+
+.tabs-v2-list-scrollable::-webkit-scrollbar {
+  height: 4px;
+}
+
+.tabs-v2-list-scrollable::-webkit-scrollbar-thumb {
+  background-color: #d6d6d6;
+  border-radius: 2px;
+}
+
+/* Underlined style */
+.tabs-v2-list-underlined {
+  border-bottom-color: #d6d6d6;
+}
+
+/* Inverted colors for dark backgrounds */
+.tabs-v2-list-inverted {
+  /* Styles applied to triggers below */
+}
+
+/* ========== TAB TRIGGER (Individual tab button) ========== */
+
+.tabs-v2-trigger {
+  all: unset;
+  font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  user-select: none;
+  position: relative;
+  transition: all 150ms ease-in-out;
+  white-space: nowrap;
+  box-sizing: border-box;
+}
+
+.tabs-v2-trigger:focus-visible {
+  outline: 2px solid #3e63dd;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+.tabs-v2-trigger-disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* Trigger content wrapper */
+.tabs-v2-trigger-content {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.tabs-v2-trigger-content-icon-end {
+  flex-direction: row-reverse;
+}
+
+.tabs-v2-trigger-label {
+  font-weight: 500;
+}
+
+.tabs-v2-trigger-icon {
+  flex-shrink: 0;
+  display: inline-flex;
+}
+
+.tabs-v2-trigger-badge {
+  flex-shrink: 0;
+  margin-left: 4px;
+}
+
+.tabs-v2-trigger-loader {
+  flex-shrink: 0;
+}
+
+/* ========== DEFAULT VARIANT ========== */
+
+.tabs-v2-trigger-default {
+  background: transparent;
+  color: #737373;
+  border: none;
+  border-bottom: 2px solid transparent;
+  padding-bottom: 10px;
+}
+
+.tabs-v2-trigger-default:hover:not(.tabs-v2-trigger-disabled) {
+  color: #262626;
+}
+
+.tabs-v2-trigger-default[data-state="active"] {
+  color: #054d7b;
+  border-bottom-color: #054d7b;
+  font-weight: 600;
+}
+
+/* ========== PILL VARIANT ========== */
+
+.tabs-v2-trigger-pill {
+  background: #f5f5f5;
+  color: #737373;
+  border: none;
+  border-radius: 20px;
+  margin: 0 4px;
+}
+
+.tabs-v2-trigger-pill:first-child {
+  margin-left: 0;
+}
+
+.tabs-v2-trigger-pill:hover:not(.tabs-v2-trigger-disabled) {
+  background: #e6e6e6;
+  color: #262626;
+}
+
+.tabs-v2-trigger-pill[data-state="active"] {
+  background: #054d7b;
+  color: #ffffff;
+  font-weight: 600;
+}
+
+/* Pill inverted (for dark backgrounds) */
+.tabs-v2-trigger-inverted.tabs-v2-trigger-pill {
+  background: rgba(255, 255, 255, 0.15);
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.tabs-v2-trigger-inverted.tabs-v2-trigger-pill:hover:not(.tabs-v2-trigger-disabled) {
+  background: rgba(255, 255, 255, 0.25);
+  color: #ffffff;
+}
+
+.tabs-v2-trigger-inverted.tabs-v2-trigger-pill[data-state="active"] {
+  background: #ffffff;
+  color: #054d7b;
+}
+
+/* ========== SIZE VARIANTS ========== */
+
+/* Large */
+.tabs-v2-trigger-large {
+  font-size: 18px;
+  line-height: 24px;
+  min-height: 48px;
+}
+
+.tabs-v2-trigger-default.tabs-v2-trigger-large {
+  padding: 12px 20px 10px;
+}
+
+.tabs-v2-trigger-pill.tabs-v2-trigger-large {
+  padding: 12px 20px;
+}
+
+/* Medium (default) */
+.tabs-v2-trigger-medium {
+  font-size: 16px;
+  line-height: 20px;
+  min-height: 40px;
+}
+
+.tabs-v2-trigger-default.tabs-v2-trigger-medium {
+  padding: 10px 16px 10px;
+}
+
+.tabs-v2-trigger-pill.tabs-v2-trigger-medium {
+  padding: 10px 16px;
+}
+
+/* Small */
+.tabs-v2-trigger-small {
+  font-size: 14px;
+  line-height: 18px;
+  min-height: 36px;
+}
+
+.tabs-v2-trigger-default.tabs-v2-trigger-small {
+  padding: 9px 12px 10px;
+}
+
+.tabs-v2-trigger-pill.tabs-v2-trigger-small {
+  padding: 9px 12px;
+}
+
+/* XSmall */
+.tabs-v2-trigger-xsmall {
+  font-size: 12px;
+  line-height: 16px;
+  min-height: 32px;
+}
+
+.tabs-v2-trigger-default.tabs-v2-trigger-xsmall {
+  padding: 8px 10px 10px;
+}
+
+.tabs-v2-trigger-pill.tabs-v2-trigger-xsmall {
+  padding: 8px 10px;
+}
+
+/* ========== RESPONSIVE ========== */
+
+@media (max-width: 768px) {
+  .tabs-v2-list-scrollable {
+    -webkit-overflow-scrolling: touch;
+  }
+}
+

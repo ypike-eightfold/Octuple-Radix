@@ -1,0 +1,65 @@
+/* Stack V2 - Exact Octuple spacing values */
+.stack-v2 {
+  display: flex;
+  width: fit-content;
+}
+
+.stack-v2-inline {
+  display: inline-flex;
+}
+
+.stack-v2-full-width {
+  width: 100%;
+}
+
+/* Direction */
+.stack-v2-vertical {
+  flex-direction: column;
+}
+
+.stack-v2-horizontal {
+  flex-direction: row;
+}
+
+/* Gap spacing - using CSS gap property (modern browsers) */
+/* Exact Octuple values: xxxs=2px, xxs=4px, xs=8px, s=12px, m=16px, ml=20px, l=24px, xl=32px, xxl=40px, xxxl=64px */
+.stack-v2-gap-xxxs {
+  gap: 2px;
+}
+
+.stack-v2-gap-xxs {
+  gap: 4px;
+}
+
+.stack-v2-gap-xs {
+  gap: 8px;
+}
+
+.stack-v2-gap-s {
+  gap: 12px;
+}
+
+.stack-v2-gap-m {
+  gap: 16px;
+}
+
+.stack-v2-gap-ml {
+  gap: 20px;
+}
+
+.stack-v2-gap-l {
+  gap: 24px;
+}
+
+.stack-v2-gap-xl {
+  gap: 32px;
+}
+
+.stack-v2-gap-xxl {
+  gap: 40px;
+}
+
+.stack-v2-gap-xxxl {
+  gap: 64px;
+}
+

@@ -1,0 +1,151 @@
+/* =====================
+   Form V2 - Radix-based
+   ===================== */
+
+/* Form Container */
+.form-v2 {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  width: 100%;
+  font-family: var(--font-stack-full);
+}
+
+/* Horizontal Layout */
+.form-v2-horizontal .form-v2-field {
+  display: grid;
+  grid-template-columns: 180px 1fr;
+  gap: 16px;
+  align-items: start;
+}
+
+.form-v2-horizontal .form-v2-label-wrapper {
+  padding-top: 8px;
+  text-align: right;
+}
+
+.form-v2-horizontal .form-v2-error {
+  grid-column: 2;
+}
+
+/* Vertical Layout */
+.form-v2-vertical .form-v2-field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-v2-vertical .form-v2-label-wrapper {
+  text-align: left;
+}
+
+/* Inline Layout */
+.form-v2-inline {
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.form-v2-inline .form-v2-field {
+  display: inline-flex;
+  flex-direction: row;
+  gap: 8px;
+  align-items: center;
+}
+
+.form-v2-inline .form-v2-label-wrapper {
+  text-align: left;
+}
+
+/* Field */
+.form-v2-field {
+  position: relative;
+}
+
+/* Label Wrapper */
+.form-v2-label-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+/* Label */
+.form-v2-label {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  color: var(--grey-color-90);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+/* Required Mark */
+.form-v2-required-mark {
+  color: var(--red-color-60);
+  font-weight: 600;
+  margin-left: 2px;
+}
+
+/* Help Text */
+.form-v2-help {
+  font-size: 12px;
+  line-height: 18px;
+  color: var(--grey-color-70);
+  font-weight: 400;
+}
+
+/* Error Message */
+.form-v2-error {
+  font-size: 12px;
+  line-height: 18px;
+  color: var(--red-color-60);
+  font-weight: 400;
+  margin-top: 4px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.form-v2-error::before {
+  content: '⚠';
+  font-size: 14px;
+}
+
+/* Success State (optional) */
+.form-v2-field[data-valid] .form-v2-error {
+  display: none;
+}
+
+/* Dark Mode Support */
+@media (prefers-color-scheme: dark) {
+  .form-v2-label {
+    color: var(--grey-color-20);
+  }
+  
+  .form-v2-help {
+    color: var(--grey-color-40);
+  }
+  
+  .form-v2-error {
+    color: var(--red-color-40);
+  }
+}
+
+/* Responsive: Stack horizontal forms on mobile */
+@media (max-width: 768px) {
+  .form-v2-horizontal .form-v2-field {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+  
+  .form-v2-horizontal .form-v2-label-wrapper {
+    text-align: left;
+    padding-top: 0;
+  }
+  
+  .form-v2-horizontal .form-v2-error {
+    grid-column: 1;
+  }
+}
+

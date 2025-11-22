@@ -30,18 +30,6 @@ export const MaterialIcon: Story = {
 };
 
 /**
- * Material icon with custom color
- */
-export const MaterialIconColored: Story = {
-  args: {
-    type: 'material',
-    name: 'check',
-    size: 24,
-    color: '#50CEE1',
-  },
-};
-
-/**
  * Material Icons Gallery - Common icons at different sizes
  */
 export const MaterialIconsGallery: Story = {
@@ -174,68 +162,4 @@ export const BrandIconSmall: Story = {
     name: 'talent-design',
     size: 'small',
   },
-};
-
-/**
- * Icons in context - Material and Brand together
- */
-export const MixedIcons: Story = {
-  render: () => (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: '24px', padding: '20px' }}>
-      <div style={{ display: 'flex', alignItems: 'center', gap: '16px', padding: '16px', backgroundColor: '#f9fafb', borderRadius: '8px' }}>
-        <IconV2 type="material" name="home" size={24} />
-        <span style={{ fontSize: '16px' }}>Home Dashboard</span>
-      </div>
-      
-      <div style={{ display: 'flex', alignItems: 'center', gap: '16px', padding: '16px', backgroundColor: '#f9fafb', borderRadius: '8px' }}>
-        <IconV2 type="brand" name="talent-design" size="medium" />
-        <span style={{ fontSize: '16px' }}>Talent Design Portal</span>
-      </div>
-      
-      <div style={{ display: 'flex', alignItems: 'center', gap: '16px', padding: '16px', backgroundColor: '#f9fafb', borderRadius: '8px' }}>
-        <IconV2 type="brand" name="career-hub" size="small" />
-        <span style={{ fontSize: '14px' }}>Career Hub</span>
-        <IconV2 type="material" name="arrow_forward" size={20} style={{ marginLeft: 'auto' }} />
-      </div>
-    </div>
-  ),
-};
-
-/**
- * Interactive icons with onClick
- */
-export const InteractiveIcons: Story = {
-  render: () => (
-    <div style={{ display: 'flex', gap: '16px', padding: '20px' }}>
-      <IconV2 
-        type="material" 
-        name="favorite" 
-        size={32} 
-        color="#ff4444"
-        onClick={() => alert('Material icon clicked!')}
-        style={{ cursor: 'pointer' }}
-      />
-      <IconV2 
-        type="brand" 
-        name="talent-acquisition" 
-        size="medium"
-        onClick={() => alert('Brand icon clicked!')}
-        style={{ cursor: 'pointer' }}
-      />
-    </div>
-  ),
-};
-
-/**
- * Color Variations - Material Icons
- */
-export const ColoredMaterialIcons: Story = {
-  render: () => (
-    <div style={{ display: 'flex', gap: '16px', padding: '20px', alignItems: 'center' }}>
-      <IconV2 type="material" name="check_circle" size={32} color="#10b981" />
-      <IconV2 type="material" name="error" size={32} color="#ef4444" />
-      <IconV2 type="material" name="warning" size={32} color="#f59e0b" />
-      <IconV2 type="material" name="info" size={32} color="#3b82f6" />
-    </div>
-  ),
 };

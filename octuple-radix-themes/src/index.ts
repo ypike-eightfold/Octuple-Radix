@@ -17,8 +17,7 @@ export type { TextFieldV2Props, TextFieldV2Shape, TextFieldV2Size, TextFieldV2St
 export { TextAreaV2 } from './components/TextAreaV2';
 export type { TextAreaV2Props, TextAreaV2Shape, TextAreaV2Size } from './components/TextAreaV2';
 
-export { SelectV2 } from './components/SelectV2';
-export type { SelectV2Props, SelectV2Shape, SelectV2Size, SelectV2Option } from './components/SelectV2';
+// SelectV2 moved to new implementation below (line ~180)
 
 export { CheckboxV2 } from './components/CheckboxV2';
 export type { CheckboxV2Props, CheckboxV2Size } from './components/CheckboxV2';
@@ -101,8 +100,24 @@ export type { BreadcrumbV2Props, BreadcrumbItem } from './components/BreadcrumbV
 export { LinkV2 } from './components/LinkV2';
 export type { LinkV2Props, LinkV2Size } from './components/LinkV2';
 
+export { LinkButtonV2 } from './components/LinkButtonV2';
+export type {
+  LinkButtonV2Props,
+  LinkButtonShape,
+  LinkButtonSize,
+  LinkButtonTextAlign,
+  LinkButtonIconAlign,
+  LinkButtonWidth,
+  LinkButtonVariant,
+  FloatingLinkButtonProps,
+} from './components/LinkButtonV2';
+
 export { PillV2 } from './components/PillV2';
 export type { PillV2Props, PillV2Size, PillV2Color } from './components/PillV2';
+
+export { BadgeV2 } from './components/BadgeV2';
+export { BadgeSize } from './components/BadgeV2';
+export type { BadgeV2Props } from './components/BadgeV2';
 
 export { AvatarV2 } from './components/AvatarV2';
 export type { AvatarV2Props, AvatarV2Size, AvatarV2StatusColor, AvatarV2Variant } from './components/AvatarV2';
@@ -142,6 +157,10 @@ export type {
   SkillTagV2AssessmentStatus,
 } from './components/SkillTagV2';
 
+export { CardV2 } from './components/CardV2';
+export { CardSize, CardType } from './components/CardV2';
+export type { CardV2Props, BodyListProps, BodyProps, FooterItems } from './components/CardV2';
+
 // Enhanced Table exports
 export { 
   EnhancedTable,
@@ -171,3 +190,93 @@ export type {
   TablePaginationProps,
   ExpandableRowProps,
 } from './components/EnhancedTable';
+
+// Form Components (rebuilt with Octuple API + Radix)
+export { DatePickerV2 } from './components/DatePickerV2';
+export type { DatePickerV2Props, DatePickerMode, DatePickerSize, DatePickerStatus } from './components/DatePickerV2';
+
+export { TimePickerV2 } from './components/TimePickerV2';
+export type { TimePickerV2Props } from './components/TimePickerV2';
+
+export { LabelV2 } from './components/LabelV2';
+export type { LabelV2Props, LabelIconButtonProps, LabelSize } from './components/LabelV2';
+
+export { SelectV2 } from './components/SelectV2';
+export type { SelectV2Props, SelectOption, SelectOptGroup, SelectSize, SelectMode } from './components/SelectV2';
+
+export { TypographyV2, Title, TypographyText as Text, Paragraph } from './components/TypographyV2';
+export type { TitleProps, TextProps, ParagraphProps } from './components/TypographyV2';
+
+export { SkeletonV2, SkeletonVariant, SkeletonAnimation } from './components/SkeletonV2';
+export type { SkeletonV2Props } from './components/SkeletonV2';
+
+export { Row, Col } from './components/GridV2';
+export type { RowProps, ColProps, Gutter, Breakpoint } from './components/GridV2';
+
+export { StackV2 } from './components/StackV2';
+export type { StackProps, StackDirection, StackGap, StackBreakpoint } from './components/StackV2';
+
+export { SkillBlockV2 } from './components/SkillBlockV2';
+export type { SkillBlockV2Props, SkillBlockStatus, SkillBlockAssessment, SkillBlockSize, SkillBlockMenuItem } from './components/SkillBlockV2';
+
+export { TabsV2, TabV2 } from './components/TabsV2';
+export { TabIconAlign, TabSize, TabVariant } from './components/TabsV2';
+export type { TabsV2Props, TabV2Props, TabValue, SelectTabEvent, OnChangeHandler } from './components/TabsV2';
+
+export { MatchScoreV2 } from './components/MatchScoreV2';
+export type { MatchScoreV2Props, FillType, MatchScoreTheme } from './components/MatchScoreV2';
+
+export { MenuV2, MenuItemV2 } from './components/MenuV2';
+export { MenuVariant, MenuSize, MenuItemType, MenuItemIconAlign } from './components/MenuV2';
+export type {
+  MenuV2Props,
+  MenuItemTypes,
+  MenuItemButtonProps,
+  MenuItemLinkProps,
+  MenuItemSubHeaderProps,
+  MenuItemSeparatorProps,
+  MenuItemCustomProps,
+  MenuIconProps,
+  BaseMenuItemProps,
+} from './components/MenuV2';
+
+export { DropdownV2 } from './components/DropdownV2';
+export type {
+  DropdownV2Props,
+  DropdownV2Ref,
+  DropdownPlacement,
+  DropdownTrigger,
+} from './components/DropdownV2';
+
+export { LiveTaskBarV2 } from './components/LiveTaskBarV2';
+export type { LiveTaskBarV2Props } from './components/LiveTaskBarV2';
+
+export { FormV2, FormItem } from './components/FormV2';
+export type { FormV2Props, FormItemV2Props, FormLayout } from './components/FormV2';
+
+export { TableV2 } from './components/TableV2';
+export { TableSize } from './components/TableV2';
+export type {
+  TableV2Props,
+  ColumnsType,
+  ColumnType,
+  TablePaginationConfig,
+  TableRowSelection,
+  ExpandableConfig,
+  SorterResult,
+  ChangeEventInfo,
+  SortOrder,
+  Key,
+  RowSelectionType,
+  AlignType,
+  FixedType,
+  CompareFn,
+} from './components/TableV2';
+
+export { StatTabsV2, StatV2, StatTabSize, StatTabsDirection } from './components/StatTabsV2';
+export type {
+  StatTabsV2Props,
+  StatV2Props,
+  StatValidationStatus,
+  StatThemeName,
+} from './components/StatTabsV2';

@@ -1,0 +1,73 @@
+/* TypographyV2 Component Styles */
+
+.typography-v2-title {
+  font-family: 'Gilroy', 'Poppins', sans-serif;
+  color: #1a212e;
+  margin: 0;
+}
+
+.typography-v2-text {
+  font-family: 'Gilroy', 'Poppins', sans-serif;
+  color: #1a212e;
+  line-height: 1.5;
+}
+
+.typography-v2-paragraph {
+  font-family: 'Gilroy', 'Poppins', sans-serif;
+  color: #1a212e;
+  margin: 0 0 1em 0;
+  line-height: 1.5;
+}
+
+/* Type colors */
+.typography-v2-secondary {
+  color: #69717f;
+}
+
+.typography-v2-success {
+  color: #039855;
+}
+
+.typography-v2-warning {
+  color: #f79009;
+}
+
+.typography-v2-danger {
+  color: #df4343;
+}
+
+/* States */
+.typography-v2-disabled {
+  color: #bdc1c9;
+  cursor: not-allowed;
+}
+
+.typography-v2-underline {
+  text-decoration: underline;
+}
+
+.typography-v2-delete {
+  text-decoration: line-through;
+  opacity: 0.7;
+}
+
+/* Code */
+.typography-v2-code {
+  background-color: #f6f7f8;
+  border: 1px solid #e4e7ec;
+  border-radius: 4px;
+  padding: 2px 6px;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 0.9em;
+  color: #d946ef;
+}
+
+/* Ellipsis */
+.typography-v2-ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+}
+

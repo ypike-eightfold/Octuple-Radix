@@ -133,12 +133,11 @@ export const IconV2: React.FC<IconV2Props> = ({
 
     return (
       <span
-        className={`iconv2 iconv2--material ${className}`}
+        className={`material-symbols-outlined ${className}`}
         style={{
           fontSize: sizeValue,
-          width: sizeValue,
-          height: sizeValue,
           color,
+          cursor: onClick ? 'pointer' : undefined,
           ...style,
         }}
         onClick={onClick}

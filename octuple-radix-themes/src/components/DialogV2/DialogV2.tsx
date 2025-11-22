@@ -100,7 +100,7 @@ export const DialogV2: React.FC<DialogV2Props> = ({
                 <CheckboxV2
                   size="medium"
                   checked={confirmationChecked}
-                  onCheckedChange={onConfirmationChange}
+                  onChange={(e) => onConfirmationChange?.(e.target.checked)}
                 />
                 <span className="dialogv2-confirmation-label">
                   {confirmationLabel}
