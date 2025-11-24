@@ -1,0 +1,97 @@
+/* MatchScoreV2 - Rating with circular indicators */
+
+.match-score-v2-container {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+/* ========== CIRCLE INDICATORS ========== */
+
+.match-score-circle {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background-color: #e6e6e6;
+  position: relative;
+  flex-shrink: 0;
+}
+
+/* Full circle */
+.match-score-circle-full {
+  background-color: var(--match-score-color, #3e63dd);
+}
+
+/* Half circle */
+.match-score-circle-half {
+  background: linear-gradient(
+    to right,
+    var(--match-score-color, #3e63dd) 0%,
+    var(--match-score-color, #3e63dd) 50%,
+    #e6e6e6 50%,
+    #e6e6e6 100%
+  );
+}
+
+/* ========== LABEL ========== */
+
+.match-score-v2-label {
+  margin: 0;
+  padding-left: 8px;
+  font-size: 14px;
+  line-height: 16px;
+  font-weight: 400;
+  color: #404040;
+}
+
+/* ========== THEME COLORS ========== */
+
+.match-score-v2-theme-red {
+  --match-score-color: #e5484d;
+}
+
+.match-score-v2-theme-redOrange {
+  --match-score-color: #f76b15;
+}
+
+.match-score-v2-theme-orange {
+  --match-score-color: #f76b15;
+}
+
+.match-score-v2-theme-yellow {
+  --match-score-color: #f5d90a;
+}
+
+.match-score-v2-theme-yellowGreen {
+  --match-score-color: #99d52a;
+}
+
+.match-score-v2-theme-green {
+  --match-score-color: #30a46c;
+}
+
+.match-score-v2-theme-blueGreen {
+  --match-score-color: #0090a0;
+}
+
+.match-score-v2-theme-blue {
+  --match-score-color: #3e63dd;
+}
+
+.match-score-v2-theme-blueViolet {
+  --match-score-color: #5b5bd6;
+}
+
+.match-score-v2-theme-violet {
+  --match-score-color: #8e4ec6;
+}
+
+.match-score-v2-theme-violetRed {
+  --match-score-color: #d6409f;
+}
+
+.match-score-v2-theme-grey {
+  --match-score-color: #8b8d98;
+}
+

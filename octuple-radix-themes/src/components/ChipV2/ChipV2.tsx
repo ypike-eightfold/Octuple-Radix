@@ -83,9 +83,9 @@ export const ChipV2: React.FC<ChipV2Props> = ({
   
   // Map chip size to avatar size
   const avatarSizeMap: Record<ChipV2Size, AvatarV2Props['size']> = {
-    small: 'XS',
-    medium: 'S',
-    large: 'M',
+    small: 'xs',
+    medium: 's',
+    large: 'm',
   };
   
   // Map chip size to checkbox size

@@ -1,0 +1,115 @@
+/* SkeletonV2 Component Styles */
+
+.skeleton-v2 {
+  display: block;
+  background-color: #e4e7ec;
+  border-radius: 4px;
+}
+
+/* Full width */
+.skeleton-v2-full-width {
+  width: 100%;
+}
+
+/* Variants */
+.skeleton-v2-circular {
+  border-radius: 50%;
+}
+
+.skeleton-v2-pill {
+  border-radius: 9999px;
+}
+
+.skeleton-v2-rounded {
+  border-radius: 8px;
+}
+
+.skeleton-v2-rectangular {
+  border-radius: 4px;
+}
+
+/* Button variants */
+.skeleton-v2-button-small {
+  height: 32px;
+  border-radius: 8px;
+}
+
+.skeleton-v2-button-medium {
+  height: 40px;
+  border-radius: 8px;
+}
+
+.skeleton-v2-button-large {
+  height: 48px;
+  border-radius: 8px;
+}
+
+/* Animations */
+@keyframes skeleton-pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+@keyframes skeleton-wave {
+  0% {
+    transform: translateX(-100%);
+  }
+  50%,
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.skeleton-v2-pulse {
+  animation: skeleton-pulse 1.5s ease-in-out infinite;
+}
+
+.skeleton-v2-wave {
+  position: relative;
+  overflow: hidden;
+}
+
+.skeleton-v2-wave::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  transform: translateX(-100%);
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.4) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  animation: skeleton-wave 1.6s linear infinite;
+}
+
+/* Respect reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  .skeleton-v2-pulse,
+  .skeleton-v2-wave::after {
+    animation: none;
+  }
+}
+
+/* Container for children wrapper */
+.skeleton-v2-container {
+  position: relative;
+  display: inline-block;
+}
+
+.skeleton-v2-children {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+

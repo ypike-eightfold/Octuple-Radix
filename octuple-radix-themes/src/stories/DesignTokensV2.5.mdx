@@ -1,0 +1,460 @@
+import { Meta } from '@storybook/blocks';
+
+<Meta title="Documentation/Design Tokens V2.5" />
+
+# Design Tokens - Octuple V2.5
+
+The Octuple V2.5 design system uses a comprehensive set of design tokens to ensure consistency across all components. These tokens define colors, typography, spacing, and more.
+
+---
+
+## Colors
+
+### Primary Color System - BlueGreen
+
+The primary accent color for Octuple V2.5 is **BlueGreen**, a teal-inspired palette that provides a professional and modern aesthetic.
+
+<div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(100px, 1fr))', gap: '12px', margin: '24px 0' }}>
+  {['#ebfdff', '#b0f3fe', '#7be4f4', '#50cee1', '#2db3c7', '#1999ac', '#0b7b8b', '#025966', '#00333b', '#00090a'].map((color, index) => (
+    <div key={index} style={{ textAlign: 'center' }}>
+      <div style={{ 
+        height: '80px', 
+        background: color,
+        borderRadius: '8px',
+        border: '1px solid #e3e8ee',
+        marginBottom: '8px',
+        boxShadow: '0 1px 3px rgba(0,0,0,0.1)'
+      }} />
+      <div style={{ fontSize: '11px', color: '#343c4c', fontWeight: 500 }}>BG-{index + 1}</div>
+      <div style={{ fontSize: '10px', color: '#69717f', fontFamily: 'monospace' }}>{color}</div>
+    </div>
+  ))}
+</div>
+
+**Primary Color:** `#025966` (BG-8) - Used for primary buttons and key UI elements.
+
+---
+
+### Grey Scale
+
+The grey palette provides neutral tones for backgrounds, borders, and secondary text.
+
+<div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(100px, 1fr))', gap: '12px', margin: '24px 0' }}>
+  {['#f6f7f8', '#d9dce1', '#bdc1c9', '#a1a6b1', '#858b98', '#69717f', '#4f5666', '#343c4c', '#1a212e', '#05070a'].map((color, index) => (
+    <div key={index} style={{ textAlign: 'center' }}>
+      <div style={{ 
+        height: '80px', 
+        background: color,
+        borderRadius: '8px',
+        border: '1px solid #e3e8ee',
+        marginBottom: '8px',
+        boxShadow: '0 1px 3px rgba(0,0,0,0.1)'
+      }} />
+      <div style={{ fontSize: '11px', color: '#343c4c', fontWeight: 500 }}>Grey-{index + 1}</div>
+      <div style={{ fontSize: '10px', color: '#69717f', fontFamily: 'monospace' }}>{color}</div>
+    </div>
+  ))}
+</div>
+
+**Text Colors:**
+- Primary text: `#1a212e` (Grey-9)
+- Secondary text: `#69717f` (Grey-6)
+- Disabled text: `#bdc1c9` (Grey-3)
+
+---
+
+### Semantic Color Palettes
+
+<div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '24px', margin: '24px 0' }}>
+  <div>
+    <h4 style={{ color: '#1b5143', marginBottom: '12px' }}>Success - Green</h4>
+    <div style={{ display: 'flex', gap: '6px' }}>
+      {['#f0fefa', '#b9f4e4', '#8ce1ca', '#67c5ac', '#51ab93', '#3d8f79', '#2b715f', '#1b5143', '#0e2e26', '#030a08'].map((color, i) => (
+        <div key={i} style={{ flex: 1, height: '60px', background: color, borderRadius: '4px', border: '1px solid #e3e8ee' }} title={color} />
+      ))}
+    </div>
+    <div style={{ fontSize: '11px', color: '#69717f', marginTop: '8px' }}>Primary: <code>#1b5143</code></div>
+  </div>
+
+  <div>
+    <h4 style={{ color: '#6c2222', marginBottom: '12px' }}>Error - Red</h4>
+    <div style={{ display: 'flex', gap: '6px' }}>
+      {['#ffefef', '#ffc6c6', '#ffa3a3', '#f48686', '#e46f6f', '#c45353', '#993838', '#6c2222', '#3b1010', '#0a0202'].map((color, i) => (
+        <div key={i} style={{ flex: 1, height: '60px', background: color, borderRadius: '4px', border: '1px solid #e3e8ee' }} title={color} />
+      ))}
+    </div>
+    <div style={{ fontSize: '11px', color: '#69717f', marginTop: '8px' }}>Primary: <code>#6c2222</code></div>
+  </div>
+
+  <div>
+    <h4 style={{ color: '#5c5500', marginBottom: '12px' }}>Warning - Yellow</h4>
+    <div style={{ display: 'flex', gap: '6px' }}>
+      {['#ffffeb', '#fff89c', '#ffe44e', '#f1c40f', '#d6ad00', '#ad9300', '#857600', '#5c5500', '#333100', '#0a0a00'].map((color, i) => (
+        <div key={i} style={{ flex: 1, height: '60px', background: color, borderRadius: '4px', border: '1px solid #e3e8ee' }} title={color} />
+      ))}
+    </div>
+    <div style={{ fontSize: '11px', color: '#69717f', marginTop: '8px' }}>Primary: <code>#5c5500</code></div>
+  </div>
+
+  <div>
+    <h4 style={{ color: '#054d7b', marginBottom: '12px' }}>Info - Blue</h4>
+    <div style={{ display: 'flex', gap: '6px' }}>
+      {['#ebf7ff', '#bce4ff', '#8ed0fa', '#68baef', '#47a4df', '#2c8cc9', '#146da6', '#054d7b', '#002a47', '#00060a'].map((color, i) => (
+        <div key={i} style={{ flex: 1, height: '60px', background: color, borderRadius: '4px', border: '1px solid #e3e8ee' }} title={color} />
+      ))}
+    </div>
+    <div style={{ fontSize: '11px', color: '#69717f', marginTop: '8px' }}>Primary: <code>#054d7b</code></div>
+  </div>
+</div>
+
+---
+
+## Typography
+
+### Font Families
+
+Octuple V2.5 uses two primary typefaces:
+
+<div style={{ margin: '24px 0' }}>
+  <div style={{ padding: '20px', background: '#f6f7f8', borderRadius: '8px', marginBottom: '16px' }}>
+    <div style={{ fontFamily: 'Gilroy, sans-serif', fontSize: '32px', fontWeight: 600, marginBottom: '8px' }}>Gilroy</div>
+    <div style={{ fontFamily: 'Gilroy, sans-serif', fontSize: '16px', color: '#69717f' }}>
+      Primary font family for headings, buttons, and UI elements
+    </div>
+    <div style={{ fontFamily: 'Gilroy, sans-serif', fontSize: '14px', color: '#858b98', marginTop: '12px' }}>
+      ABCDEFGHIJKLMNOPQRSTUVWXYZ<br />
+      abcdefghijklmnopqrstuvwxyz<br />
+      0123456789
+    </div>
+  </div>
+
+  <div style={{ padding: '20px', background: '#f6f7f8', borderRadius: '8px' }}>
+    <div style={{ fontFamily: 'Poppins, sans-serif', fontSize: '32px', fontWeight: 600, marginBottom: '8px' }}>Poppins</div>
+    <div style={{ fontFamily: 'Poppins, sans-serif', fontSize: '16px', color: '#69717f' }}>
+      Secondary font family used as a fallback
+    </div>
+    <div style={{ fontFamily: 'Poppins, sans-serif', fontSize: '14px', color: '#858b98', marginTop: '12px' }}>
+      ABCDEFGHIJKLMNOPQRSTUVWXYZ<br />
+      abcdefghijklmnopqrstuvwxyz<br />
+      0123456789
+    </div>
+  </div>
+</div>
+
+**CSS Usage:**
+```css
+font-family: 'Gilroy', 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
+```
+
+### Font Weights
+
+<div style={{ margin: '24px 0', display: 'flex', flexDirection: 'column', gap: '12px' }}>
+  <div style={{ padding: '16px', borderBottom: '1px solid #e3e8ee' }}>
+    <div style={{ fontFamily: 'Gilroy, sans-serif', fontWeight: 300, fontSize: '20px' }}>Light (300)</div>
+    <code style={{ fontSize: '12px', color: '#69717f' }}>font-weight: 300;</code>
+  </div>
+  <div style={{ padding: '16px', borderBottom: '1px solid #e3e8ee' }}>
+    <div style={{ fontFamily: 'Gilroy, sans-serif', fontWeight: 400, fontSize: '20px' }}>Regular / Medium (400)</div>
+    <code style={{ fontSize: '12px', color: '#69717f' }}>font-weight: 400; /* Gilroy Medium */</code>
+  </div>
+  <div style={{ padding: '16px', borderBottom: '1px solid #e3e8ee' }}>
+    <div style={{ fontFamily: 'Gilroy, sans-serif', fontWeight: 500, fontSize: '20px' }}>Medium (500)</div>
+    <code style={{ fontSize: '12px', color: '#69717f' }}>font-weight: 500;</code>
+  </div>
+  <div style={{ padding: '16px' }}>
+    <div style={{ fontFamily: 'Gilroy, sans-serif', fontWeight: 600, fontSize: '20px' }}>Semibold (600)</div>
+    <code style={{ fontSize: '12px', color: '#69717f' }}>font-weight: 600; /* Gilroy Semibold */</code>
+  </div>
+</div>
+
+**Note:** Gilroy Medium is represented as `font-weight: 400` in CSS, while Gilroy Semibold is `font-weight: 600`.
+
+---
+
+## Spacing Scale
+
+Octuple V2.5 uses a consistent 8-point spacing system:
+
+<div style={{ margin: '24px 0' }}>
+  {[
+    { name: 'XXS', token: '$space-xxs', value: '4px' },
+    { name: 'XS', token: '$space-xs', value: '8px' },
+    { name: 'S', token: '$space-s', value: '12px' },
+    { name: 'M', token: '$space-m', value: '16px' },
+    { name: 'L', token: '$space-l', value: '24px' },
+    { name: 'XL', token: '$space-xl', value: '32px' },
+    { name: 'XXL', token: '$space-xxl', value: '40px' },
+    { name: 'XXXL', token: '$space-xxxl', value: '64px' },
+  ].map(({ name, token, value }) => (
+    <div key={name} style={{ display: 'flex', alignItems: 'center', gap: '16px', padding: '12px 0', borderBottom: '1px solid #e3e8ee' }}>
+      <div style={{ width: '60px', fontSize: '14px', fontWeight: 600, color: '#343c4c' }}>{name}</div>
+      <div style={{ height: '32px', width: value, background: '#1999ac', borderRadius: '4px' }} />
+      <div style={{ fontSize: '14px', color: '#69717f' }}>{value}</div>
+      <code style={{ fontSize: '12px', color: '#858b98', marginLeft: 'auto' }}>{token}</code>
+    </div>
+  ))}
+</div>
+
+---
+
+## Corner Radius
+
+Border radius values for different component types:
+
+<div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(160px, 1fr))', gap: '20px', margin: '24px 0' }}>
+  {[
+    { name: 'Small', token: '$corner-radius-s', value: '4px' },
+    { name: 'Medium', token: '$corner-radius-m', value: '8px' },
+    { name: 'Large', token: '$corner-radius-l', value: '16px' },
+    { name: 'XLarge', token: '$corner-radius-xl', value: '20px' },
+    { name: 'XXLarge', token: '$corner-radius-xxl', value: '24px' },
+  ].map(({ name, token, value }) => (
+    <div key={name} style={{ textAlign: 'center' }}>
+      <div style={{ 
+        height: '100px', 
+        background: '#ebfdff', 
+        borderRadius: value, 
+        border: '2px solid #1999ac', 
+        marginBottom: '12px',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        fontWeight: 600,
+        color: '#025966'
+      }}>
+        {value}
+      </div>
+      <div style={{ fontWeight: 600, fontSize: '14px', color: '#343c4c' }}>{name}</div>
+      <code style={{ fontSize: '11px', color: '#69717f' }}>{token}</code>
+    </div>
+  ))}
+</div>
+
+**Common Usage:**
+- **Buttons:** 8px (Medium)
+- **Inputs:** 8px (Medium)
+- **Cards:** 16px (Large)
+- **Modals:** 24px (XXLarge)
+- **Pills/Tags:** 20px-24px (XLarge-XXLarge)
+
+---
+
+## Icons
+
+### Material Symbols Outlined
+
+Octuple V2.5 uses **Material Symbols Outlined** with weight 300 for system icons.
+
+<div style={{ display: 'flex', gap: '24px', margin: '24px 0', alignItems: 'center' }}>
+  <span className="material-symbols-outlined" style={{ fontSize: '14px' }}>star</span>
+  <div>
+    <div style={{ fontWeight: 600, fontSize: '14px' }}>14px - Compact</div>
+    <code style={{ fontSize: '11px', color: '#69717f' }}>Icon size="small"</code>
+  </div>
+</div>
+
+<div style={{ display: 'flex', gap: '24px', margin: '24px 0', alignItems: 'center' }}>
+  <span className="material-symbols-outlined" style={{ fontSize: '16px' }}>star</span>
+  <div>
+    <div style={{ fontWeight: 600, fontSize: '14px' }}>16px - Small</div>
+    <code style={{ fontSize: '11px', color: '#69717f' }}>Icon size="small"</code>
+  </div>
+</div>
+
+<div style={{ display: 'flex', gap: '24px', margin: '24px 0', alignItems: 'center' }}>
+  <span className="material-symbols-outlined" style={{ fontSize: '20px' }}>star</span>
+  <div>
+    <div style={{ fontWeight: 600, fontSize: '14px' }}>20px - Medium (recommended)</div>
+    <code style={{ fontSize: '11px', color: '#69717f' }}>Icon size="medium"</code>
+  </div>
+</div>
+
+<div style={{ display: 'flex', gap: '24px', margin: '24px 0', alignItems: 'center' }}>
+  <span className="material-symbols-outlined" style={{ fontSize: '24px' }}>star</span>
+  <div>
+    <div style={{ fontWeight: 600, fontSize: '14px' }}>24px - Large</div>
+    <code style={{ fontSize: '11px', color: '#69717f' }}>Icon size="large"</code>
+  </div>
+</div>
+
+### Eightfold Brand Icons
+
+Custom brand icons are available for Eightfold products in two sizes:
+- **Medium:** 40px
+- **Small:** 32px
+
+See the `IconV2` component documentation for the full list of brand icons.
+
+---
+
+## Component Sizing
+
+### Standard Component Heights
+
+<div style={{ margin: '24px 0' }}>
+  {[
+    { size: 'Small', height: '28px', usage: 'Compact UIs, dense tables' },
+    { size: 'Medium', height: '36px', usage: 'Standard (recommended)' },
+    { size: 'Large', height: '44px', usage: 'Touch-friendly, accessible' },
+  ].map(({ size, height, usage }) => (
+    <div key={size} style={{ display: 'flex', alignItems: 'center', gap: '16px', padding: '16px 0', borderBottom: '1px solid #e3e8ee' }}>
+      <div style={{ width: '80px', fontSize: '14px', fontWeight: 600 }}>{size}</div>
+      <div style={{ height, width: '200px', background: '#1999ac', borderRadius: '8px', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'white', fontWeight: 500 }}>
+        {height}
+      </div>
+      <div style={{ fontSize: '14px', color: '#69717f' }}>{usage}</div>
+    </div>
+  ))}
+</div>
+
+---
+
+## Shadows
+
+Elevation shadows for layered UI elements:
+
+<div style={{ margin: '24px 0', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '24px' }}>
+  <div>
+    <div style={{ 
+      padding: '24px', 
+      background: 'white', 
+      borderRadius: '8px',
+      boxShadow: '0 1px 2px rgba(0, 0, 0, 0.05)',
+      marginBottom: '12px',
+      border: '1px solid #e3e8ee'
+    }}>
+      <strong>Shadow 1</strong> - Subtle
+    </div>
+    <code style={{ fontSize: '11px', color: '#69717f' }}>0 1px 2px rgba(0, 0, 0, 0.05)</code>
+  </div>
+
+  <div>
+    <div style={{ 
+      padding: '24px', 
+      background: 'white', 
+      borderRadius: '8px',
+      boxShadow: '0 2px 4px rgba(0, 0, 0, 0.08)',
+      marginBottom: '12px',
+      border: '1px solid #e3e8ee'
+    }}>
+      <strong>Shadow 2</strong> - Light
+    </div>
+    <code style={{ fontSize: '11px', color: '#69717f' }}>0 2px 4px rgba(0, 0, 0, 0.08)</code>
+  </div>
+
+  <div>
+    <div style={{ 
+      padding: '24px', 
+      background: 'white', 
+      borderRadius: '8px',
+      boxShadow: '0 4px 8px rgba(0, 0, 0, 0.12)',
+      marginBottom: '12px',
+      border: '1px solid #e3e8ee'
+    }}>
+      <strong>Shadow 3</strong> - Medium
+    </div>
+    <code style={{ fontSize: '11px', color: '#69717f' }}>0 4px 8px rgba(0, 0, 0, 0.12)</code>
+  </div>
+
+  <div>
+    <div style={{ 
+      padding: '24px', 
+      background: 'white', 
+      borderRadius: '8px',
+      boxShadow: '0 8px 16px rgba(0, 0, 0, 0.16)',
+      marginBottom: '12px',
+      border: '1px solid #e3e8ee'
+    }}>
+      <strong>Shadow 4</strong> - Strong
+    </div>
+    <code style={{ fontSize: '11px', color: '#69717f' }}>0 8px 16px rgba(0, 0, 0, 0.16)</code>
+  </div>
+</div>
+
+**Usage Guidelines:**
+- **Shadow 1-2:** Subtle elevation for cards, buttons
+- **Shadow 3:** Dropdowns, popovers
+- **Shadow 4:** Modals, panels, important floating elements
+
+---
+
+## Usage in Code
+
+### Direct Color Values
+
+```css
+.my-component {
+  /* Primary brand color */
+  background-color: #1999ac;
+  
+  /* Text colors */
+  color: #1a212e; /* Primary text */
+  
+  /* Backgrounds */
+  background: #f6f7f8; /* Light grey */
+  border: 1px solid #e3e8ee;
+}
+```
+
+### Spacing & Border Radius
+
+```css
+.my-button {
+  padding: 12px 16px; /* $space-s $space-m */
+  border-radius: 8px; /* $corner-radius-m */
+  gap: 8px; /* $space-xs */
+}
+```
+
+### Typography
+
+```tsx
+<div style={{ 
+  fontFamily: "'Gilroy', 'Poppins', sans-serif",
+  fontSize: '16px',
+  fontWeight: 600,
+  lineHeight: '24px',
+  color: '#1a212e'
+}}>
+  Heading Text
+</div>
+```
+
+### Component Integration
+
+```tsx
+import { ButtonV2, ToastV2, InputV2 } from '@eightfold.ai/octuple-radix';
+
+// All V2.5 components automatically use these design tokens
+<ButtonV2 variant="primary" size="medium">
+  Click Me
+</ButtonV2>
+```
+
+---
+
+## Token Reference Summary
+
+| Category | Values | Common Usage |
+|----------|---------|--------------|
+| **Primary Color** | BlueGreen (#1999ac) | Primary actions, links, focus states |
+| **Grey Scale** | 10 shades | Text, backgrounds, borders, disabled states |
+| **Semantic Colors** | Green, Red, Yellow, Blue | Success, error, warning, info states |
+| **Spacing** | 4px - 64px (8 values) | Padding, margins, gaps |
+| **Border Radius** | 4px - 24px (5 values) | Component roundness |
+| **Typography** | Gilroy + Poppins | Headings, body text, UI elements |
+| **Icons** | Material Symbols + Brand | System icons + product icons |
+| **Shadows** | 4 elevation levels | Cards, dropdowns, modals |
+
+---
+
+## Design Principles
+
+1. **Consistency:** Use tokens consistently across all components
+2. **Accessibility:** Ensure sufficient color contrast (WCAG AA minimum)
+3. **Flexibility:** Tokens support both light and dark themes
+4. **Scalability:** Component sizes scale proportionally
+5. **Semantic:** Color names reflect their purpose (success, error, warning)
+
+For component-specific implementations, refer to individual component documentation in the V2.5 section.
+

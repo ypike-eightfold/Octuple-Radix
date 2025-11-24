@@ -1,0 +1,91 @@
+/* LabelV2 Component Styles */
+
+.label-v2-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  width: 100%;
+  font-family: 'Gilroy', 'Poppins', sans-serif;
+}
+
+.label-v2-wrapper.inline {
+  display: inline-flex;
+  width: auto;
+}
+
+.label-v2 {
+  color: #1a212e;
+  font-weight: 500;
+  line-height: 1.5;
+  cursor: default;
+}
+
+/* Size variants */
+.label-v2-small {
+  font-size: 12px;
+  line-height: 16px;
+}
+
+.label-v2-medium {
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.label-v2-large {
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.label-v2-flex {
+  font-size: inherit;
+  line-height: inherit;
+}
+
+/* Colon */
+.label-colon {
+  margin-left: 2px;
+  color: #69717f;
+}
+
+/* Required indicator */
+.label-required {
+  color: #df4343;
+  margin-left: 2px;
+  font-weight: 600;
+}
+
+/* Icon button */
+.label-icon-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #69717f;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+  line-height: 0;
+}
+
+.label-icon-button:hover {
+  background-color: #f6f7f8;
+  color: #1a212e;
+}
+
+.label-icon-button:focus-visible {
+  outline: 2px solid #2c8cc9;
+  outline-offset: 2px;
+}
+
+/* When used with form controls */
+.label-v2[data-disabled] {
+  color: #bdc1c9;
+  cursor: not-allowed;
+}
+
+.label-v2[data-invalid] {
+  color: #df4343;
+}
+

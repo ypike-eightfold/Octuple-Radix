@@ -9,7 +9,8 @@ export type ButtonV2Variant =
   | 'system-ui'
   | 'disruptive-primary'
   | 'disruptive-secondary'
-  | 'disruptive-default';
+  | 'disruptive-default'
+  | 'ghost';
 
 export type ButtonV2Size = 'small' | 'medium' | 'large';
 

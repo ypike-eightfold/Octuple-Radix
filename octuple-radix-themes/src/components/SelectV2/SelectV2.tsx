@@ -1,184 +1,284 @@
-import React, { useState, useRef, useEffect, forwardRef } from 'react';
+import React, { useState, useMemo } from 'react';
+import * as Select from '@radix-ui/react-select';
+import { Icon } from '../Icon';
 import './SelectV2.css';
 
-export type SelectV2Shape = 'rounded' | 'pill' | 'inline';
-export type SelectV2Size = 'small' | 'medium' | 'large';
-
-export interface SelectV2Option {
-  value: string;
+export interface SelectOption {
   label: string;
+  value: string | number;
   disabled?: boolean;
 }
 
-export interface SelectV2Props extends Omit<React.HTMLAttributes<HTMLDivElement>, 'onChange'> {
-  /** Shape variant */
-  shape?: SelectV2Shape;
-  /** Size variant */
-  size?: SelectV2Size;
-  /** Error state */
-  error?: boolean;
-  /** Options to display */
-  options: SelectV2Option[];
-  /** Selected value(s) */
-  value?: string | string[];
+export interface SelectOptGroup {
+  label: string;
+  options: SelectOption[];
+}
+
+export type SelectSize = 'small' | 'medium' | 'large';
+export type SelectMode = 'single' | 'multiple' | 'tags';
+
+export interface SelectV2Props {
+  /** Current value (string/number for single, array for multiple) */
+  value?: string | number | (string | number)[];
+  /** Default value */
+  defaultValue?: string | number | (string | number)[];
+  /** Change handler */
+  onChange?: (value: string | number | (string | number)[], option?: SelectOption | SelectOption[]) => void;
+  /** Options array */
+  options?: SelectOption[];
+  /** Grouped options */
+  optGroups?: SelectOptGroup[];
   /** Placeholder text */
   placeholder?: string;
-  /** Multi-select mode */
-  multiple?: boolean;
-  /** Callback when selection changes */
-  onChange?: (value: string | string[]) => void;
+  /** Selection mode */
+  mode?: SelectMode;
+  /** Allow clearing selection */
+  allowClear?: boolean;
+  /** Enable search/filter */
+  showSearch?: boolean;
+  /** Custom filter function */
+  filterOption?: boolean | ((inputValue: string, option: SelectOption) => boolean);
   /** Disabled state */
   disabled?: boolean;
-  /** Additional CSS classes */
+  /** Size variant */
+  size?: SelectSize;
+  /** Loading state */
+  loading?: boolean;
+  /** Additional CSS class */
   className?: string;
+  /** Width of select */
+  width?: number | string;
 }
 
-export const SelectV2 = forwardRef<HTMLDivElement, SelectV2Props>(
-  (
-    {
-      shape = 'rounded',
-      size = 'large',
-      error = false,
-      options = [],
-      value,
-      placeholder = 'Select',
-      multiple = false,
-      onChange,
-      disabled = false,
-      className = '',
-      ...props
-    },
-    ref
-  ) => {
-    const [isOpen, setIsOpen] = useState(false);
-    const [selectedValue, setSelectedValue] = useState<string | string[]>(value || (multiple ? [] : ''));
-    const dropdownRef = useRef<HTMLDivElement>(null);
+export const SelectV2: React.FC<SelectV2Props> = ({
+  value,
+  defaultValue,
+  onChange,
+  options = [],
+  optGroups,
+  placeholder = 'Select...',
+  mode = 'single',
+  allowClear = true,
+  showSearch = false,
+  filterOption = true,
+  disabled = false,
+  size = 'medium',
+  loading = false,
+  className = '',
+  width,
+}) => {
+  const [searchValue, setSearchValue] = useState('');
+  const [selectedValues, setSelectedValues] = useState<(string | number)[]>(
+    mode !== 'single' 
+      ? Array.isArray(value) ? value : (value ? [value] : [])
+      : []
+  );
 
-    useEffect(() => {
-      if (value !== undefined) {
-        setSelectedValue(value);
-      }
-    }, [value]);
+  const allOptions = useMemo(() => {
+    if (optGroups) {
+      return optGroups.flatMap(group => group.options);
+    }
+    return options;
+  }, [options, optGroups]);
 
-    useEffect(() => {
-      const handleClickOutside = (event: MouseEvent) => {
-        if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
-          setIsOpen(false);
-        }
-      };
+  const filteredOptions = useMemo(() => {
+    if (!showSearch || !searchValue) return allOptions;
+    
+    if (typeof filterOption === 'function') {
+      return allOptions.filter(opt => filterOption(searchValue, opt));
+    }
+    
+    if (filterOption === true) {
+      return allOptions.filter(opt => 
+        opt.label.toLowerCase().includes(searchValue.toLowerCase())
+      );
+    }
+    
+    return allOptions;
+  }, [allOptions, searchValue, showSearch, filterOption]);
 
-      if (isOpen) {
-        document.addEventListener('mousedown', handleClickOutside);
-      }
+  const handleValueChange = (newValue: string) => {
+    if (mode === 'single') {
+      const option = allOptions.find(opt => String(opt.value) === newValue);
+      onChange?.(newValue, option);
+    }
+  };
 
-      return () => {
-        document.removeEventListener('mousedown', handleClickOutside);
-      };
-    }, [isOpen]);
+  // Multi-select handler (to be implemented when multi-select UI is added)
+  // const handleMultipleSelect = (optionValue: string | number) => {
+  //   const newValues = selectedValues.includes(optionValue)
+  //     ? selectedValues.filter(v => v !== optionValue)
+  //     : [...selectedValues, optionValue];
+  //   
+  //   setSelectedValues(newValues);
+  //   const selectedOptions = allOptions.filter(opt => newValues.includes(opt.value));
+  //   onChange?.(newValues, selectedOptions);
+  // };
 
-    const handleToggle = () => {
-      if (!disabled) {
-        setIsOpen(!isOpen);
-      }
-    };
+  const handleClear = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    if (mode === 'single') {
+      onChange?.('', undefined);
+    } else {
+      setSelectedValues([]);
+      onChange?.([], []);
+    }
+  };
 
-    const handleOptionClick = (optionValue: string) => {
-      if (disabled) return;
+  const renderValue = () => {
+    if (mode === 'single') {
+      const selected = allOptions.find(opt => String(opt.value) === String(value));
+      return selected?.label || placeholder;
+    } else {
+      if (selectedValues.length === 0) return placeholder;
+      return `${selectedValues.length} selected`;
+    }
+  };
 
-      let newValue: string | string[];
-
-      if (multiple) {
-        const currentArray = Array.isArray(selectedValue) ? selectedValue : [];
-        if (currentArray.includes(optionValue)) {
-          newValue = currentArray.filter(v => v !== optionValue);
-        } else {
-          newValue = [...currentArray, optionValue];
-        }
-      } else {
-        newValue = optionValue;
-        setIsOpen(false);
-      }
-
-      setSelectedValue(newValue);
-      onChange?.(newValue);
-    };
-
-    const getDisplayText = () => {
-      if (multiple && Array.isArray(selectedValue)) {
-        if (selectedValue.length === 0) return placeholder;
-        const selectedOptions = options.filter(opt => selectedValue.includes(opt.value));
-        return selectedOptions.map(opt => opt.label).join(', ');
-      } else {
-        const selected = options.find(opt => opt.value === selectedValue);
-        return selected ? selected.label : placeholder;
-      }
-    };
-
-    const isSelected = (optionValue: string) => {
-      if (multiple && Array.isArray(selectedValue)) {
-        return selectedValue.includes(optionValue);
-      }
-      return selectedValue === optionValue;
-    };
-
+  if (mode !== 'single') {
+    // Custom multi-select implementation
     return (
-      <div
-        ref={dropdownRef}
-        className={`select-v2-wrapper ${className}`}
-        {...props}
+      <div 
+        className={`select-v2-multi select-v2-${size} ${disabled ? 'disabled' : ''} ${className}`}
+        style={{ width }}
       >
-        <div
-          ref={ref}
-          className={`
-            select-v2 
-            select-v2--${shape} 
-            select-v2--${size}
-            ${error ? 'select-v2--error' : ''}
-            ${disabled ? 'select-v2--disabled' : ''}
-            ${isOpen ? 'select-v2--open' : ''}
-          `}
-          onClick={handleToggle}
-          role="button"
-          tabIndex={disabled ? -1 : 0}
-          aria-expanded={isOpen}
-          aria-haspopup="listbox"
-        >
-          <span className="select-v2__text">
-            {getDisplayText()}
-          </span>
-          <span className={`select-v2__chevron material-symbols-outlined ${isOpen ? 'select-v2__chevron--open' : ''}`}>
-            expand_more
-          </span>
-        </div>
-
-        {isOpen && !disabled && (
-          <div className={`select-v2__menu select-v2__menu--${shape} select-v2__menu--${size}`}>
-            {options.map((option) => (
-              <div
-                key={option.value}
-                className={`
-                  select-v2__option 
-                  ${isSelected(option.value) ? 'select-v2__option--selected' : ''}
-                  ${option.disabled ? 'select-v2__option--disabled' : ''}
-                `}
-                onClick={() => !option.disabled && handleOptionClick(option.value)}
-                role="option"
-                aria-selected={isSelected(option.value)}
+        <div className="select-trigger-multi">
+          <span className="select-value">{renderValue()}</span>
+          <div className="select-icons">
+            {allowClear && selectedValues.length > 0 && !disabled && (
+              <button
+                className="select-clear-button"
+                onClick={handleClear}
+                type="button"
+                aria-label="Clear selection"
               >
-                {option.label}
-                {isSelected(option.value) && (
-                  <span className="select-v2__check material-symbols-outlined">
-                    check
-                  </span>
-                )}
-              </div>
-            ))}
+                <Icon name="close" size={16} />
+              </button>
+            )}
+            <Icon name="expand_more" size={20} />
           </div>
-        )}
+        </div>
+        {/* Multi-select dropdown would go here - simplified for now */}
       </div>
     );
   }
-);
 
-SelectV2.displayName = 'SelectV2';
+  // Single select using Radix
+  return (
+    <Select.Root
+      value={String(value || '')}
+      onValueChange={handleValueChange}
+      defaultValue={String(defaultValue || '')}
+      disabled={disabled}
+    >
+      <Select.Trigger
+        className={`select-v2 select-v2-${size} ${className}`}
+        style={{ width }}
+        aria-label={placeholder}
+      >
+        <Select.Value placeholder={placeholder} />
+        <Select.Icon className="select-icon">
+          {loading ? (
+            <Icon name="sync" size={20} className="select-loading-icon" />
+          ) : (
+            <Icon name="expand_more" size={20} />
+          )}
+        </Select.Icon>
+        {allowClear && value && !disabled && (
+          <button
+            className="select-clear-button"
+            onClick={handleClear}
+            type="button"
+            aria-label="Clear selection"
+          >
+            <Icon name="close" size={16} />
+          </button>
+        )}
+      </Select.Trigger>
 
+      <Select.Portal>
+        <Select.Content
+          className="select-content"
+          position="popper"
+          sideOffset={4}
+        >
+          {showSearch && (
+            <div className="select-search">
+              <input
+                type="text"
+                placeholder="Search..."
+                value={searchValue}
+                onChange={(e) => setSearchValue(e.target.value)}
+                className="select-search-input"
+              />
+            </div>
+          )}
+          
+          <Select.Viewport className="select-viewport">
+            {optGroups ? (
+              optGroups.map((group) => (
+                <Select.Group key={group.label}>
+                  <Select.Label className="select-group-label">
+                    {group.label}
+                  </Select.Label>
+                  {group.options
+                    .filter(opt => 
+                      !showSearch || 
+                      !searchValue || 
+                      opt.label.toLowerCase().includes(searchValue.toLowerCase())
+                    )
+                    .map((option) => (
+                      <SelectItem
+                        key={option.value}
+                        value={String(option.value)}
+                        disabled={option.disabled}
+                      >
+                        {option.label}
+                      </SelectItem>
+                    ))}
+                </Select.Group>
+              ))
+            ) : (
+              filteredOptions.map((option) => (
+                <SelectItem
+                  key={option.value}
+                  value={String(option.value)}
+                  disabled={option.disabled}
+                >
+                  {option.label}
+                </SelectItem>
+              ))
+            )}
+            
+            {filteredOptions.length === 0 && (
+              <div className="select-empty">No options found</div>
+            )}
+          </Select.Viewport>
+        </Select.Content>
+      </Select.Portal>
+    </Select.Root>
+  );
+};
+
+// SelectItem sub-component
+const SelectItem = React.forwardRef<
+  HTMLDivElement,
+  { value: string; disabled?: boolean; children: React.ReactNode }
+>(({ children, value, disabled, ...props }, forwardedRef) => {
+  return (
+    <Select.Item
+      className="select-item"
+      value={value}
+      disabled={disabled}
+      ref={forwardedRef}
+      {...props}
+    >
+      <Select.ItemText>{children}</Select.ItemText>
+      <Select.ItemIndicator className="select-item-indicator">
+        <Icon name="check" size={18} />
+      </Select.ItemIndicator>
+    </Select.Item>
+  );
+});
+
+SelectItem.displayName = 'SelectItem';

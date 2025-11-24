@@ -1,0 +1,223 @@
+/* Base Stepper Styles */
+.stepperv2 {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  font-family: 'Gilroy', 'Poppins', sans-serif;
+}
+
+/* Step Circle */
+.stepperv2__circle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  min-width: 44px;
+  min-height: 44px;
+  border-radius: 24px;
+  padding: 10px;
+  background: none;
+  border: none;
+  cursor: default;
+  transition: all 0.2s ease;
+}
+
+.stepperv2__circle:not(:disabled) {
+  cursor: pointer;
+}
+
+.stepperv2__circle:not(:disabled):hover {
+  opacity: 0.8;
+}
+
+.stepperv2__circle--finished {
+  background-color: #b0f3fe;
+}
+
+.stepperv2__circle--current {
+  background-color: #b0f3fe;
+  border: 2px solid #1999ac;
+  padding: 8px; /* Adjust for border */
+}
+
+.stepperv2__circle--remaining {
+  background-color: #ffffff;
+  border: 1px dashed #1999ac;
+  padding: 9px; /* Adjust for border */
+}
+
+.stepperv2__number {
+  font-family: 'Gilroy', 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 24px;
+  color: #054d7b;
+  text-align: center;
+}
+
+.stepperv2__circle--remaining .stepperv2__number {
+  color: #146da6;
+}
+
+/* Step Label */
+.stepperv2__label {
+  font-family: 'Gilroy', 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 24px;
+  color: #4f5666;
+  margin: 0;
+  white-space: nowrap;
+}
+
+/* Connector Lines */
+.stepperv2__connector {
+  background-color: #d1d5db;
+}
+
+.stepperv2__connector--horizontal {
+  flex: 1;
+  height: 1px;
+  min-height: 1px;
+  min-width: 1px;
+}
+
+.stepperv2__connector--vertical {
+  width: 1px;
+  height: 48px;
+  margin-left: 21.5px; /* Center align with 44px circle */
+}
+
+.stepperv2__connector--finished {
+  background-color: #b0f3fe;
+}
+
+/* Full Horizontal Stepper */
+.stepperv2--full-horizontal .stepperv2__steps {
+  display: flex;
+  align-items: flex-start;
+  gap: 0;
+  padding: 8px 0;
+}
+
+.stepperv2--full-horizontal .stepperv2__step {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+  flex-shrink: 0;
+}
+
+.stepperv2--full-horizontal .stepperv2__step-header {
+  display: flex;
+  align-items: center;
+  width: 164px;
+}
+
+.stepperv2--full-horizontal .stepperv2__label {
+  width: 144px;
+}
+
+/* Mini Horizontal Stepper */
+.stepperv2--mini-horizontal {
+  flex-direction: row;
+  align-items: center;
+}
+
+.stepperv2--mini-horizontal .stepperv2__steps {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  padding: 8px 0;
+  flex: 1;
+}
+
+.stepperv2--mini-horizontal .stepperv2__step {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  flex-shrink: 0;
+}
+
+.stepperv2--mini-horizontal .stepperv2__step--with-label {
+  gap: 10px;
+}
+
+.stepperv2--mini-horizontal .stepperv2__label {
+  padding: 10px;
+  white-space: nowrap;
+}
+
+/* Vertical Stepper */
+.stepperv2--vertical .stepperv2__steps {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0;
+}
+
+.stepperv2--vertical .stepperv2__step {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Mobile Stepper */
+.stepperv2--mobile .stepperv2__mobile-content {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+}
+
+.stepperv2--mobile .stepperv2__mobile-text {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  gap: 0;
+}
+
+.stepperv2--mobile .stepperv2__mobile-title {
+  font-family: 'Gilroy', 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 24px;
+  color: #4f5666;
+  margin: 0;
+}
+
+.stepperv2--mobile .stepperv2__mobile-subtitle {
+  font-family: 'Gilroy', 'Poppins', sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+  color: #69717f;
+  margin: 0;
+}
+
+/* Pagination Controls */
+.stepperv2__controls {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.stepperv2--vertical .stepperv2__controls {
+  margin-top: 24px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .stepperv2--full-horizontal .stepperv2__steps {
+    overflow-x: auto;
+    padding-bottom: 16px;
+  }
+  
+  .stepperv2--mini-horizontal .stepperv2__steps {
+    overflow-x: auto;
+    padding-bottom: 16px;
+  }
+}
+
